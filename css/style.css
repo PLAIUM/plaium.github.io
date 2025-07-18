@@ -1,0 +1,453 @@
+/* 기본 설정 */
+:root {
+    --primary-color: #000; /* 주로 사용하는 검정색 */
+    --secondary-color: #fff; /* 흰색 */
+    --accent-color: #555; /* 회색 계열 */
+    --highlight-color: #007bff; /* 포인트 색상 (예시) */
+    --text-color: #fff; /*333;*/
+    --light-grey-bg: #f8f8f8;
+    --black-bg: #111;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* 부드러운 스크롤 */
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif; /* Google Font 적용 */
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--black-bg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header & Navigation */
+.header {
+    background-color: transparent; /* 초기 투명 */
+    color: var(--secondary-color);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header.scrolled {
+    background-color: var(--primary-color); /* 스크롤 시 검정색 배경 */
+    color: var(--secondary-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo a {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--secondary-color); /* 초기 흰색 */
+    transition: color 0.3s ease;
+}
+
+.header.scrolled .logo a {
+    color: var(--secondary-color); /* 스크롤 시에도 흰색 유지 */
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--secondary-color); /* 초기 흰색 */
+    transition: color 0.3s ease;
+}
+
+.header.scrolled .nav-links a {
+    color: var(--secondary-color); /* 스크롤 시에도 흰색 유지 */
+}
+
+.nav-links a:hover {
+    color: var(--highlight-color); /* 호버 시 강조 색상 */
+}
+
+.hamburger {
+    display: none; /* 기본적으로 숨김 */
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+}
+
+.hamburger .bar {
+    height: 3px;
+    width: 100%;
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    background: url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=PLAIUM+Innovative+Solutions') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--secondary-color);
+    min-height: 100vh; /* 전체 화면 높이 */
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+}
+
+/* 새로 추가된 로고 이미지 스타일 */
+.hero-logo {
+    max-width: 80%; /* 부모 요소 너비의 80%를 넘지 않도록 설정 (반응형) */
+    height: auto; /* 비율 유지를 위해 높이 자동 설정 */
+    margin-bottom: 20px; /* 로고 아래 텍스트와의 간격 */
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); /* 로고에 부드러운 그림자 효과 (선택 사항) */
+}
+
+/* 기존 h1 스타일은 필요 없으므로 제거하거나 주석 처리 */
+/* .hero-content h1 {
+    font-size: 6em;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: -2px;
+} */
+
+.hero-content p {
+    font-size: 2em;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.btn-scroll-down {
+    display: inline-block;
+    color: var(--secondary-color);
+    font-size: 3em;
+    margin-top: 50px;
+    animation: bounce 2s infinite; /* 스크롤 다운 아이콘 애니메이션 */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-7px);
+    }
+}
+
+/* Sections General Styling */
+.section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 3em;
+    margin-bottom: 60px;
+    font-weight: 700;
+    color: var(--font-color);
+}
+
+.section p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.grey-bg {
+    background-color: var(--black-bg);
+}
+
+/* About Us Section */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.about-item {
+    background-color: var(--secondary-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.about-item h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.about-item p {
+    font-size: 1em;
+    margin-bottom: 0;
+    color: var(--accent-color);
+    max-width: none; /* 상위 p 태그 스타일 오버라이드 */
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.service-item {
+    background-color: var(--secondary-color);
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+}
+
+.service-item .icon-large {
+    font-size: 3.5em;
+    color: var(--highlight-color); /* 아이콘 색상 */
+    margin-bottom: 20px;
+}
+
+.service-item h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.service-item p {
+    font-size: 1em;
+    color: var(--accent-color);
+    max-width: none;
+    margin-bottom: 0;
+}
+
+/* Portfolio Section */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.portfolio-item {
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.portfolio-item h3 {
+    font-size: 1.5em;
+    margin: 20px 20px 10px 20px;
+    color: var(--primary-color);
+}
+
+.portfolio-item p {
+    font-size: 0.95em;
+    color: var(--accent-color);
+    margin: 0 20px 20px 20px;
+    max-width: none;
+}
+
+/* Contact Section */
+.contact-info p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-info p .fas {
+    margin-right: 10px;
+    color: var(--highlight-color);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 50px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.btn-submit {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--highlight-color);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+
+/* Responsive Design (Mobile First Approach) */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 0;
+    }
+
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .nav-links {
+        display: none; /* 기본적으로 숨김 */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* 헤더 높이에 따라 조절 */
+        left: 0;
+        background-color: var(--primary-color);
+        padding: 20px 0;
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .nav-links a {
+        font-size: 20px;
+    }
+
+    .hamburger {
+        display: flex; /* 모바일에서만 보이기 */
+    }
+
+    .hero-logo {
+        max-width: 90%; /* 모바일에서 로고 크기 조정 */
+    }
+    
+    /* .hero-content h1 {
+        font-size: 3.5em;
+    } */
+
+    .hero-content p {
+        font-size: 1.4em;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .section h2 {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+    }
+
+    .section p {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+
+    .about-item, .service-item, .portfolio-item {
+        margin-bottom: 20px;
+    }
+
+    .portfolio-item img {
+        height: 200px;
+    }
+}
