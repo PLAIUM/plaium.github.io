@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>외계인은배고파 고객센터</title>
+    <style>
+        /* 전체 페이지 스타일 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+    
+        /* 제목 스타일 */
+        h1 {
+            color: #007BFF;
+            font-size: 24px;
+            text-align: center; /* 제목 중앙 정렬 */
+            margin-bottom: 20px; /* 제목과 본문 간 간격 */
+        }
+    
+        /* 본문 텍스트 스타일 */
+        p {
+            font-size: 14px; /* 본문 폰트 크기 */
+            line-height: 1.6; /* 줄 간격 */
+            color: #333; /* 텍스트 색상 */
+            margin-bottom: 15px; /* 아래 간격 */
+        }
+    
+        /* 레이블과 입력 필드 기본 스타일 */
+        label {
+            font-weight: bold;
+            margin-top: 10px; /* 필드 간격 */
+            display: block; /* 한 줄 차지 */
+        }
+    
+        input, select, button {
+            width: 100%; /* 필드 전체 넓이 */
+            margin: 10px 0; /* 필드 간 간격 */
+            padding: 10px; /* 안쪽 여백 */
+            font-size: 16px; /* 폰트 크기 */
+            border: 1px solid #ddd; /* 테두리 */
+            border-radius: 5px; /* 둥근 모서리 */
+            box-sizing: border-box; /* 넓이 계산 포함 */
+        }
+    
+        /* 버튼 스타일 */
+        button {
+            background-color: #007BFF; /* 버튼 배경색 */
+            color: white; /* 텍스트 색상 */
+            cursor: pointer; /* 마우스 커서 변경 */
+            border: none; /* 테두리 없음 */
+            transition: background-color 0.3s ease; /* 호버 효과 */
+        }
+    
+        button:hover {
+            background-color: #0056b3; /* 호버 시 어두운 색상 */
+        }
+    
+        /* 출력 박스 스타일 */
+        .output {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+        }
+    
+        /* 링크 버튼 스타일 */
+        .button-link {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            text-align: center;
+            transition: background-color 0.3s ease; /* 호버 효과 */
+        }
+    
+        .button-link:hover {
+            background-color: #0056b3; /* 호버 시 어두운 색상 */
+        }
+    
+        /* 모바일 반응형 스타일 */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+    
+            input, select, button {
+                font-size: 14px;
+                padding: 8px;
+            }
+    
+            h1 {
+                font-size: 20px;
+            }
+    
+            p {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>외계인은배고파 고객센터</h1>
+    <p>원활한 문의 접수를 위해 <strong><u>[설정]에서 "닉네임#번호 포함"을 확인</strong></u> 후 접수해주세요.</p>
+    <p>닉네임#번호는 계정 찾기 및 계정 정보 조회에 활용됩니다. 분실되지 않도록 꼭 <strong>[설정]에서 닉네임#번호 스크린샷을 촬영</strong></u>해주세요!</p>
+
+    <label for="nickname">닉네임:</label>
+    <input type="text" id="nickname" placeholder="예: user#1234">
+
+    <label for="category">문의 유형:</label>
+    <select id="category">
+        <option value="">문의 유형을 선택하세요</option>
+        <option value="community">커뮤니티 안내</option>
+        <option value="account">계정 문제</option>
+        <option value="refund">결제취소/환불</option>
+        <option value="bug">버그/오류 제보</option>
+        <option value="etc">건의사항/기타</option>
+    </select>
+
+    <button onclick="handleInquiry()">문의 접수</button>
+
+    <div id="output" class="output" style="display: none;">
+        <p id="message"></p>
+        <div id="links"></div>
+    </div>
+
+    <script> 
+        function handleInquiry() {
+            const nickname = document.getElementById('nickname').value.trim();
+            const category = document.getElementById('category').value;
+    
+            // 닉네임이 입력되지 않았을 경우
+            if (!nickname) {
+                alert('닉네임을 입력해주세요.');
+                return;
+            }
+    
+            // 문의 유형이 선택되지 않았을 경우
+            if (!category) {
+                alert('문의 유형을 선택해주세요.');
+                return;
+            }
+    
+            let message = "";
+            let links = "";
+    
+            if (category === "community") {
+                message = `${nickname}님, 안녕하세요. 외계인은배고파 CS팀입니다.<br><br>
+                외고파 공식 커뮤니티 페이지는 아래 버튼을 통해 확인 부탁드립니다.<br>
+                <strong>이벤트, 패치노트 등 다양한 안내</strong>를 진행하고 있습니다!<br><br>감사합니다.`;
+                links = `
+                    <a href="https://discord.gg/BtEAGCUFaP" target="_blank" class="button-link">디스코드 방문하기</a><br>
+                    <a href="https://game.naver.com/lounge/hungryaliens/home" target="_blank" class="button-link">네이버 게임 방문하기</a>
+                `;
+            } else if (category === "account") {
+                message = `
+                    ${nickname}님, 안녕하세요. 외계인은배고파 CS팀입니다.<br><br>
+                    ID/PW 분실에 대해 아래와 같이 안내 드립니다.<br><br>
+    
+                    <strong>[ID 변경 문의]</strong><br>
+                    한번 설정한 계정 연동 ID는 변경이 불가능합니다.<br><br>
+    
+                    <strong>[ID/PW 분실 문의]</strong><br>
+                    ID/PW 분실은 고객센터로 아래 정보를 포함하여 문의접수를 주신다면,<br>
+                    본인확인 완료 후 비밀번호 재설정에 도움을 드리겠습니다.<br><br>
+    
+                    <strong>1. 닉네임 : </strong><br>
+                    <strong>2. 구글 결제 영수증 : </strong><br><br>
+    
+                    게임 접속이 불가능한 경우, 다른 디바이스에 접속 중인지 확인 부탁드리며,<br>
+                    닉네임 정보와 함께 문의 접수 주시면 최대한 확인하여 안내 드리겠습니다.
+                `;
+                links = `
+                    <a href="mailto:customerservice@plaium.com?subject=[계정] 문의 접수&body=1.닉네임 : ${nickname}%0D%0A2.구글 주문 번호(GPA 포함) : %0D%0A3.문의 내용 : " 
+                       target="_blank" class="button-link">계정 분실 신청하기</a>
+                `;
+            } else if (category === "refund") {
+                message = `
+                    ${nickname}님, 안녕하세요. 외계인은배고파 CS팀입니다.<br><br>
+                    <strong><u>결제 취소 요청은 재화를 사용하지 않은 상태에서 7일 이내</u></strong>에
+                    <br>문의 접수를 주셔야 가능하며, 즉시 적용되는 상품은 환불이 되지 않습니다.<br><br>
+    
+                    결제 문의 접수 시 닉네임과 함께 아래 정보를 포함하여 문의 접수를 부탁드립니다.<br><br>
+    
+                    <strong>1. 구글 플레이스토어</strong><br>
+                    (1) 결제 취소를 원하는 상품의 ‘구글 플레이스토어 거래 ID’ 확인<br>
+                    → [구글 결제 센터 로그인] > [거래 내역] > 상품 선택 > 거래 ID 확인 (GPA.0000-0000-0000-00000 형식)<br>
+                    (2) 아래 버튼을 클릭하여 문의 접수<br><br>
+    
+                    <strong>2. 애플 앱스토어</strong><br>
+                    (1) 청약철회 대상 상품을 애플 고객센터로 직접 환불 요청<br>
+                    → [애플 고객센터 로그인] > [문제 선택] > [환불 요청] > 환불 이유 선택 후 [다음] 선택 > 구입 항목 선택 후 [제출]<br>
+                    (2) 환불이 완료되면, 환불 일자와 ‘환불됨’이 표시된 결제 내역 스크린샷을 첨부하여 문의 접수<br><br>
+    
+                    * <strong>문의 접수를 주지 않을 경우 결제 어뷰징으로 게임 영구 이용 제한이 걸릴 수 있습니다.</strong><br>
+                `;
+                links = `
+                    <a href="mailto:customerservice@plaium.com?subject=[환불] 문의 접수&body=1.닉네임 : ${nickname}%0D%0A2.결제 상품명 : %0D%0A 3.주문 번호: %0D%0A 4.문의 내용 : " 
+                    target="_blank" class="button-link">환불 신청하기</a>
+                    <a href="https://payments.google.com/gp/w/home/signup?sctid=3988354970654911" target="_blank" class="button-link">구글 주문번호 확인</a>
+                    <a href="https://idmsa.apple.com/IDMSWebAuth/signin?appIdKey=20379f32034f8867d352666ff2904d2152d5ff6843ee2db5ab5df863c14b1aef&path=%2F__logged_in%2Freportaproblem.apple.com&authResult=FAILED" target="_blank" class="button-link">애플 주문번호 확인</a>
+                `;
+            } else if (category === "bug") {
+                message = `
+                    ${nickname}님, 안녕하세요. 외계인은배고파 CS팀입니다.<br><br>
+                    게임 이용에 불편을 드린 점 사과드립니다.<br><br>
+                    보내주신 정보를 토대로 해당 오류에 대해 확인해보겠습니다.<br>
+                    <strong><u>닉네임(#번호 포함), 발생 시간, 스크린샷</u></strong>을 함께 보내주실 경우,<br>
+                    오류 원인 파악 및 수정에 많은 도움이 됩니다.<br><br>
+
+                    다시 한번 게임 이용에 불편을 드린 점 사과드립니다.
+                `;
+                links = `
+                    <a href="mailto:customerservice@plaium.com?subject=[오류] 문의 접수&body=1.닉네임 : ${nickname}%0D%0A2.오류 발생 시간 : %0D%0A3.오류 내용 : " 
+                    target="_blank" class="button-link">버그/오류 제보하기</a>
+                `;
+            } else if (category === "etc") {
+                message = `
+                    ${nickname}님, 안녕하세요. 외계인은배고파 CS팀입니다.<br><br>
+                
+                    건의사항은 아래 문의하기로 보내주시면<br>
+                    <strong><u>꼼꼼하게 확인하여 적용 가능하도록 노력</u></strong>하겠습니다.<br><br>
+    
+                    건의 사항 및 확정 여부에 대해서는 별도 답변이 나가지 않는 점 양해 부탁드리며,<br>
+                    확정된 내용들은 패치노트를 통해 모든 정복자님께 안내 드리겠습니다. <br><br>
+    
+                    기타 문의사항의 경우 기타에 접수해주시면 감사하겠습니다.
+                `;
+                links = `
+                    <a href="mailto:customerservice@plaium.com?subject=[건의] 문의 접수&body=1.닉네임 : ${nickname}%0D%0A2.문의 내용 : " 
+                    target="_blank" class="button-link">건의사항 접수</a>
+                    <a href="mailto:customerservice@plaium.com?subject=[기타] 문의 접수&body=1.닉네임 : ${nickname}%0D%0A2.문의 내용 : " 
+                    target="_blank" class="button-link">기타 문의 접수</a>
+                `;
+            }
+    
+            const messageElement = document.getElementById('message');
+            const linksElement = document.getElementById('links');
+    
+            // 필수 요소 존재 여부 확인
+            if (!messageElement || !linksElement) {
+                console.error('필수 HTML 요소가 존재하지 않습니다.');
+                return;
+            }
+    
+            // 출력 영역에 데이터 업데이트
+            messageElement.innerHTML = message;
+            linksElement.innerHTML = links;
+            document.getElementById('output').style.display = "block";
+        }
+    </script>
+    
+    
+    
+      
+</body>
+</html>
