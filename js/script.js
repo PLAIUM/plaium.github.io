@@ -44,6 +44,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 인트로 동영상 지연 재생
+    // setTimeout(() => {
+    //     const introVideo = document.getElementById('intro-video');
+    //     if (introVideo) {
+    //         introVideo.play();
+    //     }
+    // }, 3000); // 3000ms = 3초
+
 });
 
 document.getElementById('contactForm').addEventListener('submit', function(event) {
