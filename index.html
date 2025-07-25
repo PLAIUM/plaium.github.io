@@ -1,151 +1,259 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLAIUM - 플레이엄</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PLAIUM - 플레이엄</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: white;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: transparent;
+      border-bottom: 1px solid white;
+      transition: background-color 0.3s ease;
+    }
+
+    .header.scrolled {
+      background-color: #000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2px 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo img {
+      height: 45px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    #intro-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #intro-section video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+      z-index: 0;
+    }
+
+    #intro-section .intro-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 30%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .section {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+    }
+
+    .section p {
+      font-size: 1.1em;
+      line-height: 1.8;
+    }
+
+    .about-logo {
+      width: 25%;
+      margin: 0 auto 30px;
+    }
+
+    .about-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .about-img-wrapper {
+      background-color: white;
+      padding: 2px;
+      border-radius: 14px;
+      width: 300px;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .about-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .footer {
+      background-color: #000;
+      padding: 30px;
+      text-align: center;
+      color: #aaa;
+      font-size: 0.9em;
+    }
+
+    body {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header class="header">
-        <nav class="navbar">
-            <div class="logo">
-                <a href="#hero">
-                    <img src="./images/PLAIUM_BANNER_WH.png" alt="PLAIUM Logo" class="nav-logo">
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#portfolio">GAMES<!--Portfolio--></a></li>
-                <li><a href="#about">TEAM</a></li>
-                <!--<li><a href="#services">Services</a></li>-->
-                <li><a href="#contact">CONTACT</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </nav>
-    </header>
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <a href="#about">
+          <img src="./images/PLAIUM_BANNER_WH.png" alt="PLAIUM 로고" />
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="#about">ABOUT</a>
+        <a href="#games">GAMES</a>
+        <a href="#recruit">RECRUIT</a>
+        <a href="#contact">CONTACT</a>
+      </div>
+    </nav>
+  </header>
 
-    <main>
-        <section id="hero" class="hero-section full-screen">
-            <div class="hero-content">
-                <!--<h1>PLAIUM</h1>-->
-                <img src="./images/PLAIUM_PREMIUMPLAY.png" alt="PLAIUM 로고" class="hero-logo">
-                <p><!--플레이엄--></p>
-                <a href="#portfolio" class="btn-scroll-down">
-                    <i class="fas fa-chevron-down"></i>
-                </a>
-            </div>
-        </section>
+  <section id="intro-section">
+    <video autoplay muted loop playsinline>
+      <source src="video/hungryAliens_intro.mp4" type="video/mp4" />
+    </video>
+    <img src="images/PLAIUM_PREMIUMPLAY.png" alt="PLAIUM 메인 로고" class="intro-logo" />
+  </section>
 
-        <section id="portfolio" class="section portfolio-section">
-            <div class="container">
-                <h2>GAMES</h2>
-                <div class="portfolio-grid">
-                    <a href="./HungryAliens.html" class="portfolio-item-link">
-                    <div class="portfolio-item">
-                        <img src="./images/KetchapiSquaredMedium.png" alt="HungryAliens">
-                        <h3>외계인은배고파</h3>
-                        <p>Survivor Rogue-Like</p>
-                    </div>
-                    </a>
-                    <div class="portfolio-item">
-                        <img src="./images/PLAIUM_LOGO_BLACK_PADDING.png" alt="Project 2">
-                        <h3>COMING SOON</h3>
-                        <p>2026.07.</p>
-                    </div>
-                    <!-- <div class="portfolio-item">
-                        <img src="./images/PLAIUM_LOGO_BLACK_PADDING.png" alt="Project 3">
-                        <h3>Coming Soon</h3>
-                        <p>2027.03.</p>
-                    </div> -->
-                </div>
-            </div>
-        </section>
+  <section id="about" class="section">
+    <h2>ABOUT</h2>
+    <img src="images/PLAIUM_PREMIUMPLAY.png" alt="PLAIUM 메인 로고" class="about-logo" />
+    <p>
+      플레이엄은 대중적으로 사랑받는 고품질의 게임을 서비스합니다.<br />
+      플레이엄은 전문성을 가진 구성원들이 최고 수준의 게임을 개발하는 동시에<br />
+      시장의 성과지표를 분석하여 사용자들에게 큰 사랑을 받는 게임을 서비스하고 있습니다.
+    </p>
+    <div class="about-grid">
+      <div class="about-img-wrapper">
+        <img src="images/by4m.png" alt="회사 내부1" />
+      </div>
+      <div class="about-img-wrapper">
+        <img src="images/by4m2.png" alt="회사 내부2" />
+      </div>
+      <div class="about-img-wrapper">
+        <img src="images/by4m3.png" alt="회사 내부3" />
+      </div>
+    </div>
+  </section>
 
-        <section id="about" class="section about-us-section">
-            <div class="container">
-                <h2>TEAM</h2>
-                <p>
-                    플레이엄은 대중적으로 사랑받는 고품질의 게임을 서비스합니다.<br>
-                    뛰어난 전문성을 가진 구성원들이 최고 수준의 게임을 개발하는 동시에<br>
-                    시장의 성과지표를 분석하여 사용자들에게 큰 사랑을 받는 게임을 서비스하고 있습니다. 
-                </p>
-                <div class="about-grid">
-                    <div class="about-item">
-                        <h3>대중성</h3>
-                        <p>실제 시장의 사용자들이 즐겁게 플레이하는 게임을 제작합니다</p>
-                    </div>
-                    <div class="about-item">
-                        <h3>전문성</h3>
-                        <p>높은 품질의 게임을 서비스할 수 있는 베테랑 팀이 함께합니다</p>
-                    </div>
-                    <div class="about-item">
-                        <h3>성과지표</h3>
-                        <p>시장의 성과지표를 토대로 대중적으로 사랑받는 게임을 탐구하고 서비스합니다</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <section id="games" class="section">
+  <h2>GAMES</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px; margin-top: 40px;">
+    <!-- 좌측: 케챠피 일러스트 GIF -->
+    <div style="flex: 1 1 400px; max-width: 500px; text-align: center;">
+      <img src="images/Ketchapi_illust.gif" alt="케챠피 일러스트" style="width: 100%; max-width: 400px; border-radius: 14px;" />
+    </div>
 
-        <!--<section id="services" class="section services-section grey-bg">
-            <div class="container">
-                <h2>Values</h2>
-                <div class="services-grid">
-                    <div class="service-item">
-                        <i class="fas fa-code icon-large"></i>
-                        <h3>대중적인 상업게임을 제작하는 팀</h3>
-                        <p>플레이어가 사랑하는 게임을 탐구하고 제작하는 팀</p>
-                    </div>
-                    <div class="service-item">
-                        <i class="fas fa-mobile-alt icon-large"></i>
-                        <h3>시장의 지표를 읽을 줄 아는 팀</h3>
-                        <p>시장 지표를 읽고 제품에 반영하여 성과를 만드는 팀</p>
-                    </div>
-                    <div class="service-item">
-                        <i class="fas fa-cloud icon-large"></i>
-                        <h3>Cloud Solutions</h3>
-                        <p>클라우드 기반 인프라 구축 및 마이그레이션, 컨설팅</p>
-                    </div>
-                    <div class="service-item">
-                        <i class="fas fa-chart-line icon-large"></i>
-                        <h3>Data Analytics</h3>
-                        <p>데이터 기반 의사결정을 위한 분석 시스템 구축 및 시각화</p>
-                    </div>
-                </div>
-            </div>
-        </section>-->
+    <!-- 우측: 설명 및 버튼들 -->
+    <div style="flex: 1 1 400px; max-width: 500px; text-align: left;">
+      <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 40px;">
+        외계인은 배고파: 배고픈 사연을 가진 개성 넘치는 외계인들의 지구정복, 로그라이크 RPG
+      </p>
 
-        <section id="contact" class="section contact-section grey-bg">
-            <div class="container">
-                <h2>CONTACT</h2>
-                <p>제안과 문의는 아래로 연락주세요.</p>
-                <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i> Email: contact@plaium.com</p>
-                    <!--<p><i class="fas fa-map-marker-alt"></i> Address: 서울특별시 용산구 대사관로15길 22, 101호 (한남동)</p>-->
-                </div>
-                <form id="contactForm" class="contact-form">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-                    <button type="submit" class="btn-submit">전송</button>
-                </form>
-            </div>
-        </section>
-    </main>
+      <!-- 버튼 3개: 라운지, 앱스토어, 구글플레이 -->
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <a href="https://game.naver.com/lounge/hungryaliens/home" target="_blank">
+          <img src="images/lounge.png" alt="네이버 라운지" style="height: 50px; border-radius: 12px;" />
+        </a>
+        <a href="https://apps.apple.com/app/id6449141384" target="_blank">
+          <img src="images/AppStoreIcon.png" alt="App Store" style="height: 50px;" />
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.DetailGames.HungryAliens" target="_blank">
+          <img src="images/GooglePlayIcon.png" alt="Google Play" style="height: 50px;" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Plaium Co., Ltd. All rights reserved.</p>
-        </div>
-    </footer>
+  <section id="recruit" class="section">
+    <h2>RECRUIT</h2>
+    <p>플레이엄의 성공을 향한 여정을 함께할 실력있는 동료분을 찾고 있습니다.</p>
+    <p><i class="fas fa-envelope"></i> recruit@plaium.com</p>
+  </section>
 
-    <script src="js/script.js"></script>
+  <section id="contact" class="section">
+    <h2>CONTACT</h2>
+    <p><i class="fas fa-envelope"></i> contact@plaium.com</p>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Plaium Co., Ltd. All rights reserved.</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 10) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
 </body>
 </html>

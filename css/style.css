@@ -471,4 +471,16 @@ ul {
     .portfolio-item img {
         height: 200px;
     }
+    /* 인트로 영상 위에 있는 alien_logo 이미지 스타일 */
+#intro-section .intro-logo {
+    position: absolute;
+    top: 50%; /* 화면 세로 중앙 기준 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80%; /* 전체 너비의 80%로 축소 */
+    z-index: 1;
+    pointer-events: none;
+    filter: brightness(0) invert(1); /* 흰색처럼 보이게 */
+}
+
 }
