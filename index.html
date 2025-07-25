@@ -9,151 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background-color: #1a1a1a;
-      color: white;
-      font-family: 'Noto Sans KR', sans-serif;
-    }
-
-    .header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background-color: transparent;
-      border-bottom: 1px solid white;
-      transition: background-color 0.3s ease;
-    }
-
-    .header.scrolled {
-      background-color: #000;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2px 30px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .logo img {
-      height: 45px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 20px;
-      font-weight: 500;
-    }
-
-    #intro-section {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    #intro-section video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.9;
-      z-index: 0;
-    }
-
-    #intro-section .intro-logo {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      max-width: 30%;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .section {
-      padding: 100px 20px;
-      text-align: center;
-    }
-
-    .section h2 {
-      font-size: 2.5em;
-      margin-bottom: 40px;
-    }
-
-    .section p {
-      font-size: 1.1em;
-      line-height: 1.8;
-    }
-
-    .about-logo {
-      width: 25%;
-      margin: 0 auto 30px;
-    }
-
-    .about-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 50px;
-    }
-
-    .about-img-wrapper {
-      background-color: white;
-      padding: 2px;
-      border-radius: 14px;
-      width: 300px;
-      height: 200px;
-      overflow: hidden;
-    }
-
-    .about-img-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .footer {
-      background-color: #000;
-      padding: 30px;
-      text-align: center;
-      color: #aaa;
-      font-size: 0.9em;
-    }
-
-    body {
-      scroll-behavior: smooth;
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px;
-      }
-
-      .nav-links {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
-  </style>
 </head>
 <body>
   <header class="header">
@@ -169,31 +24,20 @@
         <a href="#recruit">RECRUIT</a>
         <a href="#contact">CONTACT</a>
       </div>
+      <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
     </nav>
   </header>
 
-  <!-- 우리의 S3 영상을  직접 링크하는 경우 -->
   <section id="intro-section">
     <video muted loop autoplay playsinline id="intro-video">
       <source src="https://ha-servicedata.s3.ap-northeast-2.amazonaws.com/notice/hungryAliens_intro.mp4" type="video/mp4" />
     </video>
     <img src="images/PLAIUM_PREMIUMPLAY.png" alt="PLAIUM 메인 로고" class="intro-logo" />
   </section>
-  <!-- 유튜브인 경우 -->
-  <!-- <section id="intro-section">
-    <iframe
-      id="intro-video-frame"
-      class="intro-video-frame"
-      src="https://www.youtube.com/embed/-LhHvj-kPFg?autoplay=0&controls=0&mute=1&loop=1&playlist=-LhHvj-kPFg&playsinline=1"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen
-    ></iframe>
-    <img src="images/PLAIUM_PREMIUMPLAY.png" alt="PLAIUM 메인 로고" class="intro-logo" />
-  </section> -->
-
   <section id="about" class="section">
     <h2>ABOUT</h2>
     <img src="images/PLAIUM_PREMIUMPLAY.png" alt="PLAIUM 메인 로고" class="about-logo" />
@@ -218,18 +62,15 @@
   <section id="games" class="section">
   <h2>GAMES</h2>
   <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px; margin-top: 40px;">
-    <!-- 좌측: 케챠피 일러스트 GIF -->
     <div style="flex: 1 1 400px; max-width: 500px; text-align: center;">
       <img src="images/Ketchapi_illust.gif" alt="케챠피 일러스트" style="width: 100%; max-width: 400px; border-radius: 14px;" />
     </div>
 
-    <!-- 우측: 설명 및 버튼들 -->
     <div style="flex: 1 1 400px; max-width: 500px; text-align: left;">
       <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 40px;">
         외계인은 배고파: 배고픈 사연을 가진 개성 넘치는 외계인들의 지구정복, 로그라이크 RPG
       </p>
 
-      <!-- 버튼 3개: 라운지, 앱스토어, 구글플레이 -->
       <div style="display: flex; gap: 16px; align-items: center;">
         <a href="https://game.naver.com/lounge/hungryaliens/home" target="_blank">
           <img src="images/lounge.png" alt="네이버 라운지" style="height: 50px; border-radius: 12px;" />
@@ -257,10 +98,11 @@
   </section>
 
   <footer class="footer">
-    <p>&copy; 2025 Plaium Co., Ltd. All rights reserved.</p>
+    <p>© 2025 Plaium Co., Ltd. All rights reserved.</p>
   </footer>
 
   <script>
+    // 기존 스크롤 이벤트 리스너
     window.addEventListener('scroll', () => {
       const header = document.querySelector('.header');
       if (window.scrollY > 10) {
@@ -268,6 +110,21 @@
       } else {
         header.classList.remove('scrolled');
       }
+    });
+
+    // 햄버거 메뉴 토글 기능 추가
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // 링크 클릭 시 메뉴 닫기
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
     });
   </script>
 </body>

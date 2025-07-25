@@ -4,7 +4,7 @@
     --secondary-color: #fff; /* 흰색 */
     --accent-color: #555; /* 회색 계열 */
     --highlight-color: #007bff; /* 포인트 색상 (예시) */
-    --text-color: #fff; /*333;*/
+    --text-color: #fff;
     --light-grey-bg: #f8f8f8;
     --black-bg: #111;
 }
@@ -16,11 +16,11 @@
 }
 
 html {
-    scroll-behavior: smooth; /* 부드러운 스크롤 */
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Noto Sans KR', sans-serif; /* Google Font 적용 */
+    font-family: 'Noto Sans KR', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--black-bg);
@@ -41,448 +41,219 @@ ul {
     list-style: none;
 }
 
-/* Header & Navigation */
+/* Header & Navigation (PC 버전) */
 .header {
-    background-color: transparent; /* 초기 투명 */
+    background-color: transparent;
     color: var(--secondary-color);
-    padding: 20px 0;
+    padding: 20px 0; /* PC 버전 상하 여백을 20px로 복구 */
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
     transition: background-color 0.3s ease, color 0.3s ease;
+    border-bottom: 1px solid white;
 }
 
 .header.scrolled {
-    background-color: var(--primary-color); /* 스크롤 시 검정색 배경 */
+    background-color: #000;
     color: var(--secondary-color);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-bottom: none;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 30px; /* PC 버전 좌우 여백을 30px로 복구 */
 }
 
-.logo a {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--secondary-color); /* 초기 흰색 */
-    transition: color 0.3s ease;
-}
-
-.nav-logo {
-    height: 40px; /* 로고 이미지의 고정 높이 */
-    width: auto; /* 비율 유지를 위해 너비 자동 설정 */
-    display: block; /* 링크 안에서 블록 레벨로 설정 */
-    vertical-align: middle; /* 이미지 정렬 */
-    filter: drop-shadow(0 0 5px rgba(255,255,255,0.2)); /* 로고에 부드러운 그림자 효과 (선택 사항) */
-}
-
-/* 스크롤 시 로고 이미지 색상이 변경되어야 한다면 (예: 흰색 로고가 검정 배경에서 잘 보이도록)
-   새로운 로고 이미지를 따로 준비하거나 CSS filter 속성을 사용할 수 있습니다.
-   여기서는 기본적으로 동일한 이미지를 사용하며, 필요시 filter를 조절합니다. */
-/* .header.scrolled .nav-logo {
-    filter: invert(100%);
-} */
-
-
-.header.scrolled .logo a {
-    color: var(--secondary-color); /* 스크롤 시에도 흰색 유지 */
+.logo img {
+    height: 45px;
 }
 
 .nav-links {
     display: flex;
-}
-
-.nav-links li {
-    margin-left: 30px;
+    gap: 30px; /* PC 버전 링크 간격 30px로 복구 */
 }
 
 .nav-links a {
-    font-size: 18px;
-    font-weight: 400;
-    color: var(--secondary-color); /* 초기 흰색 */
+    color: white;
+    text-decoration: none;
+    font-size: 20px; /* PC 버전 폰트 크기 20px로 복구 */
+    font-weight: 500;
     transition: color 0.3s ease;
 }
 
-.header.scrolled .nav-links a {
-    color: var(--secondary-color); /* 스크롤 시에도 흰색 유지 */
-}
-
 .nav-links a:hover {
-    color: var(--highlight-color); /* 호버 시 강조 색상 */
+    color: #aaa;
 }
 
-.hamburger {
-    display: none; /* 기본적으로 숨김 */
-    cursor: pointer;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
+.hamburger-menu {
+    display: none; /* PC 버전에서는 숨김 */
 }
 
-.hamburger .bar {
-    height: 3px;
-    width: 100%;
-    background-color: var(--secondary-color);
-    transition: all 0.3s ease;
-}
-
-/* Hero Section */
-.hero-section {
+/* Intro Section */
+#intro-section {
     position: relative;
-    background: url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=PLAIUM+Innovative+Solutions') no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--secondary-color);
-    min-height: 100vh; /* 전체 화면 높이 */
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.hero-content {
-    max-width: 800px;
-    padding: 20px;
+#intro-section video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    z-index: 0;
 }
 
-/* 새로 추가된 로고 이미지 스타일 */
-.hero-logo {
-    max-width: 80%; /* 부모 요소 너비의 80%를 넘지 않도록 설정 (반응형) */
-    height: auto; /* 비율 유지를 위해 높이 자동 설정 */
-    margin-bottom: 20px; /* 로고 아래 텍스트와의 간격 */
-    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); /* 로고에 부드러운 그림자 효과 (선택 사항) */
-}
-
-/* 기존 h1 스타일은 필요 없으므로 제거하거나 주석 처리 */
-/* .hero-content h1 {
-    font-size: 6em;
-    margin-bottom: 20px;
-    font-weight: 700;
-    letter-spacing: -2px;
-} */
-
-.hero-content p {
-    font-size: 2em;
-    margin-bottom: 40px;
-    font-weight: 300;
-}
-
-.btn-scroll-down {
-    display: inline-block;
-    color: var(--secondary-color);
-    font-size: 3em;
-    margin-top: 50px;
-    animation: bounce 2s infinite; /* 스크롤 다운 아이콘 애니메이션 */
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-15px);
-    }
-    60% {
-        transform: translateY(-7px);
-    }
+#intro-section .intro-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 30%;
+    z-index: 1;
+    pointer-events: none;
 }
 
 /* Sections General Styling */
 .section {
-    padding: 100px 0;
+    padding: 100px 20px;
     text-align: center;
 }
 
 .section h2 {
-    font-size: 3em;
-    margin-bottom: 60px;
-    font-weight: 700;
-    color: var(--font-color);
+    font-size: 2.5em;
+    margin-bottom: 40px;
 }
 
 .section p {
     font-size: 1.1em;
     line-height: 1.8;
-    max-width: 800px;
-    margin: 0 auto 40px auto;
 }
 
-.grey-bg {
-    background-color: var(--black-bg);
+.about-logo {
+    width: 25%;
+    margin: 0 auto 30px;
 }
 
-/* About Us Section */
 .about-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.about-item {
-    background-color: var(--secondary-color);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    text-align: left;
-}
-
-.about-item h3 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-}
-
-.about-item p {
-    font-size: 1em;
-    margin-bottom: 0;
-    color: var(--accent-color);
-    max-width: none; /* 상위 p 태그 스타일 오버라이드 */
-}
-
-/* Services Section */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.service-item {
-    background-color: var(--secondary-color);
-    padding: 40px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.service-item:hover {
-    transform: translateY(-10px);
-}
-
-.service-item .icon-large {
-    font-size: 3.5em;
-    color: var(--highlight-color); /* 아이콘 색상 */
-    margin-bottom: 20px;
-}
-
-.service-item h3 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-}
-
-.service-item p {
-    font-size: 1em;
-    color: var(--accent-color);
-    max-width: none;
-    margin-bottom: 0;
-}
-
-/* Portfolio Section */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.portfolio-item {
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    overflow: hidden;
-    text-align: left;
-    transition: transform 0.3s ease;
-}
-
-.portfolio-item:hover {
-    transform: translateY(-10px);
-}
-
-.portfolio-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-}
-
-.portfolio-item h3 {
-    font-size: 1.5em;
-    margin: 20px 20px 10px 20px;
-    color: var(--primary-color);
-}
-
-.portfolio-item p {
-    font-size: 0.95em;
-    color: var(--accent-color);
-    margin: 0 20px 20px 20px;
-    max-width: none;
-}
-
-/* Contact Section */
-.contact-info p {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-    color: var(--text-color);
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
 }
 
-.contact-info p .fas {
-    margin-right: 10px;
-    color: var(--highlight-color);
+.about-img-wrapper {
+    background-color: white;
+    padding: 2px;
+    border-radius: 14px;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
 }
 
-.contact-form {
-    max-width: 600px;
-    margin: 50px auto 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.contact-form input,
-.contact-form textarea {
+.about-img-wrapper img {
     width: 100%;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1em;
-    font-family: 'Noto Sans KR', sans-serif;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--highlight-color);
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-}
-
-.btn-submit {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn-submit:hover {
-    background-color: var(--highlight-color);
-}
-
-/* Footer */
 .footer {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    padding: 30px 0;
+    background-color: #000;
+    padding: 30px;
     text-align: center;
+    color: #aaa;
     font-size: 0.9em;
 }
 
-/* 인트로 영상 위에 있는 alien_logo 이미지 스타일 */
-#intro-section .intro-logo {
-    position: absolute;
-    top: 50%; /* 화면 세로 중앙 기준 */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 80%; /* 전체 너비의 80%로 축소 */
-    z-index: 1;
-    pointer-events: none;
-    filter: brightness(0) invert(1); /* 흰색처럼 보이게 */
-}
-
-
-
-/* Responsive Design (Mobile First Approach) */
+/* ----------------------------------------------------------- */
+/* Responsive Design (Mobile) - 768px 이하 */
+/* ----------------------------------------------------------- */
 @media (max-width: 768px) {
-    .header {
-        padding: 15px 0;
-    }
+  /* Header & Navbar (모바일 버전) */
+  .header {
+    padding: 10px 0; /* 모바일 버전 상하 여백 줄임 */
+  }
 
-    .navbar {
-        padding: 0 15px;
-    }
+  .navbar {
+    padding: 0 20px; /* 모바일 버전 좌우 여백 20px */
+  }
 
-    /* 모바일 환경에서 내비게이션 로고 크기 조정 */
-    .nav-logo {
-        height: 35px; /* 모바일에서 로고 높이 조정 */
-    }
+  .logo img {
+    height: 35px; /* 모바일 버전 로고 크기 줄임 */
+  }
 
-    .nav-links {
-        display: none; /* 기본적으로 숨김 */
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px; /* 헤더 높이에 따라 조절 */
-        left: 0;
-        background-color: var(--primary-color);
-        padding: 20px 0;
-        text-align: center;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        transition: all 0.3s ease-in-out;
-    }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 55px; /* 햄버거 메뉴가 나타날 위치 조정 */
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 0; /* 링크 간격 제거 */
+    background-color: rgba(0, 0, 0, 0.9);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
 
-    .nav-links.active {
-        display: flex;
-    }
+  .nav-links a {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 18px; /* 모바일 버전 폰트 크기 줄임 */
+  }
 
-    .nav-links li {
-        margin: 10px 0;
-    }
+  .hamburger-menu {
+    display: flex; /* 모바일 버전에서만 보임 */
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+  }
 
-    .nav-links a {
-        font-size: 20px;
-    }
+  .hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
 
-    .hamburger {
-        display: flex; /* 모바일에서만 보이기 */
-    }
+  /* Intro Section (모바일) */
+  #intro-section .intro-logo {
+    max-width: 70%;
+  }
 
-    .hero-logo {
-        max-width: 90%; /* 모바일에서 로고 크기 조정 */
-    }
-    
-    /* .hero-content h1 {
-        font-size: 3.5em;
-    } */
+  /* Sections (모바일) */
+  .section {
+    padding: 70px 20px;
+  }
+  
+  .section h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
 
-    .hero-content p {
-        font-size: 1.1em;
-    }
+  .section p {
+    font-size: 1em;
+  }
 
-    .section {
-        padding: 70px 0;
-    }
-
-    .section h2 {
-        font-size: 2.2em;
-        margin-bottom: 40px;
-    }
-
-    .section p {
-        font-size: 1em;
-        margin-bottom: 30px;
-    }
-
-    .about-item, .service-item, .portfolio-item {
-        margin-bottom: 20px;
-    }
-
-    .portfolio-item img {
-        height: 200px;
-    }
-
+  .about-logo {
+    width: 50%;
+  }
 }
