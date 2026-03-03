@@ -3,167 +3,107 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PLAIUM - 대중적으로 사랑받는 고품질의 게임을 서비스합니다." />
   <title>PLAIUM - 플레이엄</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="icon" href="./images/favicon-black.png" type="image/png" media="(prefers-color-scheme: light)" />
   <link rel="icon" href="./images/favicon-white.png" type="image/png" media="(prefers-color-scheme: dark)" />
+  <script src="js/script.js" defer></script>
 </head>
 <body>
   <header class="header">
     <nav class="navbar">
       <div class="logo">
-        <a href="#about">
-          <img src="./images/PLAIUM_BANNER_WH.png" alt="PLAIUM 로고" />
+        <a href="#">
+          <img src="./images/PLAIUM_BANNER_WH.png" alt="PLAIUM" />
         </a>
       </div>
       <div class="nav-links">
         <a href="#about">ABOUT</a>
         <a href="#games">GAMES</a>
-        <!-- <a href="#recruit">RECRUIT</a> -->
         <a href="#contact">CONTACT</a>
       </div>
-      <div class="hamburger-menu">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
+      <button class="hamburger-menu" aria-label="메뉴" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </nav>
   </header>
 
   <section id="intro-section">
-  <video muted loop autoplay playsinline id="intro-video">
-    <source src="https://ha-servicedata.s3.ap-northeast-2.amazonaws.com/notice/hungryAliens_intro.mp4" type="video/mp4" />
-  </video>
+    <video muted loop autoplay playsinline id="intro-video" poster="./images/hungryaliens_wide.jpg">
+      <source src="https://ha-servicedata.s3.ap-northeast-2.amazonaws.com/notice/hungryAliens_intro.mp4" type="video/mp4" />
+    </video>
+    <div class="intro-overlay">
+      <img src="./images/PLAIUM_WH.png" alt="PLAIUM" class="intro-logo" />
+      <p class="intro-tagline">PREMIUM PLAY</p>
+      <div class="scroll-indicator"><span></span></div>
+    </div>
   </section>
 
-  <section id="about" class="section">
-  <br/><br/><br/><br/>
-  <br/><br/><br/>
-  <!-- <h2>ABOUT</h2> -->
-  <br/><br/><br/>
-  <img src="images/PLAIUM_PREMIUMPLAY.png" alt="PLAIUM 메인 로고" class="about-logo" />
-  <p>
-    <br/><br/><br/>
-    플레이엄은 대중적으로 사랑받는 고품질의 게임을 서비스합니다.<br />
-    플레이엄은 높은 수준의 전문성을 가진 구성원들이 고품질의 게임을 개발하는 동시에<br />
-    시장의 성과지표를 분석하여 사용자들에게 큰 사랑을 받는 게임을 서비스하고 있습니다.
-  </p>
-  <!-- <div class="about-grid">
-    <div class="about-img-wrapper">
-      <img src="images/by4m.png" alt="회사 내부1" />
-    </div>
-    <div class="about-img-wrapper">
-      <img src="images/by4m3.png" alt="회사 내부3" />
-    </div>
-  </div> -->
-  </section>
-
-  <section id="games" class="section">
-    <h2 style="position: relative; z-index: 1;">GAMES</h2>
-    <div class="games-container">
-      <div class="games-text">
-      <h2 style="color: #00bfff; font-weight: 700;">외계인은 배고파</h2>
-      <p style="margin-top: 20px; line-height: 1.8;">
-        &lt;외계인은 배고파&gt;는 배고픈 서사를 가진 매력 넘치는<br/>
-        외계인들의 지구 정복 이야기를 담은 로그라이크 RPG입니다.<br/>
-        독창적인 고퀄리티 아트웍으로 탄생한 외계인들과<br/>
-        글로벌 100만 명의 플레이어들이 함께하고 있습니다.
-      </p>
-      <div class="games-buttons">
-        <a href="https://game.naver.com/lounge/hungryaliens/home" target="_blank">
-        <img src="images/lounge.png" alt="네이버 라운지" />
-        </a>
-        <a href="https://apps.apple.com/app/id6449141384" target="_blank">
-        <img src="images/AppStoreIcon.png" alt="App Store" />
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.DetailGames.HungryAliens" target="_blank">
-        <img src="images/GooglePlayIcon.png" alt="Google Play" />
-        </a>
-      </div>
-      </div>
-      <div class="games-visual">
-      <img src="images/hungry_aliens_mockup.png" alt="게임 일러스트" />
+  <section id="about" class="section fade-in-section">
+    <div class="container">
+      <div class="about-content">
+        <img src="images/PLAIUM_PREMIUMPLAY.png" alt="PLAIUM - PREMIUM PLAY" class="about-logo" />
+        <p class="about-description">
+          플레이엄은 대중적으로 사랑받는 고품질의 게임을 서비스합니다.
+          높은 수준의 전문성을 가진 구성원들이 고품질의 게임을 개발하는 동시에
+          시장의 성과지표를 분석하여 사용자들에게 큰 사랑을 받는 게임을 서비스하고 있습니다.
+        </p>
       </div>
     </div>
   </section>
-  
-  <!-- <section class="projectp-section">
-  <div class="projectp-container">
-    <div class="projectp-text">
-    <h2 style="color: #00bfff; font-weight: 700;">PROJECT P</h2>
-    <p>
-      대형 IP를 활용한 캐주얼 모바일 게임
-    </p>
-    </div>
-    <div class="projectp-logo">
-    <img src="images/projectp_logo.png" alt="PROJECT P 로고" />
-    </div>
-  </div>
-  </section> -->
 
-  <!-- <section id="recruit" class="section">
-  <h2>RECRUIT</h2>
-    <p>플레이엄과 함께할 동료를 모집합니다.</p>
-  </section> -->
-
-  <section id="contact" class="section contact-section">
-  <div class="container">
-    <h2>CONTACT</h2>
-    <div class="contact-info">
-    <p><i class="fas fa-envelope"></i> Email: contact@plaium.com</p>
+  <section id="games" class="section fade-in-section">
+    <div class="container">
+      <h2 class="section-heading">GAMES</h2>
+      <div class="games-container">
+        <div class="games-text">
+          <h3 class="game-title">외계인은 배고파</h3>
+          <p class="game-description">
+            &lt;외계인은 배고파&gt;는 배고픈 서사를 가진 매력 넘치는
+            외계인들의 지구 정복 이야기를 담은 로그라이크 RPG입니다.
+            독창적인 고퀄리티 아트웍으로 탄생한 외계인들과
+            글로벌 100만 명의 플레이어들이 함께하고 있습니다.
+          </p>
+          <div class="games-buttons">
+            <a href="https://game.naver.com/lounge/hungryaliens/home" target="_blank" rel="noopener noreferrer">
+              <img src="images/lounge.png" alt="네이버 라운지" />
+            </a>
+            <a href="https://apps.apple.com/app/id6449141384" target="_blank" rel="noopener noreferrer">
+              <img src="images/AppStoreIcon.png" alt="App Store" />
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.DetailGames.HungryAliens" target="_blank" rel="noopener noreferrer">
+              <img src="images/GooglePlayIcon.png" alt="Google Play" />
+            </a>
+          </div>
+        </div>
+        <div class="games-visual">
+          <img src="images/hungry_aliens_mockup.png" alt="외계인은 배고파 게임 화면" />
+        </div>
+      </div>
     </div>
-  </div>
   </section>
 
-  <script>
-  // 기존 스크롤 이벤트 리스너
-  window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 10) {
-    header.classList.add('scrolled');
-    } else {
-    header.classList.remove('scrolled');
-    }
-  });
+  <section id="contact" class="section contact-section fade-in-section">
+    <div class="container">
+      <h2 class="section-heading">CONTACT</h2>
+      <p class="contact-description">게임 및 사업 관련 문의를 환영합니다.</p>
+      <a href="mailto:contact@plaium.com" class="contact-email">contact@plaium.com</a>
+    </div>
+  </section>
 
-  // 햄버거 메뉴 토글 기능 추가
-  const hamburger = document.querySelector('.hamburger-menu');
-  const navLinks = document.querySelector('.nav-links');
-
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-
-  // 링크 클릭 시 메뉴 닫기
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-    navLinks.classList.remove('active');
-    });
-  });
-  </script>
-  <style>    
-  #games {
-    position: relative;
-    background: url('images/games_background.png') no-repeat center center;
-    background-size: contain;
-    background-color: #1a1a1a;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  #games::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(26, 26, 26, 0.6);
-    z-index: 0;
-  }
-  </style>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <img src="./images/PLAIUM_BANNER_WH.png" alt="PLAIUM" class="footer-logo" />
+        <p class="footer-copyright">&copy; 2025 Plaium Co., Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
