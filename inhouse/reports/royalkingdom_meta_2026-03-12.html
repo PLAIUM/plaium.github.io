@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royal Match vs Royal Kingdom - Polished Presentation</title>
+  <style>
+    :root {
+      --bg: #07101a;
+      --panel: #0f1930;
+      --panel-2: #152342;
+      --line: rgba(255,255,255,.09);
+      --text: #eef4ff;
+      --muted: #aab7d4;
+      --blue: #70a9ff;
+      --cyan: #74e1ff;
+      --gold: #ffd66b;
+      --green: #4cdfa2;
+      --purple: #bc93ff;
+      --red: #ff9f9f;
+      --shadow: 0 30px 90px rgba(0,0,0,.35);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(116,225,255,.12), transparent 24%),
+        radial-gradient(circle at 100% 0%, rgba(188,147,255,.12), transparent 22%),
+        linear-gradient(180deg, #07101a, #0a1430 55%, #07101a);
+    }
+    .deck {
+      padding: 26px 0 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    .slide {
+      position: relative;
+      width: 1600px;
+      height: 900px;
+      background:
+        linear-gradient(180deg, rgba(15,25,48,.98), rgba(9,16,30,.98)),
+        linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 54px 62px 34px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 88% 82%, rgba(112,169,255,.14), transparent 20%),
+        radial-gradient(circle at 15% 10%, rgba(116,225,255,.08), transparent 18%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(112,169,255,.12);
+      color: var(--cyan);
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: .01em;
+      margin-bottom: 16px;
+    }
+    h1,h2,h3,p,ul,.card,.metric,.table,.bigline,.subline { position: relative; z-index: 1; }
+    h1 {
+      margin: 0;
+      font-size: 60px;
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+    h2 {
+      margin: 0 0 8px;
+      font-size: 44px;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+    h3 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+    }
+    p, li { font-size: 22px; line-height: 1.46; }
+    ul { margin: 8px 0 0; padding-left: 24px; }
+    li { margin-bottom: 6px; }
+    .lead {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 27px;
+      line-height: 1.45;
+      max-width: 1350px;
+    }
+    .subline {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.4;
+    }
+    .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 22px; }
+    .grid3 { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 18px; }
+    .hero { display:grid; grid-template-columns: 1.25fr .75fr; gap: 22px; margin-top: 26px; }
+    .split { display:grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 22px; }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px 24px;
+      backdrop-filter: blur(4px);
+    }
+    .blueTop { border-top: 4px solid var(--blue); }
+    .goldTop { border-top: 4px solid var(--gold); }
+    .greenTop { border-top: 4px solid var(--green); }
+    .purpleTop { border-top: 4px solid var(--purple); }
+    .redTop { border-top: 4px solid var(--red); }
+    .quote {
+      font-size: 38px;
+      line-height: 1.26;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+    .pillwrap { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .pill {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid var(--line);
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .metric {
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 20px;
+    }
+    .metric .val {
+      font-size: 38px;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: -0.035em;
+    }
+    .metric .lab { margin-top: 4px; font-size: 18px; color: var(--muted); }
+    .bars { display:flex; flex-direction:column; gap:16px; margin-top: 14px; }
+    .barrow { display:grid; grid-template-columns: 205px 1fr 110px; gap: 14px; align-items:center; }
+    .track { height: 20px; border-radius:999px; overflow:hidden; background: rgba(255,255,255,.08); }
+    .fill { height:100%; border-radius:999px; }
+    .blue { background: linear-gradient(90deg, #4d82ff, #68e0ff); }
+    .gold { background: linear-gradient(90deg, #ffca45, #ffe38d); }
+    .green { background: linear-gradient(90deg, #33d58e, #75efbb); }
+    .purple { background: linear-gradient(90deg, #9d72ff, #cfb5ff); }
+    .table {
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1.05fr 1fr 1fr;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow:hidden;
+    }
+    .cell {
+      padding: 14px 16px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      font-size: 20px;
+      line-height: 1.38;
+    }
+    .cell.head {
+      background: rgba(255,255,255,.08);
+      font-weight: 800;
+    }
+    .table .cell:nth-child(3n) { border-right:none; }
+    .table .cell:nth-last-child(-n+3) { border-bottom:none; }
+    .bigline {
+      margin-top: 18px;
+      font-size: 31px;
+      line-height: 1.34;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+    .footer {
+      position: absolute;
+      left: 62px; right: 62px; bottom: 22px;
+      display:flex; justify-content:space-between; align-items:center;
+      color: var(--muted); font-size: 17px;
+      z-index: 1;
+    }
+    .small { font-size: 18px; color: var(--muted); }
+    .check { color: var(--green); font-weight: 800; }
+    .warn { color: var(--gold); font-weight: 800; }
+    .risk { color: var(--red); font-weight: 800; }
+    @media (max-width: 1700px) {
+      body { overflow-x: auto; }
+      .deck { align-items: flex-start; padding-left: 20px; }
+    }
+    @media print {
+      .deck { gap: 0; padding: 0; }
+      .slide { page-break-after: always; border-radius: 0; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="deck">
+
+    <section class="slide">
+      <div class="eyebrow">Slide 1 · Executive Summary</div>
+      <h1>Royal Match vs Royal Kingdom<br>발표용 확장 프리젠테이션</h1>
+      <p class="lead">Royal Kingdom는 Royal Match의 성공 공식을 복제한 타이틀이 아니라, 더 전투적인 코어게임과 더 촘촘한 메타게임을 결합해 고LTV 세그먼트를 확장하려는 작품으로 해석된다.</p>
+      <div class="hero">
+        <div class="card blueTop">
+          <div class="quote">“Royal Match는 시장을 넓혔고,<br>Royal Kingdom는 그 안에서 <span style="color:var(--gold)">더 깊고 더 비싼 유저층</span>을 만들고 있다.”</div>
+          <div class="pillwrap">
+            <div class="pill">넓은 캐주얼층</div>
+            <div class="pill">전투형 퍼즐 진화</div>
+            <div class="pill">메타 스케일 확대</div>
+            <div class="pill">고LTV 강화</div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div class="metric"><div class="val">$301.1M</div><div class="lab">Royal Kingdom 첫해 gross</div></div>
+          <div class="metric"><div class="val">3~4x</div><div class="lab">초기 monetization 속도 vs Royal Match</div></div>
+          <div class="metric"><div class="val">50M+</div><div class="lab">Royal Kingdom Google Play downloads</div></div>
+        </div>
+      </div>
+      <div class="footer"><span>Royal Match vs Royal Kingdom</span><span>1 / 14</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Slide 2 · Scope</div>
+      <h2>분석 범위와 해석 프레임</h2>
+      <div class="split">
+        <div class="card greenTop">
+          <h3>분석 범위</h3>
+          <ul>
+            <li>플레이어 구조 및 세그먼트 가설</li>
+            <li>서비스 실적과 스토어 신호</li>
+            <li>Royal Kingdom 코어게임 구조</li>
+            <li>Royal Kingdom 메타게임 구조</li>
+            <li>코어게임 ↔ 메타게임 ↔ BM ↔ 리텐션 연결</li>
+          </ul>
+        </div>
+        <div class="card purpleTop">
+          <h3>해석 프레임</h3>
+          <ul>
+            <li>공식 Help Center / Store / Dream Games 자료 우선</li>
+            <li>사업 수치는 외부 추정치 포함</li>
+            <li>세그먼트 비중은 공개 수치가 아닌 구조 기반 가설</li>
+            <li>발표용이지만 실무 참고 가능 수준의 정보 밀도 유지</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bigline">핵심 질문: Royal Kingdom는 <span style="color:var(--cyan)">누구를</span>, <span style="color:var(--gold)">어떤 장기 구조로</span> 더 강하게 붙잡으려는가?</div>
+      <div class="footer"><span>Scope & framing</span><span>2 / 14</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Slide 3 · Player Positioning</div>
+      <h2>플레이어 포지셔닝</h2>
+      <div class="grid2">
+        <div class="card blueTop">
+          <h3>Royal Match</h3>
+          <ul>
+            <li>35세 이상 여성 중심의 대중 캐주얼 퍼즐층에 강함</li>
+            <li>짧은 세션, 휴식, 스트레스 해소 동기 중심</li>
+            <li>광고 스트레스 없는 매끄러운 퍼즐 루프 선호</li>
+            <li>복잡성보다 안정감과 직관성을 중시</li>
+          </ul>
+        </div>
+        <div class="card goldTop">
+          <h3>Royal Kingdom</h3>
+          <ul>
+            <li>기본 캐주얼층 위에 성취·성장·도전 욕구 강한 층을 확장</li>
+            <li>스토리, 보스전, 팀, 경쟁 메타 수용성이 더 높음</li>
+            <li>캐주얼↔미드코어 경계 유저 비중이 더 클 가능성</li>
+            <li>퍼즐보다 더 큰 게임 경험을 원하는 층에 적합</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer"><span>Player positioning</span><span>3 / 14</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Slide 4 · Segment Hypothesis</div>
+      <h2>세그먼트 비중 가설</h2>
+      <div class="grid2">
+        <div class="card blueTop">
+          <h3>Royal Match</h3>
+          <div class="bars">
+            <div class="barrow"><div>캐주얼/휴식형</div><div class="track"><div class="fill blue" style="width:75%"></div></div><div>70~80%</div></div>
+            <div class="barrow"><div>코어/경쟁형</div><div class="track"><div class="fill purple" style="width:25%"></div></div><div>20~30%</div></div>
+          </div>
+        </div>
+        <div class="card goldTop">
+          <h3>Royal Kingdom</h3>
+          <div class="bars">
+            <div class="barrow"><div>캐주얼/휴식형</div><div class="track"><div class="fill gold" style="width:55%"></div></div><div>50~60%</div></div>
+            <div class="barrow"><div>미드코어/메타형</div><div class="track"><div class="fill green" style="width:45%"></div></div><div>40~50%</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="card purpleTop" style="margin-top:22px;">
+        <p style="margin:0;"><strong>해석:</strong> Royal Match는 유저 수를 넓히는 게임이고, Royal Kingdom는 유저 가치(LTV)가 높은 층의 비중을 늘리는 게임으로 읽힌다.</p>
+      </div>
+      <div class="footer"><span>Segment hypothesis</span><span>4 / 14</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Slide 5 · Business Performance</div>
+      <h2>Royal Kingdom 서비스 실적</h2>
+      <div class="grid3">
+        <div class="metric"><div class="val">2023.04</div><div class="lab">Soft launch</div></div>
+        <div class="metric"><div class="val">2024.11.21</div><div class="lab">Global launch</div></div>
+        <div class="metric"><div class="val">$20.5M~$21.2M</div><div class="lab">Soft launch gross</div></div>
+        <div class="metric"><div class="val">4.12M</div><div class="lab">첫 달 다운로드</div></div>
+        <div class="metric"><div class="val">$5.49M</div><div class="lab">첫 달 net IAP</div></div>
+        <div class="metric"><div class="val">$301.1M</div><div class="lab">출시 후 첫해 gross</div></div>
+      </div>
+      <div class="split">
+        <div class="card greenTop">
+          <h3>스토어 신호</h3>
+          <ul>
+            <li>App Store 4.7 / 889K ratings</li>
+            <li>Google Play 4.6 / 1.85M reviews</li>
+            <li>Google Play 50M+ downloads</li>
+            <li>Puzzle Top Grossing #4</li>
+          </ul>
+        </div>
+        <div class="card purpleTop">
+          <h3>해석</h3>
+          <ul>
+            <li>신작 기준 매우 강한 출발</li>
+            <li>초기 monetization 속도는 Royal Match보다 빠른 편</li>
+            <li>절대 규모와 저변은 아직 Royal Match 우위</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer"><span>Business performance</span><span>5 / 14</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Slide 6 · Core Game Thesis</div>
+      <h2>코어게임 핵심 명제</h2>
+      <div class="card goldTop">
+        <div class="quote" style="font-size:35px;">Royal Kingdom는 Royal Match의 매치3 문법 위에 <span style="color:var(--gold)">전투형 목표·보스전·압박형 장애물·정밀 부스터 가치</span>를 얹어, 한 판의 긴장감과 전술 밀도를 높인 게임이다.</div>
+      </div>
+      <div class="grid3">
+        <div class="card blueTop">
+          <h3>기본 문법</h3>
+          <ul>
+            <li>제한 무브 안의 3매치 퍼즐</li>
+            <li>특수 타일/콤보 폭발</li>
+            <li>보드 정리와 목표 달성</li>
+          </ul>
+        </div>
+        <div class="card goldTop">
+          <h3>추가 구조</h3>
+          <ul>
+            <li>10스테이지 주기 보스전</li>
+            <li>적/건물 파괴 목표</li>
+            <li>다단계 보드와 전투형 압박</li>
+          </ul>
+        </div>
+        <div class="card purpleTop">
+          <h3>체감 변화</h3>
+          <ul>
+            <li>판단 부담 상승</li>
+            <li>세션 긴장감 상승</li>
+            <li>부스터 의존도 상승</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer"><span>Core game thesis</span><span>6 / 14</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Slide 7 · Core Comparison</div>
+      <h2>코어게임 비교</h2>
+      <div class="table">
+        <div class="cell head">비교 축</div>
+        <div class="cell head">Royal Match</div>
+        <div class="cell head">Royal Kingdom</div>
+
+        <div class="cell">판 목표</div>
+        <div class="cell">보드 해소·수집·정리 중심</div>
+        <div class="cell">적/건물 파괴·전투형 목표 강화</div>
+
+        <div class="cell">세션 감각</div>
+        <div class="cell">쾌적하고 부드러운 흐름</div>
+        <div class="cell">압박과 돌파감이 큰 전투형 흐름</div>
+
+        <div class="cell">장애물 성격</div>
+        <div class="cell">테마형 퍼즐 오브젝트 중심</div>
+        <div class="cell">행동형·증식형·보호형 적/구조물</div>
+
+        <div class="cell">부스터 의미</div>
+        <div class="cell">쾌감/보조 수단</div>
+        <div class="cell">정밀 타격·돌파 핵심 수단</div>
+
+        <div class="cell">변주 포인트</div>
+        <div class="cell">이벤트/레벨 테마 중심</div>
+        <div class="cell">주기적 보스전·다단계 보드</div>
+      </div>
+      <div class="footer"><span>Core comparison</span><span>7 / 14</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Slide 8 · Core Effects</div>
+      <h2>코어게임 차이가 만드는 효과</h2>
+      <div class="grid3">
+        <div class="card greenTop">
+          <h3>플레이 체감</h3>
+          <ul>
+            <li>전술 밀도 상승</li>
+            <li>콤보 쾌감 강화</li>
+            <li>실패 직전 긴장감 증가</li>
+            <li>편안함은 감소 가능</li>
+          </ul>
+        </div>
+        <div class="card goldTop">
+          <h3>BM 효과</h3>
+          <ul>
+            <li>추가 무브 가치 상승</li>
+            <li>시작 부스터 가치 상승</li>
+            <li>직접 타격형 부스터 효용 증가</li>
+            <li>near-miss 구매 명분 강화</li>
+          </ul>
+        </div>
+        <div class="card purpleTop">
+          <h3>리텐션 효과</h3>
+          <ul>
+            <li>몰입감/성취감 강화</li>
+            <li>반복 피로 누적 위험</li>
+            <li>고LTV 유저 유지력 강화 가능</li>
+            <li>라이트 유저 이탈 가능성 존재</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bigline">Royal Kingdom의 코어게임은 <span style="color:var(--gold)">전술 밀도 × 손실회피 × 부스터 경제</span>를 결합하는 구조다.</div>
+      <div class="footer"><span>Core effects</span><span>8 / 14</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Slide 9 · Metagame Thesis</div>
+      <h2>메타게임 핵심 명제</h2>
+      <div class="card purpleTop">
+        <div class="quote" style="font-size:35px;">Royal Kingdom의 메타는 Royal Match의 가벼운 성 복원형 메타를 넘어, <span style="color:var(--gold)">월드/왕국 확장·다크킹 대결·패스·이벤트·팀 경쟁</span>을 촘촘히 결합해 코어 1승의 의미를 여러 겹으로 키운 구조다.</div>
+      </div>
+      <div class="split">
+        <div class="card blueTop">
+          <h3>Royal Match 메타</h3>
+          <ul>
+            <li>가벼운 area/castle 복원</li>
+            <li>퍼즐 보상의 시각적 소비처 성격 강함</li>
+            <li>마찰이 적고 부담이 덜한 메타</li>
+          </ul>
+        </div>
+        <div class="card goldTop">
+          <h3>Royal Kingdom 메타</h3>
+          <ul>
+            <li>district/world 기반 왕국 확장</li>
+            <li>Dark King과의 서사적 대결</li>
+            <li>이벤트/패스/팀 구조의 결속도 상승</li>
+            <li>코어게임 압박과 메타 효율이 강하게 연결</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer"><span>Metagame thesis</span><span>9 / 14</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Slide 10 · Long-term Goals</div>
+      <h2>장기 목표 구조</h2>
+      <div class="grid2">
+        <div class="card greenTop">
+          <h3>기본 메타 루프</h3>
+          <ul>
+            <li>레벨 클리어</li>
+            <li>코인/포션/이벤트 토큰/패스 키 획득</li>
+            <li>왕국 재건 / district 해금</li>
+            <li>팀 기여 / 경쟁 점수 / 시즌 진척</li>
+            <li>다시 레벨 플레이</li>
+          </ul>
+        </div>
+        <div class="card purpleTop">
+          <h3>핵심 의미</h3>
+          <ul>
+            <li>한 판 승리가 여러 보상선에 동시에 연결</li>
+            <li>“한 판만 더”의 명분이 복수로 발생</li>
+            <li>장기 리텐션과 세션 길이 모두 늘리기 쉬움</li>
+            <li>코어게임 1승의 경제적 가치가 커짐</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bigline">Royal Kingdom는 코어게임 승리 1회를 <span style="color:var(--gold)">경제적·서사적·사회적 가치</span>로 다중 번역한다.</div>
+      <div class="footer"><span>Long-term goals</span><span>10 / 14</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Slide 11 · Metagame Systems</div>
+      <h2>메타게임 구체 시스템</h2>
+      <div class="grid3">
+        <div class="card blueTop">
+          <h3>왕국 재건 / 월드</h3>
+          <ul>
+            <li>단일 성 복원보다 큰 district/world 확장</li>
+            <li>다음 구역과 다음 왕국이 장기 목표 역할</li>
+            <li>복원 감정보다 탈환/전진 감정선이 강함</li>
+          </ul>
+        </div>
+        <div class="card goldTop">
+          <h3>패스 / 이벤트</h3>
+          <ul>
+            <li>Kingdom Pass 30단계, 무료/유료 2트랙</li>
+            <li>경쟁형·연승형·팀형·수집형 이벤트 다층 구성</li>
+            <li>Hard/Special 레벨이 보상 효율 높은 구간으로 작동</li>
+          </ul>
+        </div>
+        <div class="card purpleTop">
+          <h3>팀 / 경쟁 / 엔드게임</h3>
+          <ul>
+            <li>팀 이벤트가 진행 효율 인프라로 기능</li>
+            <li>개인/팀 경쟁이 잔존과 과금 명분 강화</li>
+            <li>엔드게임 경쟁 구조가 상단 체류를 연장</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer"><span>Metagame systems</span><span>11 / 14</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Slide 12 · Core-Meta-BM Connection</div>
+      <h2>코어게임 압박과 메타게임 연결</h2>
+      <div class="split">
+        <div class="card redTop">
+          <h3>실패가 크게 느껴지는 이유</h3>
+          <ul>
+            <li>패스 키 손실</li>
+            <li>이벤트 토큰 손실</li>
+            <li>팀 기여 손실</li>
+            <li>왕국 진행 손실</li>
+            <li>연승/랭킹 손실</li>
+          </ul>
+        </div>
+        <div class="card goldTop">
+          <h3>BM으로 번역되는 방식</h3>
+          <ul>
+            <li>추가 무브가 단순 클리어 수단이 아니라 손실 방지 보험처럼 보임</li>
+            <li>부스터 가치가 이벤트/패스 효율과 결합</li>
+            <li>어려운 레벨일수록 더 좋은 보상이 붙어 구매 명분 확대</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card purpleTop" style="margin-top:22px;">
+        <p style="margin:0;"><strong>핵심 해석:</strong> Royal Kingdom는 코어 실패를 메타 전체 손실로 번역해, Royal Match보다 더 높은 <strong>몰입-압박-지출 연결 강도</strong>를 만든다.</p>
+      </div>
+      <div class="footer"><span>Core-Meta-BM connection</span><span>12 / 14</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Slide 13 · Practical Implications</div>
+      <h2>실무적 시사점</h2>
+      <div class="grid3">
+        <div class="card greenTop">
+          <h3><span class="check">강점</span></h3>
+          <ul>
+            <li>장기 목표가 멀리 보여 잔존 설계가 강함</li>
+            <li>코어 1승의 가치가 커 세션 연장력이 큼</li>
+            <li>이벤트/패스/팀 구조가 촘촘히 결합</li>
+            <li>엔드게임 체류 설계가 존재</li>
+          </ul>
+        </div>
+        <div class="card goldTop">
+          <h3><span class="warn">운영 포인트</span></h3>
+          <ul>
+            <li>특수 레벨과 보상 효율의 균형이 중요</li>
+            <li>팀 참여를 강제처럼 느끼지 않게 설계 필요</li>
+            <li>이벤트 수가 많을수록 UX 피로도 관리 필요</li>
+            <li>라이트/헤비 유저용 명분을 분리 설계해야 함</li>
+          </ul>
+        </div>
+        <div class="card redTop">
+          <h3><span class="risk">리스크</span></h3>
+          <ul>
+            <li>과도한 BM 압박 인상</li>
+            <li>난도 피로 누적</li>
+            <li>솔로 플레이어 반감</li>
+            <li>Royal Match와의 자기잠식 가능성</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer"><span>Practical implications</span><span>13 / 14</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Slide 14 · Final Take</div>
+      <h2>최종 정리</h2>
+      <div class="card purpleTop">
+        <div class="quote" style="font-size:34px;">Royal Kingdom는 Royal Match의 성공 공식을 기반으로, <span style="color:var(--gold)">더 전투적 코어게임</span>과 <span style="color:var(--gold)">더 크고 촘촘한 메타게임</span>을 결합해 고LTV 세그먼트를 확장한 작품이다.</div>
+      </div>
+      <div class="split">
+        <div class="card blueTop">
+          <h3>핵심 의미</h3>
+          <ul>
+            <li>단순 후속작이 아니라 포트폴리오 분화 전략</li>
+            <li>Royal Match = 규모 / Royal Kingdom = 깊이와 확장성</li>
+            <li>성공 잠재력은 크지만 밸런싱 민감도도 높음</li>
+          </ul>
+        </div>
+        <div class="card goldTop">
+          <h3>핵심 문장</h3>
+          <ul>
+            <li>플레이어 구조는 더 미드코어 쪽으로 이동했다</li>
+            <li>코어게임은 전투형 퍼즐로 진화했다</li>
+            <li>메타게임은 코어 1승의 의미를 여러 겹으로 증폭한다</li>
+          </ul>
+        </div>
+      </div>
+      <p class="small">Sources: PocketGamer.biz, Business of Apps, Dream Games, Royal Kingdom/Royal Match Help Center, App Store, Google Play, App2Top, Naavik, Deconstructor of Fun, Balancy.</p>
+      <div class="footer"><span>Final take</span><span>14 / 14</span></div>
+    </section>
+
+  </div>
+</body>
+</html>
