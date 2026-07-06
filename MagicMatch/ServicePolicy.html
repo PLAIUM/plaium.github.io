@@ -1,0 +1,767 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>TERMS OF SERVICE</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="3954ee8b-6d8b-80fe-a99d-f898ea854ea8" class="page sans"><header><h1 class="page-title" dir="auto"><strong>TERMS OF SERVICE</strong></h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h1 id="3954ee8b-6d8b-801b-918f-dce482b1552a" style="display:inline-block" dir="auto">Article 1 (Purpose)</h1><p id="3954ee8b-6d8b-8014-b5aa-d9a6ced84e1b" class="" dir="auto">These Terms set out the rights and obligations regarding the use of all games and related services provided by <strong> BY4M STUDIO Co., Ltd.</strong> (the “Company”).</p><h1 id="3954ee8b-6d8b-8056-baf4-fe5393bb22a0" style="display:inline-block" dir="auto">Article 2 (Definitions)</h1><ol type="1" id="3954ee8b-6d8b-8062-99cb-f03d694b9d1e" class="numbered-list" start="1" dir="auto"><li><strong>User</strong>: Any person who uses any game or service of the Company (including members and non-members).</li></ol><ol type="1" id="3954ee8b-6d8b-80cf-a524-f9dbef0704b5" class="numbered-list" start="2" dir="auto"><li><strong>Device</strong>: Any device capable of using content, including PC, mobile phone, smartphone, tablet, and game console.</li></ol><ol type="1" id="3954ee8b-6d8b-80ad-b33d-fb39ae5564fc" class="numbered-list" start="3" dir="auto"><li><strong>Content</strong>: All games, network services, applications, game money, and items provided by the Company.</li></ol><ol type="1" id="3954ee8b-6d8b-8050-8cb5-debcb283d282" class="numbered-list" start="4" dir="auto"><li><strong>Network Service</strong>: Any service provided via the internet.</li></ol><ol type="1" id="3954ee8b-6d8b-804b-a533-f218f1c8a3df" class="numbered-list" start="5" dir="auto"><li><strong>Game Service</strong>: Services provided by the Company that run on a User’s Device.</li></ol><ol type="1" id="3954ee8b-6d8b-8025-aee6-e9ec5fb516a0" class="numbered-list" start="6" dir="auto"><li><strong>Virtual Items</strong>: Digital assets such as game money, points, and items that are usable only within the Service, have no real-world monetary value, and constitute a limited license granted by the Company.</li></ol><h1 id="3954ee8b-6d8b-809d-8fcf-c68a3ce77484" style="display:inline-block" dir="auto">Article 3 (Effect and Amendments)</h1><ol type="1" id="3954ee8b-6d8b-803c-abb4-eef6d8b34e0c" class="numbered-list" start="1" dir="auto"><li>These Terms take effect when posted on the Company’s website <mark class="highlight-default" data-notion-highlight="default"><strong>(https://plaium.com/MagicMatch/ServicePolicy.html)</strong></mark>. Installing or using the Service constitutes agreement to these Terms.</li></ol><ol type="1" id="3954ee8b-6d8b-8071-be41-d01669775355" class="numbered-list" start="2" dir="auto"><li>The Company may amend these Terms. Amended Terms will be posted online at least 7 days before the effective date; if changes are unfavorable to Users, at least 30 days before. The amended Terms take effect on the announced effective date.</li></ol><ol type="1" id="3954ee8b-6d8b-8018-9698-e0ba460357e1" class="numbered-list" start="3" dir="auto"><li>If you do not agree to the changes, you may stop using the Service and withdraw.</li></ol><ol type="1" id="3954ee8b-6d8b-80fa-aa21-f94a07a02ded" class="numbered-list" start="4" dir="auto"><li>By agreeing to these Terms, you agree to check the website periodically for updates.</li></ol><ol type="1" id="3954ee8b-6d8b-80b2-badb-c16bddb8eae3" class="numbered-list" start="5" dir="auto"><li>Where any provision is invalid or must be modified under mandatory laws of a country, the applicable local law will prevail to that extent.</li></ol><h1 id="3954ee8b-6d8b-80bb-84a9-e2fc1ffc817d" style="display:inline-block" dir="auto">Article 4 (Commencement of Use)</h1><ol type="1" id="3954ee8b-6d8b-808a-a57a-d81d4ebb9f23" class="numbered-list" start="1" dir="auto"><li>You may use the Service from the time the Company accepts your application.</li></ol><ol type="1" id="3954ee8b-6d8b-8043-b536-dfe3f0d10dc0" class="numbered-list" start="2" dir="auto"><li>Some Services may become available from specified dates. If operational or technical issues prevent posting, the Company will notify Users.</li></ol><ol type="1" id="3954ee8b-6d8b-8093-90c5-cb376a40c630" class="numbered-list" start="3" dir="auto"><li>Certain Services may be provided for a fee.</li></ol><ol type="1" id="3954ee8b-6d8b-80d0-945e-eaafc02684de" class="numbered-list" start="4" dir="auto"><li>Users must be at least 13 years old, or older if required by the laws of their country of residence.</li></ol><ol type="1" id="3954ee8b-6d8b-802d-8785-f3adeaa682f6" class="numbered-list" start="5" dir="auto"><li>If a minor uses the Service, the minor’s legal guardian is deemed to have agreed to these Terms.</li></ol><h1 id="3954ee8b-6d8b-8054-83c7-cd228d84aee8" style="display:inline-block" dir="auto">Article 5 (Provision of Services)</h1><ol type="1" id="3954ee8b-6d8b-8023-8b2c-d24abf52f3b5" class="numbered-list" start="1" dir="auto"><li>The Company provides:<ul id="3954ee8b-6d8b-8017-a5f2-e8a005f14aad" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Game Services and related ancillary services;</li></ul><ul id="3954ee8b-6d8b-8068-b337-f9ee0e5b6061" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Social networking services (SNS); and</li></ul><ul id="3954ee8b-6d8b-8085-9eea-dd6ea5a69ac9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Any other services provided by the Company.</li></ul></li></ol><ol type="1" id="3954ee8b-6d8b-8004-9724-d563afc85183" class="numbered-list" start="2" dir="auto"><li>The Service is provided 24/7 in principle. Maintenance and updates may cause temporary suspension; notice will be given in-game.</li></ol><ol type="1" id="3954ee8b-6d8b-800a-8bd7-e11e9291e137" class="numbered-list" start="3" dir="auto"><li>If technical problems make provision impossible, the Company will give notice; for unavoidable reasons such as urgent bug fixes or replacements, notice may follow afterward.</li></ol><ol type="1" id="3954ee8b-6d8b-8094-9fe8-d95ef4fe524e" class="numbered-list" start="4" dir="auto"><li>For certain games, separate terms may apply in addition to these Terms. Use is available once the User agrees to those terms and the Company approves the application.</li></ol><ol type="1" id="3954ee8b-6d8b-8015-b498-c4ff47354159" class="numbered-list" start="5" dir="auto"><li>The Company may restrict some Services based on applicable laws, the User’s age, or service procedures.</li></ol><h1 id="3954ee8b-6d8b-80f4-8087-fee451cb736c" style="display:inline-block" dir="auto">Article 6 (Personal Data Protection)</h1><ol type="1" id="3954ee8b-6d8b-803d-a1f8-e488084dfa2b" class="numbered-list" start="1" dir="auto"><li>The Company protects Users’ personal data in accordance with applicable laws. The Privacy Policy applies; third-party linked sites are governed by their own policies.</li></ol><ol type="1" id="3954ee8b-6d8b-8040-8cb4-fc55c6974e7e" class="numbered-list" start="2" dir="auto"><li>For identity verification, the Company may request an ID or equivalent document and will destroy it without delay after the purpose is achieved.</li></ol><ol type="1" id="3954ee8b-6d8b-801f-b477-eeb238d0536d" class="numbered-list" start="3" dir="auto"><li>Depending on your settings, your nickname, photos, posts, and chat may be disclosed to others.</li></ol><ol type="1" id="3954ee8b-6d8b-8000-8123-f6ef640c1cac" class="numbered-list" start="4" dir="auto"><li>You are responsible for any disclosure of account information caused by your fault.</li></ol><ol type="1" id="3954ee8b-6d8b-808a-af68-ead922538bfb" class="numbered-list" start="5" dir="auto"><li>In addition to the Personal Information Protection Act of Korea, the Company complies with international standards such as the EU GDPR, Brazil LGPD, and US CCPA, and processes data only within the bounds permitted by law.</li></ol><ol type="1" id="3954ee8b-6d8b-8048-b468-ca28faf18528" class="numbered-list" start="6" dir="auto"><li>For stability, security, and user protection, the Company may monitor or record chats and usage logs to the extent permitted by law.</li></ol><h1 id="3954ee8b-6d8b-805e-be29-d39a714220b0" style="display:inline-block" dir="auto">Article 7 (Management of Personal Data)</h1><p id="3954ee8b-6d8b-8076-8fed-ca9cd61a823d" class="" dir="auto">Users must manage their personal data diligently and promptly update any changes. Losses arising from delay or omission in updating shall be the User’s responsibility.</p><h1 id="3954ee8b-6d8b-80fc-b0f0-e4e154fd0412" style="display:inline-block" dir="auto">Article 8 (Information and Advertising)</h1><ol type="1" id="3954ee8b-6d8b-80e0-bc90-c4d92a907b4d" class="numbered-list" start="1" dir="auto"><li>The Company may display advertisements, and Users consent to such display.</li></ol><ol type="1" id="3954ee8b-6d8b-80d6-a11d-f52fe26c4f02" class="numbered-list" start="2" dir="auto"><li>The Company is not responsible for losses arising from participation in third-party advertisements.</li></ol><ol type="1" id="3954ee8b-6d8b-80aa-93cd-fe58da035eda" class="numbered-list" start="3" dir="auto"><li>The Company may request additional information to improve the Service; Users may provide or refuse.</li></ol><ol type="1" id="3954ee8b-6d8b-8051-bad6-c1258282dbcb" class="numbered-list" start="4" dir="auto"><li>The Company may send various information, including marketing communications for profit, based on personal data collected from Users, and Users consent to such communications. Users may opt out at any time.</li></ol><ol type="1" id="3954ee8b-6d8b-80cf-83f4-fc84bdc2acb3" class="numbered-list" start="5" dir="auto"><li>The Company may store, retain, and access chats and gameplay screens within the Service and will state reasons for access when necessary.</li></ol><ol type="1" id="3954ee8b-6d8b-8058-861f-e287f6d19845" class="numbered-list" start="6" dir="auto"><li>For investigations and handling of account theft, cash trading, abusive language, in-game fraud, bug exploitation, violations of law, or material breaches of these Terms, the Company may access such information and will provide reasons and details afterward.</li></ol><h1 id="3954ee8b-6d8b-8004-ab19-f0b5ef0d8952" style="display:inline-block" dir="auto">Article 9 (Purchase of Content)</h1><ol type="1" id="3954ee8b-6d8b-8058-bd19-c5152fa5526e" class="numbered-list" start="1" dir="auto"><li>Users may purchase Content via app stores and online sites (the Company’s website, portal, and community).</li></ol><ol type="1" id="3954ee8b-6d8b-80d2-b080-e0abd570a851" class="numbered-list" start="2" dir="auto"><li>Items provided by the Company may be purchased through network services within the game or application.</li></ol><ol type="1" id="3954ee8b-6d8b-8003-854e-c042c2c00593" class="numbered-list" start="3" dir="auto"><li>Carrier charges may apply when downloading mobile games, applications, or using the Service.</li></ol><ol type="1" id="3954ee8b-6d8b-80c8-a101-faa33550671d" class="numbered-list" start="4" dir="auto"><li>Purchases and refunds of paid Content are handled in accordance with the policies of each store (e.g., Google Play, App Store) and the consumer protection laws of each country.</li></ol><h1 id="3954ee8b-6d8b-80e1-8e76-ebd5e0f00fcd" style="display:inline-block" dir="auto">Article 10 (Use of Content)</h1><ol type="1" id="3954ee8b-6d8b-80ba-ad90-e36aeb864e51" class="numbered-list" start="1" dir="auto"><li>The Company may provide various Content, including items, and may set usage periods and conditions, which will be disclosed in usage guides or payment screens.</li></ol><ol type="1" id="3954ee8b-6d8b-8003-8e43-e3f63928b01f" class="numbered-list" start="2" dir="auto"><li>“Permanent items” or paid Content are guaranteed to be usable for <strong>one year</strong>; after the guarantee period or upon termination of the Game Service, the license may expire.</li></ol><ol type="1" id="3954ee8b-6d8b-8091-8452-c1210d22dc9c" class="numbered-list" start="3" dir="auto"><li>Additional charges may apply when purchasing items via in-game network services.</li></ol><ol type="1" id="3954ee8b-6d8b-808e-a13b-fe7a9a602d65" class="numbered-list" start="4" dir="auto"><li>Content is generally usable only on the Device to which it was downloaded. Device changes, number changes, or international roaming may limit use in whole or in part; the Company is not responsible for such limitations.</li></ol><h1 id="3954ee8b-6d8b-8097-a798-e4bb4beebba2" style="display:inline-block" dir="auto">Article 11 (Changes and Suspension)</h1><ol type="1" id="3954ee8b-6d8b-802d-b0c2-f184a543dd81" class="numbered-list" start="1" dir="auto"><li>The Company may change the Service for operational or technical reasons and will give prior notice; if unavoidable due to critical bugs, server issues, or urgent security matters, notice may follow afterward.</li></ol><ol type="1" id="3954ee8b-6d8b-80fa-89e6-ee241f23d11f" class="numbered-list" start="2" dir="auto"><li>For significant business reasons such as split-off, merger, business transfer, business closure, deterioration of profitability, or loss of service rights, the Company may discontinue the Service, in which case 30 days’ prior notice will be given. Upon termination, the Company is not liable for refunds or damages for free items, unused time on paid subscriptions or time-limited items, or paid Content whose usage guarantee has expired.</li></ol><ol type="1" id="3954ee8b-6d8b-8026-b049-fa2d444c55bd" class="numbered-list" start="3" dir="auto"><li>Due to national emergencies or force majeure such as war or natural disasters, facility failures, traffic surges, maintenance of service facilities, or other Company circumstances, the Service may be restricted or suspended in whole or in part.</li></ol><ol type="1" id="3954ee8b-6d8b-8086-bad3-d4f50a8b3261" class="numbered-list" start="4" dir="auto"><li>Notice will be posted on the website for suspensions; where beyond the Company’s control, notice may follow afterward.</li></ol><h1 id="3954ee8b-6d8b-80ea-bbe2-d7ed2bc97dbb" style="display:inline-block" dir="auto">Article 12 (Company Obligations)</h1><ol type="1" id="3954ee8b-6d8b-8026-b7b4-c961ca6c3501" class="numbered-list" start="1" dir="auto"><li>The Company will not act in violation of law and will strive to provide a stable Service.</li></ol><ol type="1" id="3954ee8b-6d8b-8063-b3ee-e41cf5f34170" class="numbered-list" start="2" dir="auto"><li>The Company protects Users’ personal data and discloses it only upon legitimate request.</li></ol><ol type="1" id="3954ee8b-6d8b-80b8-bc2d-c9deb993d00e" class="numbered-list" start="3" dir="auto"><li>The Company will not disclose or distribute Users’ personal data to third parties without consent; however, disclosure may be made pursuant to lawful requests by government authorities under applicable communications or other laws.</li></ol><h1 id="3954ee8b-6d8b-80b1-863b-c8337dcaa063" style="display:inline-block" dir="auto">Article 13 (User Obligations)</h1><ol type="1" id="3954ee8b-6d8b-803d-8b4c-eb756f5e5f90" class="numbered-list" start="1" dir="auto"><li>Users must not:<ul id="3954ee8b-6d8b-8018-a772-db2ef325cf5f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Provide false information when submitting personal data to the Company;</li></ul><ul id="3954ee8b-6d8b-806e-a6f6-e295a1298c02" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Steal others’ personal data or payment methods;</li></ul><ul id="3954ee8b-6d8b-80e8-92d7-f8717bae537d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Engage in illegal trading or sales;</li></ul><ul id="3954ee8b-6d8b-809b-bd88-efa2fd6f0c7b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Illegally copy the Service;</li></ul><ul id="3954ee8b-6d8b-805c-8f03-c59fc2e31568" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Interfere with the Service;</li></ul><ul id="3954ee8b-6d8b-804f-9e91-fb51736af774" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Use the Service to obtain benefits for themselves or others;</li></ul><ul id="3954ee8b-6d8b-8051-9b8d-d236845ff01b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Infringe intellectual property rights, portrait rights, or other rights of the Company or any third party;</li></ul><ul id="3954ee8b-6d8b-80bb-a8f4-c01c80c2c67e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Collect, store, or distribute other Users’ personal data without authorization;</li></ul><ul id="3954ee8b-6d8b-808e-9c8c-da1520ca4f4d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Register or distribute materials containing bugs or computer viruses;</li></ul><ul id="3954ee8b-6d8b-80d9-8bc9-efdc6cd6d138" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Distribute information that interferes with stable operation;</li></ul><ul id="3954ee8b-6d8b-80b0-bf11-f2ea9b24b282" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Send marketing communications against the explicit refusal of the recipient;</li></ul><ul id="3954ee8b-6d8b-8077-9c99-faae875e63fa" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Impersonate others or misrepresent relationships;</li></ul><ul id="3954ee8b-6d8b-8032-9169-ea9b49af8414" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Distribute obscene or vulgar information;</li></ul><ul id="3954ee8b-6d8b-80e9-9fbc-d7e5a3aaea58" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Post links to pornographic sites or unauthorized advertisements;</li></ul><ul id="3954ee8b-6d8b-8075-b383-f72a5849ce73" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Induce or participate in gambling with stakes;</li></ul><ul id="3954ee8b-6d8b-8018-825b-c776249845f9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Send, deliver, or distribute words, sounds, writings, photos, or videos that cause shame, disgust, or fear;</li></ul><ul id="3954ee8b-6d8b-80a6-a3b5-f8a2a79cd161" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Alter information posted in the Service;</li></ul><ul id="3954ee8b-6d8b-803a-9e45-ec1c6b1e63aa" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Impersonate operators or internal staff;</li></ul><ul id="3954ee8b-6d8b-8083-9685-f51a8cd3a33c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Violate public order, good morals, or applicable laws;</li></ul><ul id="3954ee8b-6d8b-80db-a2de-d37376860c37" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Conduct sales or business using the Service;</li></ul><ul id="3954ee8b-6d8b-80a4-85e1-c1a21dda068b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Profit via hacking or advertising, or illegally copy commercial software;</li></ul><ul id="3954ee8b-6d8b-804c-aac6-ccfb12bed3c3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Engage in unlawful electioneering as interpreted by the election commission;</li></ul><ul id="3954ee8b-6d8b-80b6-8fb3-c57b1dcd5a98" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Abuse app-store refund systems;</li></ul><ul id="3954ee8b-6d8b-8098-a3d4-fe9355291d69" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Engage in any other illegal or improper act.</li></ul></li></ol><ol type="1" id="3954ee8b-6d8b-806b-9e7b-f3997411c6c3" class="numbered-list" start="2" dir="auto"><li>Users must check these Terms from time to time. If a violation is detected, permanent restrictions may apply. If the Company suffers loss, the User must compensate all such losses.</li></ol><h1 id="3954ee8b-6d8b-80dc-861b-d4aff5a505da" style="display:inline-block" dir="auto">Article 14 (Copyright)</h1><ol type="1" id="3954ee8b-6d8b-80fb-84f5-dc0cefd45739" class="numbered-list" start="1" dir="auto"><li>Copyright and other intellectual property rights in the Company’s works belong to the Company.</li></ol><ol type="1" id="3954ee8b-6d8b-801b-b16e-d13d46c17fd7" class="numbered-list" start="2" dir="auto"><li>Copyright in posts created by Users within the Service belongs to the respective right holders.</li></ol><ol type="1" id="3954ee8b-6d8b-803d-9d34-efee2d4f9d1f" class="numbered-list" start="3" dir="auto"><li>Users may not use information for commercial purposes without the Company’s consent.</li></ol><ol type="1" id="3954ee8b-6d8b-8095-9dd4-c5a3b5bb53aa" class="numbered-list" start="4" dir="auto"><li>Posts within the Service may be exposed in search results, within the Service, or in related promotions, and may be modified, reproduced, or edited to the extent necessary for such exposure. The Company complies with copyright law. Users may delete, exclude from search, or make posts private through customer support or in-service tools while the Service is operated.</li></ol><ol type="1" id="3954ee8b-6d8b-80a7-917e-ec71e4133b25" class="numbered-list" start="5" dir="auto"><li>If a post is reasonably alleged by a third party to infringe rights, the Company may delete it without notice or refuse registration. Handling of takedown or suspension follows copyright and applicable laws.</li></ol><h1 id="3954ee8b-6d8b-80c7-ac90-f0ae57097f02" style="display:inline-block" dir="auto">Article 15 (User Posts)</h1><ol type="1" id="3954ee8b-6d8b-800c-9149-dca6aae353ce" class="numbered-list" start="1" dir="auto"><li>Users are responsible for issues arising from their posts.</li></ol><ol type="1" id="3954ee8b-6d8b-8056-898d-db1dba653bff" class="numbered-list" start="2" dir="auto"><li>Moving or deleting posts is at the Company’s discretion.</li></ol><ol type="1" id="3954ee8b-6d8b-8044-8b97-d3e51125e210" class="numbered-list" start="3" dir="auto"><li>If a User’s post infringes others’ rights and the Company receives a claim, the posting User must actively cooperate to exonerate the Company; if exoneration is not achieved, the User is responsible for resulting issues.</li></ol><ol type="1" id="3954ee8b-6d8b-80e8-9bd4-e3c7674035ee" class="numbered-list" start="4" dir="auto"><li>If content to be posted or transmitted defames others, invades privacy, harms reputation, disrupts stable Service operation, constitutes a crime, or infringes IP or other rights of the Company or third parties, it may be deleted or refused without prior notice.</li></ol><h1 id="3954ee8b-6d8b-801f-a044-f4e1d6f662e8" style="display:inline-block" dir="auto">Article 16 (Payment)</h1><p id="3954ee8b-6d8b-8028-babe-c5eba86b8efa" class="" dir="auto">Payments follow the policies of carriers, app stores, and online sites. Payment methods must be used as prescribed. Limits may apply by Company policy, payment-service policy, or government guidelines.</p><h1 id="3954ee8b-6d8b-8050-b15d-c4eac9bc6139" style="display:inline-block" dir="auto">Article 17 (Refunds)</h1><ol type="1" id="3954ee8b-6d8b-8015-a94f-fdd98de1cab4" class="numbered-list" start="1" dir="auto"><li>Paid Content may be withdrawn within 7 days by emailing <a href="mailto:customerservice@plaium.com">customerservice@plaium.com</a>. Withdrawal may be limited if the Content begins to be used immediately upon purchase, is applied to the game immediately, has benefits already used or partly used and thus cannot be retrieved, or if capsule/loot-box items have been opened.</li></ol><ol type="1" id="3954ee8b-6d8b-808a-ba30-f492465d7eed" class="numbered-list" start="2" dir="auto"><li>If an overcharge occurs due to the Company’s fault, it will be refunded; overcharges caused by the User are excluded.</li></ol><ol type="1" id="3954ee8b-6d8b-8033-8a49-cdd8567f1f6f" class="numbered-list" start="3" dir="auto"><li>If a minor pays without a legal guardian’s consent, the minor or guardian may cancel the payment. Cancellation may be limited if within the scope permitted by the guardian or if caused by the minor’s deceit.</li></ol><ol type="1" id="3954ee8b-6d8b-803b-8941-e3c1a19030be" class="numbered-list" start="4" dir="auto"><li>For refunds, after verifying purchase records the Company may request documents for identity verification. Users must submit requested documents (e.g., by fax). Refunds are made to the account of the Device (including mobile phone) holder by default. If verification of the holder’s own account is difficult due to minority, a legal guardian may request a refund with additional proof; upon verification, the refund may be made to the guardian’s account.</li></ol><ol type="1" id="3954ee8b-6d8b-802d-bfc2-ffef7d90cb1a" class="numbered-list" start="5" dir="auto"><li>If a User obtains a store-side refund without returning digital goods through the Company’s recovery process and thereby gains unjust enrichment, recovery of assets and permanent restrictions may apply.</li></ol><ol type="1" id="3954ee8b-6d8b-8010-8051-fcacf5a861bf" class="numbered-list" start="6" dir="auto"><li>Where consumer protection laws of the relevant country or store policies provide different refund standards, those rules <strong>prevail</strong>.</li></ol><h1 id="3954ee8b-6d8b-805b-88a2-c7857b510945" style="display:inline-block" dir="auto">Article 18 (Termination and Suspension)</h1><ol type="1" id="3954ee8b-6d8b-80e3-a5ca-ea4260332f26" class="numbered-list" start="1" dir="auto"><li>If a User violates laws or Article 13 of these Terms, the Company may terminate the contract or suspend use. In such case, payments already made (including data charges and subscription fees) are non-refundable.</li></ol><ol type="1" id="3954ee8b-6d8b-804b-ae98-cb2e51cb67e6" class="numbered-list" start="2" dir="auto"><li>Users may request suspension of use at any time; the Company is not liable for any losses arising therefrom.</li></ol><h1 id="3954ee8b-6d8b-80bc-bae8-f3fd0f0e385e" style="display:inline-block" dir="auto">Article 19 (Damages)</h1><p id="3954ee8b-6d8b-809f-a278-dc6acdfde9bc" class="" dir="auto">If a User violates these Terms and causes damage to the Company, the User must compensate all such damage. The Company is not liable for matters related to Services provided free of charge.</p><h1 id="3954ee8b-6d8b-80a6-88cd-ce938e728f7f" style="display:inline-block" dir="auto">Article 20 (Disclaimers)</h1><ol type="1" id="3954ee8b-6d8b-8028-b8a8-d6faa0351cc1" class="numbered-list" start="1" dir="auto"><li>The Company is not liable where provision is impossible due to force majeure such as natural disasters.</li></ol><ol type="1" id="3954ee8b-6d8b-801e-b5cc-dfef7b125249" class="numbered-list" start="2" dir="auto"><li>The Company is exempt from liability for outages or failures due to carrier service suspension or other reasons announced in advance.</li></ol><ol type="1" id="3954ee8b-6d8b-807c-9522-f5d4b8722a36" class="numbered-list" start="3" dir="auto"><li>The Company is not liable for the User’s failure to obtain expected profits from the Service, or for losses arising from the User’s choice or use of the Service.</li></ol><ol type="1" id="3954ee8b-6d8b-808c-9bc4-dd6234722d61" class="numbered-list" start="4" dir="auto"><li>The Company is not liable for problems arising from the User’s Device environment or settings, including malware installation, and any resulting damage.</li></ol><ol type="1" id="3954ee8b-6d8b-80cc-9afb-f450a6490be1" class="numbered-list" start="5" dir="auto"><li>The Company is not liable for issues arising from access to sites impersonating the Service or to modified APK networks.</li></ol><ol type="1" id="3954ee8b-6d8b-809a-a353-fe6be54c5463" class="numbered-list" start="6" dir="auto"><li>The Company is not liable for damages caused by Device errors or by inaccurate personal information that prevents contact or notice.</li></ol><ol type="1" id="3954ee8b-6d8b-8001-8c72-f0776c787029" class="numbered-list" start="7" dir="auto"><li>Except where due to the willful misconduct or gross negligence of the Company or its employees, the Company is not responsible for loss of grades, items, or Content (excluding paid products purchased through the Company).</li></ol><ol type="1" id="3954ee8b-6d8b-8020-9864-cedbcc66fb57" class="numbered-list" start="8" dir="auto"><li>The Company is not responsible for problems arising from network environments not attributable to the Company.</li></ol><ol type="1" id="3954ee8b-6d8b-801f-aa26-c6c568e87ca3" class="numbered-list" start="9" dir="auto"><li>The Company may discontinue the Service for planning, operational, or urgent reasons with 30 days’ prior notice on the website. Users may not demand provision or claim compensation for Service discontinuation after the usage period of paid subscriptions or time-limited paid items has expired.</li></ol><ol type="1" id="3954ee8b-6d8b-80a7-b578-d52e596f19db" class="numbered-list numbered-list-digits-2" start="10" dir="auto"><li>The Company is not liable for damages arising from the User’s fault.</li></ol><h1 id="3954ee8b-6d8b-8093-8d70-e3ca0c3d6ac1" style="display:inline-block" dir="auto">Article 21 (Miscellaneous)</h1><p id="3954ee8b-6d8b-80df-8231-e4311294cc6d" class="" dir="auto">Matters not specified herein follow applicable laws and commercial practices.</p><h1 id="3954ee8b-6d8b-8043-94f2-ccbd36351bd9" style="display:inline-block" dir="auto">Article 22 (Jurisdiction)</h1><ol type="1" id="3954ee8b-6d8b-8090-b67c-e85a7dce477a" class="numbered-list" start="1" dir="auto"><li>These Terms and all disputes related to the Service are governed and construed under the laws of the Republic of Korea.</li></ol><ol type="1" id="3954ee8b-6d8b-8009-95da-c71a1a8461ba" class="numbered-list" start="2" dir="auto"><li>The Company and Users will first seek amicable resolution; if not resolved, actions may be brought before competent courts within the Republic of Korea.</li></ol><ol type="1" id="3954ee8b-6d8b-8054-ac12-e8d63898a025" class="numbered-list" start="3" dir="auto"><li>Where mandatory rules of the User’s country of residence apply, such rules prevail to the extent they cannot lawfully be excluded.</li></ol><h1 id="3954ee8b-6d8b-8077-915f-fd8e0fa3d80d" style="display:inline-block" dir="auto">Addendum</h1><p id="3954ee8b-6d8b-80fa-8ab5-f7419663535a" class="" dir="auto"><mark class="highlight-default" data-notion-highlight="default">Date of Notice: 07</mark><mark class="highlight-default" data-notion-highlight="default"><strong> </strong></mark><mark class="highlight-default" data-notion-highlight="default">06, 2026</mark></p><p id="3954ee8b-6d8b-80a4-9126-efd79a1bcbc5" class="" dir="auto"><mark class="highlight-default" data-notion-highlight="default">Effective Date: 07 06, 2026</mark></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

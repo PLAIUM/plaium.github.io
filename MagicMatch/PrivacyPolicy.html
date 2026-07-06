@@ -1,0 +1,768 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>PRIVACY POLICY</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="3954ee8b-6d8b-80c4-ab2f-de064a8aac11" class="page sans"><header><h1 class="page-title" dir="auto"><strong>PRIVACY POLICY</strong></h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h1 id="3954ee8b-6d8b-8096-b401-e4b31cc841bb" style="display:inline-block" dir="auto"><strong>Privacy Policy</strong></h1><p id="3954ee8b-6d8b-8089-a37a-eee6a15e5b08" class="" dir="auto"><strong>BY4M STUDIO Co., Ltd. </strong>(“the Company”) values the protection of users’ personal information and complies with the <strong>Personal Information Protection Act</strong> and other applicable laws and regulations.</p><p id="3954ee8b-6d8b-8008-8876-cf3bd7eb9cc2" class="" dir="auto">This Privacy Policy explains how the Company collects, uses, stores, and processes users’ personal information and informs users of their rights and obligations related to the use of our services.</p><hr id="3954ee8b-6d8b-8069-bdcb-c94e05f631e4" dir="auto"/><h2 id="3954ee8b-6d8b-801f-a917-fd1d52d02e79" style="display:inline-block" dir="auto"><strong>1. Items of Personal Information Collected and Methods of Collection</strong></h2><h3 id="3954ee8b-6d8b-8058-ba89-fb3c19f52bee" style="display:inline-block" dir="auto"><strong>1) Items of Personal Information Collected</strong></h3><p id="3954ee8b-6d8b-809d-8fa7-e30ac6754cf4" class="" dir="auto">The Company collects the following personal information in order to provide services.</p><p id="3954ee8b-6d8b-80a9-aa81-d7bd59c9f1b0" class="" dir="auto"><strong>① Mandatory information</strong></p><ul id="3954ee8b-6d8b-807f-a813-e554292726a4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>When using the game service</strong><ul id="3954ee8b-6d8b-808d-af76-c227e9be7686" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Nickname, Google/Apple account identifier, guest account identifier</li></ul><ul id="3954ee8b-6d8b-802f-9b38-e3ad8df601cb" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Device information (OS version, app version, language, and country)</li></ul><ul id="3954ee8b-6d8b-802f-ab43-e9cabac42893" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Service usage records (nickname, login ID, purchase history, access IP, access logs)</li></ul><ul id="3954ee8b-6d8b-80e0-81b9-c7619cf4b728" class="bulleted-list" dir="auto"><li style="list-style-type:circle">In-game chat records</li></ul></li></ul><ul id="3954ee8b-6d8b-80d1-9a6e-ef9391aacdbc" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>When contacting customer support</strong><ul id="3954ee8b-6d8b-8069-a39b-e739c744ffb3" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Required: Email address</li></ul><ul id="3954ee8b-6d8b-806f-819b-daae4688cbec" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Optional: Nickname, login ID, purchase history</li></ul></li></ul><p id="3954ee8b-6d8b-807d-bf2a-cf84cba1729b" class="" dir="auto"><strong>② Optional information</strong></p><ul id="3954ee8b-6d8b-80c9-aad9-c190b7e38e88" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Behavioral data for advertising and analytics</li></ul><ul id="3954ee8b-6d8b-8000-9000-f9588760394d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Advertising identifiers (AAID, IDFA), general location information (country/city)</li></ul><ul id="3954ee8b-6d8b-801a-b742-c75efe761da3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The Company does not store payment method information; however, it may process minimal transaction verification data such as transaction ID, date, and amount for payment confirmation.</li></ul><hr id="3954ee8b-6d8b-8097-b7a1-f7cac4bec11b" dir="auto"/><h3 id="3954ee8b-6d8b-800b-a817-e0c201b490da" style="display:inline-block" dir="auto"><strong>2) Methods of Collection</strong></h3><ul id="3954ee8b-6d8b-8049-83ed-da346ef45697" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Automatically collected during account registration and service use</li></ul><ul id="3954ee8b-6d8b-80c2-a4ed-dc0d4efcebcd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Collected during customer inquiries or event participation</li></ul><ul id="3954ee8b-6d8b-804e-84f5-c81189a671a8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Automatically collected through advertising and analytics services</li></ul><ul id="3954ee8b-6d8b-8046-bbf5-d659f1abe9e5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Collected from social login services (Apple, Google, etc.) with minimal authentication data from each platform</li></ul><hr id="3954ee8b-6d8b-8077-85c5-e6f76b833cdc" dir="auto"/><h2 id="3954ee8b-6d8b-807d-b81b-fffff87dcb91" style="display:inline-block" dir="auto"><strong>2. Purpose of Collection and Use of Personal Information</strong></h2><p id="3954ee8b-6d8b-8041-ade7-db7f959467cd" class="" dir="auto">The Company uses users’ personal information for the following purposes:</p><ul id="3954ee8b-6d8b-807d-ad56-d05430a2e6dc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Identity verification and account linkage</li></ul><ul id="3954ee8b-6d8b-80cb-a8ed-e990ceffba76" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Responding to customer inquiries and handling complaints</li></ul><ul id="3954ee8b-6d8b-8024-a1df-d6341625f9f2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Service operation and prevention of misuse</li></ul><ul id="3954ee8b-6d8b-80f9-88a0-f1101004053c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Providing advertisements and promotional offers</li></ul><ul id="3954ee8b-6d8b-80f2-bbc9-c97ee8d35426" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Retaining data to comply with legal obligations</li></ul><ul id="3954ee8b-6d8b-80e0-a56f-e9e369df1d56" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Improving service quality and functionality</li></ul><ul id="3954ee8b-6d8b-80d9-99a1-e5e8f47c3ea7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Security management, account protection, and fraud prevention</li></ul><ul id="3954ee8b-6d8b-80c4-9d28-c694fc8fdea6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Statistical and analytical purposes for service improvement</li></ul><p id="3954ee8b-6d8b-807f-b915-cce4ead69d15" class="" dir="auto">The Company processes personal information in accordance with applicable privacy laws,<br/>including the Personal Information Protection Act of the Republic of Korea, the GDPR,<br/>and other relevant regulations, based on consent, contract performance,<br/>legal obligations, or legitimate interests.</p><hr id="3954ee8b-6d8b-8004-9c0a-ff629848d79a" dir="auto"/><h2 id="3954ee8b-6d8b-8024-8223-f230a0540f09" style="display:inline-block" dir="auto"><strong>3. Retention and Use Period of Personal Information</strong></h2><p id="3954ee8b-6d8b-80f1-9d7f-f5137717abe4" class="" dir="auto">① The Company destroys personal information <strong>without delay</strong> once the purpose of collection and use has been achieved.</p><p id="3954ee8b-6d8b-8041-b5ff-ffedf63e5888" class="" dir="auto">② However, certain information is retained for a specific period as required by applicable laws.</p><table id="3954ee8b-6d8b-809f-af0b-ef1c701b44b4" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3954ee8b-6d8b-8021-af51-fac13d082500" dir="ltr"><th id="tSr~" class="simple-table-header-color simple-table-header">Information Retained</th><th id="JxA@" class="simple-table-header-color simple-table-header">Retention Period</th><th id=":Q:H" class="simple-table-header-color simple-table-header">Legal Basis</th></tr></thead><tbody><tr id="3954ee8b-6d8b-806f-80f8-e01b8d0643d8" dir="ltr"><td id="tSr~" class="">Records of contracts and withdrawal of subscriptions</td><td id="JxA@" class="">5 years</td><td id=":Q:H" class="">Act on Consumer Protection in Electronic Commerce</td></tr><tr id="3954ee8b-6d8b-80e6-9630-c027d837f6a7" dir="ltr"><td id="tSr~" class="">Records of payment and supply of goods</td><td id="JxA@" class="">5 years</td><td id=":Q:H" class="">Act on Consumer Protection in Electronic Commerce</td></tr><tr id="3954ee8b-6d8b-8001-88a1-dd8571a3199e" dir="ltr"><td id="tSr~" class="">Records of customer complaints and dispute resolution</td><td id="JxA@" class="">3 years</td><td id=":Q:H" class="">Act on Consumer Protection in Electronic Commerce</td></tr><tr id="3954ee8b-6d8b-8091-8fca-e4b6b755cfd9" dir="ltr"><td id="tSr~" class="">Service usage records</td><td id="JxA@" class="">3 months</td><td id=":Q:H" class="">Protection of Communications Secrets Act</td></tr></tbody></table><hr id="3954ee8b-6d8b-80b4-9d4e-e7e84004a2da" dir="auto"/><h2 id="3954ee8b-6d8b-8093-b91f-e2028d785176" style="display:inline-block" dir="auto"><strong>4. Provision and Entrustment of Personal Information</strong></h2><h3 id="3954ee8b-6d8b-80d2-ba45-d21edc4ca4e8" style="display:inline-block" dir="auto"><strong>1) Provision to Third Parties</strong></h3><p id="3954ee8b-6d8b-80ae-b3df-d1a7661be7a6" class="" dir="auto">The Company does not provide users’ personal information to external parties by default.</p><p id="3954ee8b-6d8b-8077-ac5f-feb1c46b0579" class="" dir="auto">However, personal information may be provided without consent in the following cases:</p><ul id="3954ee8b-6d8b-8052-ad9b-d1c7bb4b70fb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">When required by law</li></ul><ul id="3954ee8b-6d8b-800d-818b-f22e4ec69743" class="bulleted-list" dir="auto"><li style="list-style-type:disc">When requested by a court or investigative agency through lawful procedures</li></ul><h3 id="3954ee8b-6d8b-803f-bddd-e8662e670184" style="display:inline-block" dir="auto"><strong>2) Entrustment of Personal Information Processing</strong></h3><p id="3954ee8b-6d8b-80dd-8708-c1811ede04a4" class="" dir="auto">The Company may entrust the processing of personal information to the following entities to operate its services.</p><table id="3954ee8b-6d8b-80e2-bfb4-c7338c9a096d" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3954ee8b-6d8b-8076-86c8-d85a48c246f7" dir="ltr"><th id="&lt;BWU" class="simple-table-header-color simple-table-header">Entrusted Company</th><th id="j`c~" class="simple-table-header-color simple-table-header">Purpose of Entrustment</th></tr></thead><tbody><tr id="3954ee8b-6d8b-8039-a476-cda0f2a455e0" dir="ltr"><td id="&lt;BWU" class="">Plaium Co., Ltd.</td><td id="j`c~" class="">Game user database management</td></tr></tbody></table><hr id="3954ee8b-6d8b-8099-b28f-f1df6103d685" dir="auto"/><h2 id="3954ee8b-6d8b-8052-b1bf-e6375be4537f" style="display:inline-block" dir="auto"><strong>5. Overseas Transfer of Personal Information</strong></h2><p id="3954ee8b-6d8b-80ab-9333-d1081ddb2c3d" class="" dir="auto">The Company may transfer personal information overseas for service operation and data storage.</p><table id="3954ee8b-6d8b-8017-b875-fbc7dd926bad" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3954ee8b-6d8b-8005-b529-e7bf086ed756" dir="ltr"><th id="vCdl" class="simple-table-header-color simple-table-header">Recipient</th><th id="PRs`" class="simple-table-header-color simple-table-header">Country</th><th id="_It&gt;" class="simple-table-header-color simple-table-header">Data Transferred</th><th id="diEy" class="simple-table-header-color simple-table-header">Purpose of Use</th><th id="w?&lt;?" class="simple-table-header-color simple-table-header">Retention Period</th></tr></thead><tbody><tr id="3954ee8b-6d8b-8062-9cce-cc82255ea3a0" dir="ltr"><td id="vCdl" class="">-</td><td id="PRs`" class="">-</td><td id="_It&gt;" class="">-</td><td id="diEy" class="">-</td><td id="w?&lt;?" class="">-</td></tr></tbody></table><hr id="3954ee8b-6d8b-80f7-83c6-dead1e8f8c67" dir="auto"/><h2 id="3954ee8b-6d8b-80e8-87ea-c3b8e70bfd8c" style="display:inline-block" dir="auto"><strong>6. Procedures and Methods of Personal Information Destruction</strong></h2><p id="3954ee8b-6d8b-8054-9dff-db86321b5189" class="" dir="auto">① Personal information will be destroyed immediately once the retention period has expired or the purpose of processing has been achieved.</p><p id="3954ee8b-6d8b-807f-bedb-e25e44651ec6" class="" dir="auto">② Electronic files: Deleted using technical methods that prevent recovery.</p><p id="3954ee8b-6d8b-804b-a7ef-cf5e387d77dc" class="" dir="auto">③ Paper documents: Shredded or incinerated.</p><hr id="3954ee8b-6d8b-8021-ace5-c4e2bb7dcb3d" dir="auto"/><h2 id="3954ee8b-6d8b-80b2-8976-d203bed6e91c" style="display:inline-block" dir="auto"><strong>7. Users’ Rights and Exercise Methods</strong></h2><p id="3954ee8b-6d8b-8056-abaf-fe6a4091c823" class="" dir="auto">① Users may request access, correction, or deletion of their personal information.</p><p id="3954ee8b-6d8b-80df-8ae4-feb0c3f46811" class="" dir="auto">② Request methods:</p><ul id="3954ee8b-6d8b-800d-8e5c-df9b159ecb8b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">By contacting the customer support email (<a href="mailto:customerservice@plaium.com">customerservice@plaium.com</a>)</li></ul><ul id="3954ee8b-6d8b-803d-9c11-c385580f28ac" class="bulleted-list" dir="auto"><li style="list-style-type:disc">By contacting the Data Protection Officer (DPO)</li></ul><p id="3954ee8b-6d8b-8013-a5ac-f208355a7527" class="" dir="auto">③ Users also have the following additional rights:</p><ul id="3954ee8b-6d8b-8007-8bf0-f56b09af7a04" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Right to restrict or object to processing</li></ul><ul id="3954ee8b-6d8b-801f-a5b6-da284a57e08c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Right to data portability</li></ul><ul id="3954ee8b-6d8b-80b2-b754-f0cefcc572e5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Right to withdraw consent</li></ul><ul id="3954ee8b-6d8b-805f-af56-e82a403d8a06" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Right to lodge a complaint with a supervisory authority</li></ul><p id="3954ee8b-6d8b-8099-a6c6-df027a5c5d0e" class="" dir="auto">④ The Company will respond to such requests within 30 days of receipt.</p><p id="3954ee8b-6d8b-80f6-804c-c377cb271272" class="" dir="auto">⑤ Identity verification procedures may be required to confirm the requester’s identity.</p><hr id="3954ee8b-6d8b-8084-b87d-dec706e8bbe8" dir="auto"/><h2 id="3954ee8b-6d8b-800b-b731-d41c51eba7a6" style="display:inline-block" dir="auto"><strong>8. Automatic Collection of Personal Information and Refusal Methods</strong></h2><p id="3954ee8b-6d8b-80a1-96f5-c263aa148ba8" class="" dir="auto">① The Company may use cookies and advertising identifiers for user convenience.</p><p id="3954ee8b-6d8b-803c-9b13-f3365acb5d94" class="" dir="auto">② Users may disable interest-based advertising by adjusting device settings.</p><ul id="3954ee8b-6d8b-8060-a972-fe5fad4ac005" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Android</strong>: Settings &gt; Google &gt; Ads &gt; Delete Advertising ID or Opt out of interest-based ads</li></ul><ul id="3954ee8b-6d8b-80b6-8a45-eb56a2fe7bbf" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>iOS</strong>: Settings &gt; Privacy &amp; Security &gt; Tracking &gt; Turn off “Allow Apps to Request to Track”</li></ul><hr id="3954ee8b-6d8b-803e-89dd-de56c310d8e3" dir="auto"/><h2 id="3954ee8b-6d8b-805a-bc03-fb09e35c7650" style="display:inline-block" dir="auto"><strong>9. Protection and Security Measures</strong></h2><p id="3954ee8b-6d8b-8011-a8e5-cb92e9f13daa" class="" dir="auto">① Establishing internal security policies and employee training</p><p id="3954ee8b-6d8b-802a-9c93-e0931ddebbbd" class="" dir="auto">② Encrypting data and restricting access</p><p id="3954ee8b-6d8b-809b-a1ea-f68b6c2a7fd4" class="" dir="auto">③ Operating security systems to prevent hacking and viruses</p><p id="3954ee8b-6d8b-80cf-9f55-eebaa6598cd6" class="" dir="auto">④ Minimizing access rights and conducting regular audits</p><hr id="3954ee8b-6d8b-80be-a95a-f647f133db35" dir="auto"/><h2 id="3954ee8b-6d8b-80e3-9cfb-f160f39a0961" style="display:inline-block" dir="auto"><strong>10. Protection of Children’s Personal Information</strong></h2><p id="3954ee8b-6d8b-8011-85c0-ef1f68301bee" class="" dir="auto">① The Company does not collect personal information from children under 13 years old (or under 16 years old in some regions such as the EU) without the consent of a legal guardian.</p><p id="3954ee8b-6d8b-809a-a366-d9b3b1584da8" class="" dir="auto">② If such collection is confirmed, the Company will promptly delete the information.</p><p id="3954ee8b-6d8b-8093-b56a-d66dc60d854a" class="" dir="auto">③ Where guardian consent is required, the Company will verify it through lawful procedures before processing.</p><hr id="3954ee8b-6d8b-8022-b72e-d6f52ad00976" dir="auto"/><h2 id="3954ee8b-6d8b-8032-9ed3-fda8503930f3" style="display:inline-block" dir="auto"><strong>11. Additional Regional Notices</strong></h2><ul id="3954ee8b-6d8b-80af-bda1-f72d01407da0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>EU/EEA/UK:</strong> Users have the right to lodge a complaint with a Data Protection Authority (DPA). When personal data is transferred overseas, the Company applies appropriate safeguards under the GDPR Standard Contractual Clauses (SCC).</li></ul><ul id="3954ee8b-6d8b-80ad-8f85-eaea19c0818f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>United States (California, etc.):</strong> Users have the right to access, delete, and opt out of the sharing of personal information, and the Company will not discriminate for exercising such rights.</li></ul><ul id="3954ee8b-6d8b-8059-a4be-e791ab862216" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Brazil:</strong> Users may exercise their rights under the LGPD by contacting the Company’s Data Protection Officer.</li></ul><hr id="3954ee8b-6d8b-80ae-a26c-ce7f59b33cf6" dir="auto"/><h2 id="3954ee8b-6d8b-80fa-b9c2-f9f1f0375763" style="display:inline-block" dir="auto"><strong>12. Data Protection Officer</strong></h2><p id="3954ee8b-6d8b-8087-b914-f6e3df5ffd24" class="" dir="auto">The Company designates the following person as the Data Protection Officer (DPO) responsible for protecting personal information and handling related complaints.</p><ul id="3954ee8b-6d8b-80d9-a394-eb04a8be7d19" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Data Protection Officer: Kwangteak Mo</li></ul><ul id="3954ee8b-6d8b-805c-9986-cb6d6f970be8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Email: <a href="mailto:kwangteak.mo@by4m.co.kr">kwangteak.mo@by4m.co.kr</a></li></ul><ul id="3954ee8b-6d8b-808b-9610-e98075971dbe" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Tel: 070-4161-5111</li></ul><p id="3954ee8b-6d8b-80c5-b3f9-f06b6e90f1c6" class="" dir="auto">Users may report any privacy-related issues arising from the use of the Company’s services to the DPO.</p><p id="3954ee8b-6d8b-80a4-8530-f60adf211d00" class="" dir="auto">For further inquiries or complaints regarding privacy infringement, users may contact the following authorities:</p><ul id="3954ee8b-6d8b-803f-a041-e69287b1b85a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Personal Information Infringement Report Center</strong>: 118 (without area code) (privacy.kisa.or.kr)</li></ul><ul id="3954ee8b-6d8b-8053-81a8-d46ece218d94" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Personal Information Dispute Mediation Committee</strong>: 1833-6972 (<a href="http://www.kopico.go.kr/">www.kopico.go.kr</a>)</li></ul><ul id="3954ee8b-6d8b-8049-bdca-f6e78d72bf18" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Supreme Prosecutors’ Office Online Civil Service Center</strong>: 1301 (without area code) (<a href="https://www.spo.go.kr/site/spo/01/10102020100002018120702.jsp">https://www.spo.go.kr/site/spo/01/10102020100002018120702.jsp</a>)</li></ul><ul id="3954ee8b-6d8b-802b-be99-eed9490a571d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Korean National Police Agency Cybercrime Reporting System</strong>: 182 (without area code) (<a href="https://ecrm.police.go.kr/minwon/main">https://ecrm.police.go.kr/minwon/main</a>)</li></ul><hr id="3954ee8b-6d8b-80cb-8d48-cfe0b066c52f" dir="auto"/><h2 id="3954ee8b-6d8b-8087-b0b2-d9e32f9dca32" style="display:inline-block" dir="auto"><strong>13. Miscellaneous</strong></h2><p id="3954ee8b-6d8b-802a-bfef-f7d2e6687f49" class="" dir="auto"><mark class="highlight-default" data-notion-highlight="default">① This Privacy Policy shall take effect on Date of Implementation: 2026-07-06.</mark></p><p id="3954ee8b-6d8b-808f-8dd1-fa4f09a4ac89" class="" dir="auto"><mark class="highlight-default" data-notion-highlight="default">② Any changes to this Policy will be announced at least 7 days in advance, and significant changes will be announced 30 days in advance.</mark></p><p id="3954ee8b-6d8b-80ff-a467-dae3aca2943e" class="" dir="auto"><mark class="highlight-default" data-notion-highlight="default">Privacy Policy Version: 2026.07.06</mark></p><p id="3954ee8b-6d8b-8051-b38d-f17ab5c385db" class="" dir="auto"><mark class="highlight-default" data-notion-highlight="default">Effective Date: 2026.07.06</mark></p><p id="3954ee8b-6d8b-80d6-b5d0-e17f201fef21" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
