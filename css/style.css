@@ -358,6 +358,10 @@ ul {
   z-index: 0;
 }
 
+.game-band + .game-band {
+  margin-top: 120px;
+}
+
 .game-band-aliens {
   background-image: url('../images/games_background.png');
 }
@@ -592,6 +596,10 @@ ul {
   /* Games */
   .game-band {
     padding: 64px 0;
+  }
+
+  .game-band + .game-band {
+    margin-top: 80px;
   }
 
   .games-container {
