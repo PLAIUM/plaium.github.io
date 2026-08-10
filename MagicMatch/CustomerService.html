@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>티니핑 매직매치 고객센터</title>
+  <style>
+    /* 전체 페이지 스타일 */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* 내용이 짧아도 푸터가 화면 하단에 붙도록 */
+    }
+
+    /* 본문 컨테이너: 가운데 정렬 + 데스크톱 줄 길이 제한 */
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* 언어 전환 링크: 본문 컬럼 최상단 오른쪽 */
+    .lang-switch {
+      text-align: right;
+      font-size: 12px;
+      color: #c5c5c5; /* 구분자(|) 색 */
+      margin: 0 0 14px;
+    }
+
+    .lang-switch a {
+      color: #666;
+      text-decoration: none;
+      margin: 0 2px;
+      white-space: nowrap;
+    }
+
+    .lang-switch a:hover {
+      text-decoration: underline;
+    }
+
+    .lang-switch a.active {
+      color: #2E6BE6; /* 현재 언어는 포인트 컬러 강조 */
+      font-weight: bold;
+      cursor: default;
+      text-decoration: none;
+    }
+
+    /* 제목 스타일 */
+    h1 {
+      color: #2E6BE6;
+      font-size: 24px;
+      margin-bottom: 20px; /* 제목과 본문 간 간격 */
+    }
+
+    /* 본문 텍스트 스타일 */
+    p {
+      font-size: 14px; /* 본문 폰트 크기 */
+      line-height: 1.6; /* 줄 간격 */
+      color: #333; /* 텍스트 색상 */
+      margin-bottom: 15px; /* 아래 간격 */
+    }
+
+    /* 본문 정보성 텍스트 링크(공식 커뮤니티 등): 버튼 대신 은은한 링크 */
+    p a {
+      color: #2E6BE6;
+      text-decoration: none;
+    }
+
+    p a:hover {
+      text-decoration: underline;
+    }
+
+    /* 레이블 기본 스타일 */
+    label {
+      font-weight: bold;
+      margin-top: 10px; /* 필드 간격 */
+      display: block; /* 한 줄 차지 */
+    }
+
+    select, button {
+      width: 100%; /* 필드 전체 넓이 */
+      margin: 10px 0; /* 필드 간 간격 */
+      padding: 10px; /* 안쪽 여백 */
+      font-size: 16px; /* 폰트 크기 */
+      border: 1px solid #ddd; /* 테두리 */
+      border-radius: 5px; /* 둥근 모서리 */
+      box-sizing: border-box; /* 넓이 계산 포함 */
+    }
+
+    /* 버튼 스타일 */
+    button {
+      background-color: #2E6BE6; /* 버튼 배경색 */
+      color: white; /* 텍스트 색상 */
+      cursor: pointer; /* 마우스 커서 변경 */
+      border: none; /* 테두리 없음 */
+      transition: background-color 0.3s ease; /* 호버 효과 */
+    }
+
+    button:hover {
+      background-color: #1E4FC4; /* 호버 시 어두운 색상 */
+    }
+
+    /* 출력 박스 스타일 */
+    .output {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    }
+
+    /* 링크 버튼 스타일 */
+    .button-link {
+      display: inline-block;
+      margin: 10px 0;
+      padding: 10px 20px;
+      background-color: #2E6BE6;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 14px;
+      text-align: center;
+      transition: background-color 0.3s ease; /* 호버 효과 */
+    }
+
+    .button-link:hover {
+      background-color: #1E4FC4; /* 호버 시 어두운 색상 */
+    }
+
+    /* 버튼 아래 대체 접수 안내 문구 */
+    .fallback-note {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.6;
+      margin: 8px 0 0;
+    }
+
+    .fallback-note a {
+      color: #2E6BE6;
+      text-decoration: underline;
+    }
+
+    /* 하단 약관/정책/확률표 푸터: 화면 폭 전체 밴드 */
+    .policy-links {
+      margin-top: 30px;
+      padding: 18px 0;
+      background-color: #1D3E8A; /* 포인트 컬러(#2E6BE6) 계열 진한 네이비 */
+    }
+
+    /* 푸터 안쪽 텍스트: 본문과 같은 720px 컬럼에 왼쪽 정렬 */
+    .policy-links .inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    .policy-links h2 {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.75);
+      margin: 0 0 10px;
+    }
+
+    /* 현재 언어의 문서 링크 3종을 가로로 배치 */
+    .policy-links .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 32px;
+    }
+
+    .policy-links a {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .policy-links a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    /* 모바일 반응형 스타일 */
+    @media (max-width: 600px) {
+      main {
+        padding: 12px;
+      }
+
+      .lang-switch {
+        font-size: 11px;
+      }
+
+      .policy-links .inner {
+        padding: 0 12px;
+      }
+
+      .policy-links .links {
+        gap: 10px 20px;
+      }
+
+      select, button {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 10px;
+      }
+
+      .fallback-note {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+  <nav class="lang-switch" id="lang-switch">
+    <a href="#" data-lang="ko">KR</a> |
+    <a href="#" data-lang="en">EN</a>
+  </nav>
+
+  <h1 id="t-h1">티니핑 매직매치 고객센터</h1>
+  <p id="t-intro">문의 유형을 선택하신 후 <strong>[문의 접수]</strong> 버튼을 누르시면 접수 방법을 안내해 드립니다.</p>
+  <p id="t-csmail">고객센터 메일 : <strong>magicmatch-cs@plaium.com</strong></p>
+  <p id="t-community">공식 커뮤니티 : <a href="https://discord.gg/RXyRbQyMgH" target="_blank" rel="noopener">Discord</a></p>
+
+  <label for="category" id="t-cat-label">문의 유형:</label>
+  <select id="category">
+    <option value="">문의 유형을 선택하세요</option>
+    <option value="account">계정 문의</option>
+    <option value="refund">결제취소/환불</option>
+    <option value="bug">버그/오류 제보</option>
+    <option value="suggestion">건의사항</option>
+  </select>
+
+  <button id="t-submit" onclick="handleInquiry()">문의 접수</button>
+
+  <div id="output" class="output" style="display: none;">
+    <p id="message"></p>
+    <div id="links"></div>
+  </div>
+  </main>
+
+  <footer class="policy-links">
+    <div class="inner">
+    <h2 id="t-footer-h2">약관 및 개인정보 처리 방침</h2>
+    <div class="links" id="footer-links">
+      <a href="https://www.plaium.com/MagicMatch/ServicePolicyKR.html" target="_blank" rel="noopener">서비스 이용약관</a>
+      <a href="https://www.plaium.com/MagicMatch/PrivacyPolicyKR.html" target="_blank" rel="noopener">개인정보 처리방침</a>
+      <a href="https://www.plaium.com/MagicMatch/SummonRatesKR.html" target="_blank" rel="noopener">소환 확률표</a>
+    </div>
+    </div>
+  </footer>
+
+  <script>
+    const CS_EMAIL = 'magicmatch-cs@plaium.com';
+    const DISCORD_URL = 'https://discord.gg/RXyRbQyMgH';
+    const LANG_KEY = 'mm_cs_lang';
+
+    /* 비한국어 공용: 영문 문서 링크 3종 (약관/개인정보/확률표는 KR·EN 2종만 존재) */
+    const FOOTER_LINKS_EN = [
+      { label: 'TERMS OF SERVICE', href: 'https://www.plaium.com/MagicMatch/ServicePolicy.html' },
+      { label: 'PRIVACY POLICY', href: 'https://www.plaium.com/MagicMatch/PrivacyPolicy.html' },
+      { label: 'SUMMON RATES', href: 'https://www.plaium.com/MagicMatch/SummonRates.html' }
+    ];
+
+    /*
+     * 언어별 문자열 사전.
+     * - 메일 제목(subject)의 게임 식별 태그는 유형 분류를 위해 유지:
+     *   한국어는 [티니핑 매직매치], 비한국어는 영문 [Teenieping Magic Match]로 고정.
+     * - csMail의 {email}, community의 {link}, fallbackNote의 {copyLink}/{email}은 렌더 시 치환.
+     * - copyTo/copySubject는 구분자까지 포함.
+     */
+    const I18N = {
+      ko: {
+        langAttr: 'ko',
+        title: '티니핑 매직매치 고객센터',
+        h1: '티니핑 매직매치 고객센터',
+        intro: '문의 유형을 선택하신 후 <strong>[문의 접수]</strong> 버튼을 누르시면 접수 방법을 안내해 드립니다.',
+        csMail: '고객센터 메일 : <strong>{email}</strong>',
+        community: '공식 커뮤니티 : {link}',
+        categoryLabel: '문의 유형:',
+        placeholder: '문의 유형을 선택하세요',
+        options: {
+          account: '계정 문의',
+          refund: '결제취소/환불',
+          bug: '버그/오류 제보',
+          suggestion: '건의사항'
+        },
+        submit: '문의 접수',
+        alertSelect: '문의 유형을 선택해주세요.',
+        fallbackNote: '버튼을 눌러도 메일 작성 화면이 열리지 않거나 다른 메일 서비스를 이용하시는 경우,<br>{copyLink} 후 <strong>{email}</strong> 주소로 보내주세요.<br>답변은 보내주신 메일 주소로 회신됩니다.',
+        copyLinkLabel: '문의 양식 복사',
+        copyDone: '복사 완료 ✓',
+        copyFail: '자동 복사가 지원되지 않는 환경입니다.',
+        copyTo: '받는 사람: ',
+        copySubject: '제목: ',
+        footerH2: '약관 및 개인정보 처리 방침',
+        footerLinks: [
+          { label: '서비스 이용약관', href: 'https://www.plaium.com/MagicMatch/ServicePolicyKR.html' },
+          { label: '개인정보 처리방침', href: 'https://www.plaium.com/MagicMatch/PrivacyPolicyKR.html' },
+          { label: '소환 확률표', href: 'https://www.plaium.com/MagicMatch/SummonRatesKR.html' }
+        ],
+        inquiries: {
+          account: {
+            label: '계정 문의 접수하기',
+            subject: '[티니핑 매직매치][계정] 문의 접수',
+            body: '1.문의 내용 : ',
+            message: `
+              안녕하세요. 티니핑 매직매치 CS팀입니다.<br><br>
+              티니핑 매직매치는 <strong>구글 혹은 애플 계정으로 게임 계정을 연동</strong>할 수 있습니다.<br><br>
+
+              <strong>[계정 연동하기]</strong><br>
+              로비 > 우상단 [설정] > [내 정보 관리] > [계정 연동하기]에서<br>
+              계정을 연동할 수 있습니다.<br><br>
+
+              <strong>[연동한 계정으로 로그인]</strong><br>
+              로비 > 우상단 [설정] > [내 정보 관리] > [다른 계정으로 로그인]에서<br>
+              연동했던 계정으로 로그인할 수 있습니다.<br><br>
+
+              그 외 다른 계정 관련 문의사항이 있는 경우,<br>
+              아래 버튼을 눌러 문의 접수를 부탁드립니다.
+            `
+          },
+          refund: {
+            label: '환불 신청하기',
+            subject: '[티니핑 매직매치][환불] 문의 접수',
+            body: '1.결제 상품명 : \r\n2.주문 번호(구글 거래 ID/애플 주문 ID) : \r\n3.스토어(구글 플레이/iOS 앱스토어) : \r\n4.계정 식별 번호 : \r\n5.문의 내용 : ',
+            message: `
+              안녕하세요. 티니핑 매직매치 CS팀입니다.<br><br>
+              <strong><u>결제 취소 요청은 재화를 사용하지 않은 상태에서 7일 이내</u></strong>에
+              <br>문의 접수를 주셔야 가능하며, 즉시 적용되는 상품은 환불이 되지 않습니다.<br><br>
+
+              결제 문의 접수 시 아래 정보를 포함하여 문의 접수를 부탁드립니다.<br><br>
+
+              <strong>1. 구글 플레이스토어</strong><br>
+              (1) 결제 취소를 원하는 상품의 ‘구글 플레이스토어 거래 ID’ 확인<br>
+              → [구글 결제 센터 로그인] > [거래 내역] > 상품 선택 > 거래 ID 확인 (GPA.0000-0000-0000-00000 형식)<br>
+              (2) 아래 버튼을 클릭하여 문의 접수<br><br>
+
+              <strong>2. 애플 앱스토어</strong><br>
+              (1) 결제 취소를 원하는 상품의 영수증(주문 ID) 확인<br>
+              → 애플에서 발송한 영수증 메일 확인 또는 [설정] > [사용자 이름] > [미디어 및 구입 항목] > [구입 내역]에서 확인<br>
+              (2) 영수증 정보를 포함하여 아래 버튼을 클릭해 문의 접수<br><br>
+
+              <strong>3. 계정 식별 번호</strong><br>
+              로비 > 우상단 [설정] > [내 정보 관리]에서 계정 식별 번호를 확인하실 수 있습니다.<br>
+              문의 접수 시 계정 식별 번호를 함께 기재해 주세요.<br><br>
+
+              * <strong>고객센터 문의를 거치지 않고 스토어 환불을 진행하시는 경우, 결제 어뷰징으로 게임 영구 이용 제한이 될 수 있습니다.</strong><br>
+            `
+          },
+          bug: {
+            label: '버그/오류 제보하기',
+            subject: '[티니핑 매직매치][오류] 문의 접수',
+            body: '1.오류 내용 : \r\n2.발생 전후 정황 : \r\n* 발생한 현상의 스크린샷이 있다면 함께 첨부해 주세요.',
+            message: `
+              안녕하세요. 티니핑 매직매치 CS팀입니다.<br><br>
+              보내주신 정보를 토대로 해당 오류에 대해 확인해보겠습니다.<br>
+              <strong><u>발생한 현상의 스크린샷, 발생 전후의 정황</u></strong>을 함께 보내주실 경우,<br>
+              오류 원인 파악 및 수정에 많은 도움이 됩니다.<br><br>
+
+              소중한 제보에 감사드리며, 빠르게 확인하여 개선할 수 있도록 노력하겠습니다.
+            `
+          },
+          suggestion: {
+            label: '건의사항 접수하기',
+            subject: '[티니핑 매직매치][건의] 문의 접수',
+            body: '1.문의 내용 : ',
+            message: `
+              안녕하세요. 티니핑 매직매치 CS팀입니다.<br><br>
+
+              건의사항은 아래 문의하기로 보내주시면<br>
+              <strong><u>꼼꼼하게 확인하여 적용 가능하도록 노력</u></strong>하겠습니다.
+            `
+          }
+        }
+      },
+
+      en: {
+        langAttr: 'en',
+        title: 'Teenieping Magic Match Customer Support',
+        h1: 'Teenieping Magic Match Customer Support',
+        intro: 'Select an inquiry type and press the <strong>[Submit Inquiry]</strong> button, and we will guide you through how to submit your inquiry.',
+        csMail: 'Customer Support Email: <strong>{email}</strong>',
+        community: 'Official Community: {link}',
+        categoryLabel: 'Inquiry Type:',
+        placeholder: 'Select an inquiry type',
+        options: {
+          account: 'Account',
+          refund: 'Payment Cancellation / Refund',
+          bug: 'Bug / Error Report',
+          suggestion: 'Suggestion'
+        },
+        submit: 'Submit Inquiry',
+        alertSelect: 'Please select an inquiry type.',
+        fallbackNote: 'If the email compose window does not open, or if you use another email service,<br>please {copyLink} and send it to <strong>{email}</strong>.<br>Our reply will be sent to the email address you write from.',
+        copyLinkLabel: 'copy the inquiry template',
+        copyDone: 'Copied ✓',
+        copyFail: 'Automatic copying is not supported in this environment.',
+        copyTo: 'To: ',
+        copySubject: 'Subject: ',
+        footerH2: 'Terms & Policies',
+        footerLinks: FOOTER_LINKS_EN,
+        inquiries: {
+          account: {
+            label: 'Submit Account Inquiry',
+            subject: '[Teenieping Magic Match][Account] Inquiry',
+            body: '1. Details: ',
+            message: `
+              Hello, this is the Teenieping Magic Match CS Team.<br><br>
+              You can <strong>link your game account with a Google or Apple account</strong>.<br><br>
+
+              <strong>[Link Your Account]</strong><br>
+              Go to Lobby > [Settings] (top right) > [Manage My Info] > [Link Account]<br>
+              to link your game account.<br><br>
+
+              <strong>[Sign In with a Linked Account]</strong><br>
+              Go to Lobby > [Settings] (top right) > [Manage My Info] > [Sign in with Another Account]<br>
+              to sign in with the account you previously linked.<br><br>
+
+              If you have any other account-related questions,<br>
+              please submit an inquiry using the button below.
+            `
+          },
+          refund: {
+            label: 'Request a Refund',
+            subject: '[Teenieping Magic Match][Refund] Inquiry',
+            body: '1. Purchased item name: \r\n2. Order number (Google transaction ID / Apple order ID): \r\n3. Store (Google Play / iOS App Store): \r\n4. Account identification number: \r\n5. Details: ',
+            message: `
+              Hello, this is the Teenieping Magic Match CS Team.<br><br>
+              <strong><u>Payment cancellation is only possible within 7 days of purchase, and only if the purchased items have not been used.</u></strong><br>
+              Items that take effect immediately upon purchase are non-refundable.<br><br>
+
+              Please include the following information when submitting a payment inquiry.<br><br>
+
+              <strong>1. Google Play Store</strong><br>
+              (1) Check the ‘Google Play Store transaction ID’ of the item you wish to cancel<br>
+              → [Sign in to Google Payments Center] > [Transaction history] > select the item > check the transaction ID (format: GPA.0000-0000-0000-00000)<br>
+              (2) Click the button below to submit your inquiry<br><br>
+
+              <strong>2. Apple App Store</strong><br>
+              (1) Check the receipt (order ID) of the item you wish to cancel<br>
+              → Check the receipt email sent by Apple, or go to [Settings] > [Your Name] > [Media & Purchases] > [Purchase History]<br>
+              (2) Include the receipt information and click the button below to submit your inquiry<br><br>
+
+              <strong>3. Account Identification Number</strong><br>
+              You can find your account identification number in Lobby > [Settings] (top right) > [Manage My Info].<br>
+              Please include it when submitting your inquiry.<br><br>
+
+              * <strong>If you request a refund directly from the store without contacting Customer Support first, your access to the game may be permanently restricted due to payment abuse.</strong><br>
+            `
+          },
+          bug: {
+            label: 'Report a Bug',
+            subject: '[Teenieping Magic Match][Bug] Inquiry',
+            body: '1. Issue description: \r\n2. What happened before and after: \r\n* Please attach a screenshot of the issue if available.',
+            message: `
+              Hello, this is the Teenieping Magic Match CS Team.<br><br>
+              We will investigate the issue based on the information you send us.<br>
+              Including a <strong><u>screenshot of the issue and what happened before and after it occurred</u></strong><br>
+              helps us greatly in identifying and fixing the cause.<br><br>
+
+              Thank you for your valuable report — we will review it promptly and work on improvements.
+            `
+          },
+          suggestion: {
+            label: 'Send a Suggestion',
+            subject: '[Teenieping Magic Match][Suggestion] Inquiry',
+            body: '1. Details: ',
+            message: `
+              Hello, this is the Teenieping Magic Match CS Team.<br><br>
+
+              Please send us your suggestions through the inquiry below.<br>
+              We will <strong><u>review them carefully and do our best to apply them</u></strong>.
+            `
+          }
+        }
+      }
+    };
+
+    let curLang = 'ko';
+
+    /* 브라우저/URL 언어 코드를 지원 언어 2종(ko/en) 중 하나로 정규화 (미지원이면 null) */
+    function normalizeLang(code) {
+      if (!code) return null;
+      const c = String(code).toLowerCase().replace(/_/g, '-');
+      if (c.startsWith('ko')) return 'ko';
+      if (c.startsWith('en')) return 'en';
+      return null;
+    }
+
+    /* 우선순위: URL ?lang= > localStorage(수동 선택) > 브라우저 언어 목록 > en */
+    function detectLang() {
+      const fromParam = normalizeLang(new URLSearchParams(location.search).get('lang'));
+      if (fromParam) return fromParam;
+
+      try {
+        const saved = localStorage.getItem(LANG_KEY);
+        if (saved && I18N[saved]) return saved;
+      } catch (e) { /* localStorage 차단 환경 */ }
+
+      const prefs = (navigator.languages && navigator.languages.length)
+        ? navigator.languages
+        : [navigator.language || 'en'];
+      for (const pref of prefs) {
+        const match = normalizeLang(pref);
+        if (match) return match;
+      }
+      return 'en';
+    }
+
+    function setLang(code, persist) {
+      curLang = I18N[code] ? code : 'en';
+      const t = I18N[curLang];
+
+      if (persist) {
+        try { localStorage.setItem(LANG_KEY, curLang); } catch (e) { /* localStorage 차단 환경 */ }
+      }
+
+      document.documentElement.lang = t.langAttr;
+      document.title = t.title;
+      document.getElementById('t-h1').textContent = t.h1;
+      document.getElementById('t-intro').innerHTML = t.intro;
+      document.getElementById('t-csmail').innerHTML = t.csMail.replace('{email}', CS_EMAIL);
+      document.getElementById('t-community').innerHTML = t.community.replace('{link}',
+        `<a href="${DISCORD_URL}" target="_blank" rel="noopener">Discord</a>`);
+      document.getElementById('t-cat-label').textContent = t.categoryLabel;
+      document.getElementById('t-submit').textContent = t.submit;
+
+      const select = document.getElementById('category');
+      for (const option of select.options) {
+        option.textContent = option.value ? t.options[option.value] : t.placeholder;
+      }
+
+      document.getElementById('t-footer-h2').textContent = t.footerH2;
+      document.getElementById('footer-links').innerHTML = t.footerLinks
+        .map(link => `<a href="${link.href}" target="_blank" rel="noopener">${link.label}</a>`)
+        .join('');
+
+      document.querySelectorAll('.lang-switch a').forEach(a => {
+        a.classList.toggle('active', a.dataset.lang === curLang);
+      });
+
+      /* 이미 안내문이 열려 있으면 새 언어로 다시 렌더 */
+      if (document.getElementById('output').style.display === 'block' && select.value) {
+        renderInquiry(select.value);
+      }
+    }
+
+    /* 모바일 기기 판별 (데스크톱 모드 아이패드는 Macintosh UA + 터치 지원으로 구분) */
+    function isMobile() {
+      const ua = navigator.userAgent;
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/i.test(ua)
+        || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+    }
+
+    /* 모바일: 기본 메일 앱(mailto) / PC: Gmail 웹 작성 화면 */
+    function buildMailHref(inquiry, mobile) {
+      const subject = encodeURIComponent(inquiry.subject);
+      const body = encodeURIComponent(inquiry.body);
+      return mobile
+        ? 'mailto:' + CS_EMAIL + '?subject=' + subject + '&body=' + body
+        : 'https://mail.google.com/mail/?view=cm&fs=1&to=' + CS_EMAIL + '&su=' + subject + '&body=' + body;
+    }
+
+    /* 메일 앱/Gmail을 쓰지 않는 유저용: 받는 주소+제목+본문 양식을 클립보드에 복사 */
+    function copyTemplate(category) {
+      const t = I18N[curLang];
+      const inquiry = t.inquiries[category];
+      const text = t.copyTo + CS_EMAIL + '\n' + t.copySubject + inquiry.subject + '\n\n'
+        + inquiry.body.replace(/\r\n/g, '\n');
+
+      const linkEl = document.getElementById('copy-template');
+      const markDone = () => {
+        const original = linkEl.textContent;
+        linkEl.textContent = t.copyDone;
+        setTimeout(() => { linkEl.textContent = original; }, 2000);
+      };
+      const fallbackCopy = () => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        let ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) { /* 미지원 브라우저 */ }
+        document.body.removeChild(ta);
+        if (ok) markDone();
+        else alert(t.copyFail + '\n' + t.copyTo + CS_EMAIL + '\n' + t.copySubject + inquiry.subject);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(markDone, fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
+    }
+
+    /* 선택된 유형의 안내문 + 접수 버튼 렌더 (언어 전환 시 재사용) */
+    function renderInquiry(category) {
+      const t = I18N[curLang];
+      const inquiry = t.inquiries[category];
+      const mobile = isMobile();
+      const href = buildMailHref(inquiry, mobile);
+
+      const copyLink = `<a href="#" id="copy-template" onclick="copyTemplate('${category}'); return false;">${t.copyLinkLabel}</a>`;
+      const note = t.fallbackNote
+        .replace('{copyLink}', copyLink)
+        .replace('{email}', CS_EMAIL);
+
+      // mailto는 새 탭이 필요 없고(빈 탭 방지), Gmail 웹 작성 화면은 새 탭으로 연다
+      const links = `
+        <a href="${href}"${mobile ? '' : ' target="_blank" rel="noopener"'} class="button-link">${inquiry.label}</a>
+        <p class="fallback-note">${note}</p>
+      `;
+
+      document.getElementById('message').innerHTML = inquiry.message;
+      document.getElementById('links').innerHTML = links;
+      document.getElementById('output').style.display = 'block';
+    }
+
+    function handleInquiry() {
+      const category = document.getElementById('category').value;
+
+      // 문의 유형이 선택되지 않았을 경우
+      if (!category) {
+        alert(I18N[curLang].alertSelect);
+        return;
+      }
+
+      renderInquiry(category);
+    }
+
+    /* 수동 언어 전환: 클릭한 언어를 저장해 재방문 시 유지 */
+    document.querySelectorAll('.lang-switch a').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        setLang(a.dataset.lang, true);
+      });
+    });
+
+    setLang(detectLang(), false);
+  </script>
+</body>
+</html>
