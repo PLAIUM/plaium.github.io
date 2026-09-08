@@ -579,3 +579,4 @@ mars.media, 1010442, RESELLER, 8624339f102fb076
 smartclip.net, 15458, RESELLER
 smartclip.net, 27985, RESELLER
 ignitemediatech.com, pub_11115, RESELLER
+vungle.com, 6a9a8ac07a4c6baedc51b04d, DIRECT, c107d686becd2d77
