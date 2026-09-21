@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- 온가족 대항전 플레이어용 길잡이(2026 추석 회차). 단독으로 열리는 온전한 문서다 — 그대로 호스팅하거나 파일로 공유할 수 있다.
+     화면·버튼 이름은 게임의 로컬키 문구와 같게 적었다(바꾸면 함께 고칠 것). 운영 정본은 Docs/FamilyEvent.md · Docs/Family.md. -->
+<title>온가족 대항전 길잡이</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+  /* 단독 문서용 기본값(게시 도구가 넣어 주던 것) */
+  html { color-scheme: light dark; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+
+  :root {
+    --ground: #F2F5FB;        /* 달빛이 비친 흰 종이 */
+    --surface: #FFFFFF;
+    --surface-sunk: #E7ECF6;
+    --ink: #18213D;           /* 밤하늘 남색 */
+    --ink-soft: #4A5677;
+    --line: #D3DBEA;
+    --moon: #E29C0C;          /* 보름달 */
+    --moon-soft: #FBEFD0;
+    --moon-ink: #6B4700;
+    --jade: #1F7D5C;          /* 송편 */
+    --jade-soft: #DDF1E8;
+    --warn: #B4412A;
+    --warn-soft: #FBE6DF;
+    --sky-top: #24305C;
+    --sky-bottom: #3B4A85;
+    --sky-ink: #F6F8FF;
+    --sky-ink-soft: #C9D2F0;
+    --display: "Jua", "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    --body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0E152B;
+      --surface: #172140;
+      --surface-sunk: #111A35;
+      --ink: #EDF1FC;
+      --ink-soft: #A9B4D6;
+      --line: #2A3763;
+      --moon: #F4C24E;
+      --moon-soft: #3A3117;
+      --moon-ink: #FBE3A3;
+      --jade: #62C9A0;
+      --jade-soft: #17382F;
+      --warn: #F0907A;
+      --warn-soft: #40211B;
+      --sky-top: #0A1024;
+      --sky-bottom: #1B2650;
+      --sky-ink: #F6F8FF;
+      --sky-ink-soft: #B9C4EA;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0E152B;
+    --surface: #172140;
+    --surface-sunk: #111A35;
+    --ink: #EDF1FC;
+    --ink-soft: #A9B4D6;
+    --line: #2A3763;
+    --moon: #F4C24E;
+    --moon-soft: #3A3117;
+    --moon-ink: #FBE3A3;
+    --jade: #62C9A0;
+    --jade-soft: #17382F;
+    --warn: #F0907A;
+    --warn-soft: #40211B;
+    --sky-top: #0A1024;
+    --sky-bottom: #1B2650;
+    --sky-ink: #F6F8FF;
+    --sky-ink-soft: #B9C4EA;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 18px;
+    line-height: 1.75;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  .page {
+    max-width: 44rem;
+    margin-inline: auto;
+    padding-inline: 20px;
+    padding-block: 0 72px;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+  }
+
+  /* ---------- 머리: 추석 밤하늘과 보름달 ---------- */
+  .sky {
+    position: relative;
+    overflow: hidden;
+    margin-inline: -20px;
+    padding: 40px 24px 36px;
+    background: linear-gradient(180deg, var(--sky-top), var(--sky-bottom));
+    color: var(--sky-ink);
+    border-radius: 0 0 28px 28px;
+  }
+  .sky::before {            /* 보름달 */
+    content: "";
+    position: absolute;
+    top: -46px;
+    right: -30px;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 40%, #FFF6D6 0%, #F8D982 46%, #E9B23A 100%);
+    box-shadow: 0 0 60px 18px rgba(248, 217, 130, 0.28);
+  }
+  .sky > * { position: relative; }
+  .sky .eyebrow {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--sky-ink-soft);
+    margin: 0 0 6px;
+  }
+  .sky h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(2.1rem, 8vw, 3.1rem);
+    line-height: 1.2;
+    margin: 0;
+    max-width: 9.5em;
+    text-wrap: balance;
+  }
+  .sky .lede {
+    margin: 14px 0 0;
+    max-width: 24em;
+    color: var(--sky-ink-soft);
+    font-size: 1.02rem;
+  }
+
+  .dates {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 22px 0 0;
+    padding: 0;
+  }
+  .dates li {
+    flex: 1 1 13rem;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 14px 12px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+  }
+  .dates span { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em; color: var(--sky-ink-soft); }
+  .dates b { font-size: 1.08rem; line-height: 1.5; }
+
+  /* ---------- 공통 ---------- */
+  h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 1.7rem;
+    line-height: 1.3;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+  h3 {
+    font-size: 1.12rem;
+    font-weight: 700;
+    margin: 0 0 6px;
+  }
+  p { margin: 0 0 12px; }
+  p:last-child { margin-bottom: 0; }
+  ul, ol { margin: 0; padding-left: 1.25em; display: flex; flex-direction: column; gap: 8px; }
+  strong { font-weight: 700; }
+  section { display: flex; flex-direction: column; gap: 14px; }
+  section > h2 { margin-bottom: 0; }
+  .soft { color: var(--ink-soft); }
+  a { color: var(--jade); text-underline-offset: 3px; }
+  a:focus-visible { outline: 3px solid var(--moon); outline-offset: 3px; border-radius: 4px; }
+
+  /* 게임 안의 버튼·메뉴 이름을 그대로 보여 주는 표기 */
+  .btn {
+    display: inline-block;
+    padding: 1px 10px 2px;
+    border-radius: 9px;
+    background: var(--moon-soft);
+    color: var(--moon-ink);
+    border: 1.5px solid var(--moon);
+    font-weight: 700;
+    font-size: 0.95em;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+  .path {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 8px;
+    padding: 12px 14px;
+    background: var(--surface-sunk);
+    border-radius: 12px;
+    font-weight: 600;
+  }
+  .path .arrow { color: var(--ink-soft); font-weight: 400; }
+
+  /* ---------- 한눈에 보기 ---------- */
+  .glance {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 22px 22px 24px;
+  }
+  .glance ol {
+    list-style: none;
+    padding: 0;
+    gap: 0;
+    counter-reset: g;
+  }
+  .glance li {
+    counter-increment: g;
+    display: grid;
+    grid-template-columns: 2.2rem 1fr;
+    gap: 12px;
+    padding-block: 12px;
+    border-top: 1px solid var(--line);
+  }
+  .glance li:first-child { border-top: 0; padding-top: 4px; }
+  .glance li:last-child { padding-bottom: 0; }
+  .glance li::before {
+    content: counter(g);
+    font-family: var(--display);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: var(--moon);
+  }
+  .glance li b { display: block; }
+  .glance li span { color: var(--ink-soft); font-size: 0.95rem; }
+
+  /* ---------- 단계 ---------- */
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px 22px;
+    gap: 16px;
+  }
+  .step-head { display: flex; flex-direction: column; gap: 2px; }
+  .step-no {
+    font-family: var(--display);
+    color: var(--moon);
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+  }
+  .who {
+    align-self: flex-start;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--jade);
+    background: var(--jade-soft);
+    border-radius: 999px;
+    padding: 2px 12px;
+  }
+  .do { counter-reset: d; list-style: none; padding: 0; gap: 12px; }
+  .do > li {
+    counter-increment: d;
+    display: grid;
+    grid-template-columns: 1.9rem 1fr;
+    gap: 10px;
+    align-items: start;
+  }
+  .do > li::before {
+    content: counter(d);
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--ground);
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: grid;
+    place-items: center;
+    margin-top: 0.15em;
+  }
+
+  .note, .caution {
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 0.98rem;
+  }
+  .note { background: var(--jade-soft); }
+  .caution { background: var(--warn-soft); }
+  .note b:first-child { color: var(--jade); }
+  .caution b:first-child { color: var(--warn); }
+
+  /* ---------- 점수 ---------- */
+  .points { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 12px; }
+  .point {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .point .plus {
+    font-family: var(--display);
+    font-size: 2rem;
+    line-height: 1.1;
+    color: var(--moon);
+  }
+  .point b { font-size: 1.05rem; }
+  .point span { color: var(--ink-soft); font-size: 0.93rem; }
+
+  /* ---------- 랭킹 보상 ---------- */
+  .table-wrap {
+    overflow-x: auto;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+  }
+  .rewards { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  .rewards th, .rewards td {
+    text-align: left;
+    vertical-align: middle;
+    padding: 14px 16px;
+    border-top: 1px solid var(--line);
+  }
+  .rewards thead th {
+    border-top: 0;
+    background: var(--surface-sunk);
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+  .rewards tbody th {
+    width: 8rem;
+    white-space: nowrap;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+  .rewards tr.top th { background: var(--moon-soft); color: var(--moon-ink); }
+  .rewards td b { font-weight: 700; }
+
+  /* ---------- 순위 규칙 ---------- */
+  .rules { list-style: none; padding: 0; gap: 0; counter-reset: r; }
+  .rules li {
+    counter-increment: r;
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    gap: 12px;
+    padding-block: 16px;
+    border-top: 1px solid var(--line);
+  }
+  .rules li:first-child { border-top: 0; padding-top: 0; }
+  .rules li:last-child { padding-bottom: 0; }
+  .rules li::before {
+    content: counter(r);
+    font-family: var(--display);
+    font-size: 2rem;
+    line-height: 1.15;
+    color: var(--moon);
+  }
+  .rules b { display: block; font-size: 1.08rem; }
+  .rules span { color: var(--ink-soft); }
+
+  /* ---------- 자주 묻는 질문 ---------- */
+  .faq { display: flex; flex-direction: column; gap: 0; }
+  .faq details { border-top: 1px solid var(--line); padding-block: 4px; }
+  .faq details:last-child { border-bottom: 1px solid var(--line); }
+  .faq summary {
+    cursor: pointer;
+    font-weight: 700;
+    padding-block: 12px;
+    list-style-position: outside;
+    margin-left: 1.2em;
+  }
+  .faq summary:focus-visible { outline: 3px solid var(--moon); outline-offset: 2px; border-radius: 6px; }
+  .faq details > div { padding: 0 0 16px 1.2em; color: var(--ink-soft); display: flex; flex-direction: column; gap: 8px; }
+  .faq details > div p { margin: 0; }
+
+  .foot { color: var(--ink-soft); font-size: 0.92rem; border-top: 1px solid var(--line); padding-top: 20px; }
+
+  @media (max-width: 420px) {
+    body { font-size: 17px; }
+    .sky::before { width: 130px; height: 130px; top: -50px; right: -40px; }
+    .step, .glance { padding-inline: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="sky">
+    <p class="eyebrow">티니핑 매직매치 · 추석 이벤트</p>
+    <h1>추석 온가족 대항전 길잡이</h1>
+    <p class="lede">우리 가족을 만들고, 가족을 초대하고, 함께 점수를 모아 순위에 도전하는 방법을 처음부터 안내해 드려요.</p>
+    <ul class="dates">
+      <li><span>이벤트 기간</span><b>공지 시부터 9월 27일(일) 오후 5시까지</b></li>
+      <li><span>순위 공지</span><b>9월 29일(화)</b></li>
+    </ul>
+  </header>
+
+  <section class="glance" aria-labelledby="glance-title">
+    <h2 id="glance-title">참여 방법</h2>
+    <ol>
+      <li><div><b>티니핑 매직매치에서 가족을 만들고 가족들을 초대해요</b><span>아래의 <a href="#s1-title">우리 가족 만들기</a>와 <a href="#s2-title">가족 초대하기</a>를 따라 해 주세요. 가족을 만드는 분은 먼저 내 진행도를 저장해야 해요.</span></div></li>
+      <li><div><b>초대받은 가족은 링크를 눌러 가족으로 등록해요</b><span><a href="#s3-title">초대받은 가족 등록하기</a>를 따라 해 주세요.</span></div></li>
+      <li><div><b>가족 모두 내 진행도를 저장해요</b><span>진행도를 저장한 분만 점수가 가족 점수에 더해지고, 보상도 받을 수 있어요.</span></div></li>
+      <li><div><b>레벨과 별의 관문을 클리어해 점수를 모아요</b><span>한 판에 1점, 가족 모두의 점수를 더한 값이 <a href="#score-title">우리 가족 점수</a>예요.</span></div></li>
+      <li><div><b>매일, 디스코드 커뮤니티 “한가위 가족 대항전 MVP” 채널에 가족 MVP를 인증해요</b><span>매일 인증하면 참여상으로 문 크리스탈 100개를 드려요.</span></div></li>
+      <li><div><b>매일, 같은 채널에서 가족 랭킹을 확인해요</b><span>우리 가족이 지금 몇 위인지 볼 수 있어요.</span></div></li>
+      <li><div><b>9월 27일(일) 오후 5시까지 열심히 참여해요</b><span>가족 등록과 합병도 이때까지 마쳐 주세요.</span></div></li>
+      <li><div><b>9월 29일(화) 순위 공지를 기다려요</b></div></li>
+    </ol>
+    <div class="note" style="margin-top:18px">
+      <b>디스코드 커뮤니티는 여기로 들어가요.</b> 게임 로비의 설정에서 <span class="btn">커뮤니티</span>를 누르거나, <a href="https://discord.gg/6fRvUrzr5v">discord.gg/6fRvUrzr5v</a> 로 들어오시면 돼요.
+    </div>
+  </section>
+
+  <section aria-labelledby="reward-title">
+    <h2 id="reward-title">랭킹 보상</h2>
+    <p>순위에 든 가족은 <strong>가족 전원</strong>이 보상을 받아요. 단, <strong>내 진행도를 저장하지 않은 분은 보상에서 제외</strong>돼요.</p>
+    <div class="table-wrap">
+      <table class="rewards">
+        <thead>
+          <tr><th scope="col">가족 순위</th><th scope="col">가족 전원에게 드리는 보상</th></tr>
+        </thead>
+        <tbody>
+          <tr class="top"><th scope="row">1위</th><td><b>레전드 티니핑 소환서</b> 1개</td></tr>
+          <tr class="top"><th scope="row">2위</th><td><b>레전드 티니핑 소환서 조각</b> 1개</td></tr>
+          <tr class="top"><th scope="row">3위</th><td><b>문 크리스탈</b> 1,000개</td></tr>
+          <tr><th scope="row">4위~10위</th><td><b>문 크리스탈</b> 500개</td></tr>
+          <tr><th scope="row">11위~30위</th><td><b>문 크리스탈</b> 300개</td></tr>
+          <tr><th scope="row">31위~50위</th><td><b>문 크리스탈</b> 100개</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="soft">참여상은 순위와 상관없이, 디스코드에서 매일 가족 MVP를 인증하면 문 크리스탈 100개를 드려요.</p>
+  </section>
+
+  <section aria-labelledby="notice-title">
+    <h2 id="notice-title">꼭 확인해 주세요</h2>
+    <ul>
+      <li><strong>실제 가족들과 함께하는</strong> 가족 대항전이에요.</li>
+      <li><strong>내 진행도를 저장하지 않은 구성원은 보상 지급에서 제외</strong>돼요. 9월 27일(일) 오후 5시 전에 꼭 저장해 주세요.</li>
+      <li><strong>1위·2위 가족</strong>은 보상을 드리기 전에 <strong>가족관계증명서</strong>로 실제 가족인지 확인한 뒤 지급해 드려요. 가족관계증명서(여러 부 인정)로 증빙할 수 있는 <strong>5촌 이내 가족</strong>을 가족으로 인정해요. 증조부모님, 조부모님, 부모님, 형제자매, 자녀, 손자녀 모두 가능해요.</li>
+      <li>보상은 <strong>업무일 5일 이내</strong>에 지급해 드릴 예정이에요. 증빙 진행 상황에 따라 일부 늦어질 수 있어요.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="before-title">
+    <h2 id="before-title">시작하기 전에</h2>
+    <p>가족은 <strong>실제 가족끼리</strong> 참여하는 이벤트를 위한 모임이에요. 아래 세 가지만 기억해 주세요.</p>
+    <ul>
+      <li>한 계정은 <strong>한 가족에만</strong> 등록할 수 있어요.</li>
+      <li>한번 등록하면 <strong>3개월 동안은 가족을 떠나거나 바꿀 수 없어요.</strong> 신중하게 등록해 주세요.</li>
+      <li>가족 이름은 만든 뒤에 <strong>바꿀 수 없어요.</strong></li>
+    </ul>
+  </section>
+
+  <section class="step" aria-labelledby="s1-title">
+    <div class="step-head">
+      <span class="step-no">첫 번째</span>
+      <h2 id="s1-title">우리 가족 만들기</h2>
+    </div>
+    <span class="who">가족 중 한 분만 하면 돼요</span>
+    <div class="path" aria-label="메뉴 위치">
+      <span>로비의 설정</span><span class="arrow">›</span><span>내 정보 관리</span><span class="arrow">›</span><span class="btn">가족</span>
+    </div>
+    <p class="soft">친구 화면을 열면 위쪽 왼편에도 <span class="btn">가족</span> 버튼이 있어요. 어느 쪽으로 들어가도 같은 가족 화면이 열려요.</p>
+    <ol class="do">
+      <li><div>먼저 <strong>내 진행도를 저장</strong>해요. 설정 › 내 정보 관리의 <span class="btn">내 진행도 저장하기</span>에서 할 수 있어요. 저장을 마쳐야 가족을 만들 수 있어요.</div></li>
+      <li><div>가족 화면에서 <span class="btn">가족 만들기</span>를 눌러요.</div></li>
+      <li><div>가족 이름을 입력해요. <strong>2~12자</strong>, 한글·영문·숫자만 쓸 수 있고 <strong>띄어쓰기는 안 돼요.</strong></div></li>
+      <li><div>확인 창에서 <span class="btn">확인</span>을 누르면 가족이 만들어지고, 만든 분이 <strong>가족 관리자</strong>가 돼요.</div></li>
+    </ol>
+    <div class="note">
+      <b>이름은 이렇게 지어 보세요.</b> 가족들이 보고 바로 알아볼 수 있는 이름이 좋아요. 예: <strong>역삼동김가네</strong>, <strong>김서방네</strong>. 다른 가족이 이미 쓰는 이름은 쓸 수 없어요.
+    </div>
+    <p class="soft">가족들이 각자 가족을 만들었어도 괜찮아요. 아래의 <a href="#merge-title">가족 합병</a>으로 한 가족으로 모일 수 있어요.</p>
+  </section>
+
+  <section class="step" aria-labelledby="s2-title">
+    <div class="step-head">
+      <span class="step-no">두 번째</span>
+      <h2 id="s2-title">가족 초대하기</h2>
+    </div>
+    <span class="who">가족 관리자가 해요</span>
+    <ol class="do">
+      <li><div>가족 화면 아래의 <span class="btn">카카오톡으로 초대하기</span>를 눌러 가족 대화방에 초대 메시지를 보내요.</div></li>
+      <li><div>다른 메신저나 문자로 보내고 싶다면 <span class="btn">초대 링크 복사</span>를 누른 뒤 붙여 넣어 보내요.</div></li>
+    </ol>
+    <div class="caution">
+      <b>초대 링크는 실제 가족에게만 보내 주세요.</b> 링크를 받은 사람은 누구나 우리 가족으로 등록할 수 있어요. 여러 사람이 보는 곳에는 올리지 마세요.
+    </div>
+  </section>
+
+  <section class="step" aria-labelledby="s3-title">
+    <div class="step-head">
+      <span class="step-no">세 번째</span>
+      <h2 id="s3-title">초대받은 가족 등록하기</h2>
+    </div>
+    <span class="who">초대받은 가족이 해요</span>
+    <ol class="do">
+      <li><div>받은 초대 링크를 눌러요. 게임이 열려요.</div></li>
+      <li><div><strong>가족 등록</strong> 창에 초대한 분의 닉네임과 가족 이름이 보여요. 우리 가족이 맞는지 확인해요.</div></li>
+      <li><div>맞다면 <span class="btn">확인</span>을 눌러요. 등록이 끝났어요.</div></li>
+    </ol>
+    <div class="note">
+      <b>게임을 새로 설치하셨나요?</b> 설치한 다음 <strong>초대 링크를 한 번 더 눌러 주세요.</strong> 게임을 처음 시작하셨다면, 첫 판을 마치고 로비에 들어왔을 때 가족 등록 창이 떠요.
+    </div>
+    <p class="soft">이미 다른 가족에 등록돼 있다면 새 가족으로 등록할 수 없어요. 가족이 20명으로 가득 찼을 때도 등록할 수 없어요.</p>
+  </section>
+
+  <section aria-labelledby="score-title">
+    <h2 id="score-title">점수는 이렇게 쌓여요</h2>
+    <p>이벤트 기간 동안 깬 만큼 내 점수가 오르고, <strong>가족 모두의 점수를 더한 값</strong>이 우리 가족 점수가 돼요.</p>
+    <div class="points">
+      <div class="point"><span class="plus">+1점</span><b>레벨을 클리어할 때마다</b><span>본편 레벨 한 판에 1점</span></div>
+      <div class="point"><span class="plus">+1점</span><b>별의 관문을 통과할 때마다</b><span>관문 한 판에 1점</span></div>
+    </div>
+    <div class="caution">
+      <b>내 진행도를 꼭 저장해 주세요.</b> 진행도를 저장한(계정을 연동한) 분의 점수만 가족 점수에 더해지고, 저장하지 않은 분은 보상 지급에서도 제외돼요.
+      <span class="path" style="margin-top:10px"><span>설정</span><span class="arrow">›</span><span>내 정보 관리</span><span class="arrow">›</span><span class="btn">내 진행도 저장하기</span><span class="soft" style="font-weight:400">(또는 계정 연동하기)</span></span>
+    </div>
+    <h3>점수는 어디서 보나요?</h3>
+    <ul>
+      <li><strong>내 점수</strong>는 내 정보 관리 화면의 “온가족 대항전 내 점수”에서 볼 수 있어요.</li>
+      <li><strong>가족 점수</strong>와 가족 한 분 한 분의 점수는 가족 화면에서 볼 수 있어요. 점수 칸이 “-”로 보이는 분은 아직 진행도를 저장하지 않았거나 이벤트 기간에 클리어한 판이 없는 분이에요.</li>
+    </ul>
+    <p class="soft">가족에 늦게 등록해도 괜찮아요. 이벤트 기간에 내가 쌓은 점수는 등록하는 순간 그대로 가족 점수에 더해져요.</p>
+  </section>
+
+  <section class="glance" aria-labelledby="rank-title">
+    <h2 id="rank-title">순위는 이렇게 정해요</h2>
+    <ol class="rules">
+      <li><div><b>가족 점수가 높은 가족이 위예요</b><span>가족 모두의 점수를 더한 값으로 겨뤄요.</span></div></li>
+      <li><div><b>점수가 같다면, 점수를 낸 가족이 더 많은 쪽이 위예요</b><span>더 많은 가족과 함께해 보세요. 점수가 0점인 분은 세지 않아요.</span></div></li>
+      <li><div><b>그것도 같다면, 나중에 만들어진 가족이 위예요</b><span>새로 모인 가족을 환영해요.</span></div></li>
+    </ol>
+    <p class="soft" style="margin-top:16px">순위는 <strong>이벤트가 끝나는 시각의 가족 구성원</strong>을 기준으로 계산해요. 가족 등록과 합병은 9월 27일(일) 오후 5시 전에 마쳐 주세요.</p>
+  </section>
+
+  <section class="step" aria-labelledby="merge-title">
+    <div class="step-head">
+      <span class="step-no">가족이 따로 만들어졌다면</span>
+      <h2 id="merge-title">가족 합병으로 모이기</h2>
+    </div>
+    <span class="who">두 가족의 관리자가 해요</span>
+    <ol class="do">
+      <li><div>한쪽 관리자가 가족 화면에서 <span class="btn">가족 합병</span>을 눌러요.</div></li>
+      <li><div>상대 <strong>가족 이름</strong>을 입력하고 <span class="btn">찾기</span>를 누르면, 상대 가족과 어느 가족으로 합쳐지는지가 보여요.</div></li>
+      <li><div><span class="btn">합병 요청</span>을 눌러요.</div></li>
+      <li><div>상대 관리자의 가족 화면에 요청이 보여요. <span class="btn">수락</span>을 누르면 바로 한 가족이 돼요.</div></li>
+    </ol>
+    <ul>
+      <li>두 가족 중 <strong>먼저 만들어진 가족</strong>으로 합쳐지고, 그 가족의 이름과 관리자가 그대로 유지돼요.</li>
+      <li>두 가족을 합쳐 <strong>20명 이하</strong>일 때만 합칠 수 있어요.</li>
+      <li>합병은 <strong>되돌릴 수 없어요.</strong> 상대 가족 이름을 꼭 확인해 주세요.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="admin-title">
+    <h2 id="admin-title">가족 관리자가 할 수 있는 일</h2>
+    <p>가족 화면의 구성원 목록에서, 해당하는 분 옆의 <span class="btn">관리</span>를 누르면 메뉴가 열려요. 이 버튼은 가족 관리자에게만 보여요.</p>
+    <ul>
+      <li><strong>관리자 위임</strong> — 다른 가족에게 관리자 자리를 넘겨요. 초대와 합병은 새 관리자가 하게 돼요.</li>
+      <li><strong>추방</strong> — 가족이 아닌 사람이 들어왔을 때 내보낼 수 있어요. 추방은 <strong>신청하고 7일 뒤</strong>에 이루어지고, 그 전에는 취소할 수 있어요. 추방 예정인 분은 가족 목록에 날짜와 함께 표시돼요.</li>
+    </ul>
+    <div class="note">
+      <b>추방을 신청하면 지금까지 보낸 초대 링크는 더 이상 쓸 수 없어요.</b> 아직 등록하지 않은 가족에게는 <span class="btn">초대 링크 복사</span>로 새 링크를 다시 보내 주세요.
+    </div>
+  </section>
+
+  <section aria-labelledby="faq-title">
+    <h2 id="faq-title">자주 묻는 질문</h2>
+    <div class="faq">
+      <details>
+        <summary>가족 버튼이 안 보여요.</summary>
+        <div><p>가족 버튼은 온가족 대항전 기간 즈음에만 보여요. 기간인데도 보이지 않으면 게임을 완전히 껐다가 다시 켜 주세요.</p></div>
+      </details>
+      <details>
+        <summary>가족 만들기를 눌렀더니 “진행도 저장하기를 완료해야 가족으로 참여할 수 있습니다”라고 나와요.</summary>
+        <div><p><strong>설정 › 내 정보 관리</strong>에서 <span class="btn">내 진행도 저장하기</span>를 먼저 마쳐 주세요. 저장한 뒤에 <span class="btn">가족 만들기</span>를 다시 누르면 돼요.</p></div>
+      </details>
+      <details>
+        <summary>초대 링크를 눌렀는데 가족 등록 창이 안 떠요.</summary>
+        <div>
+          <p>게임을 새로 설치한 경우라면, 설치한 뒤에 초대 링크를 한 번 더 눌러 주세요. 처음 시작하셨다면 첫 판을 마치고 로비에 들어와야 창이 떠요.</p>
+          <p>그래도 안 되면 <strong>설정 › 내 정보 관리 › 가족</strong> 화면(또는 친구 화면의 <span class="btn">가족</span> 버튼)을 연 상태에서 링크를 다시 눌러 보세요.</p>
+        </div>
+      </details>
+      <details>
+        <summary>“사용할 수 없는 초대 링크”라고 나와요.</summary>
+        <div><p>관리자가 누군가를 추방 신청했거나 가족이 합병되면 예전 링크는 쓸 수 없게 돼요. 가족 관리자에게 새 링크를 받아 주세요.</p></div>
+      </details>
+      <details>
+        <summary>가족 점수에 내 점수가 안 들어가요.</summary>
+        <div><p><strong>설정 › 내 정보 관리</strong>에서 <span class="btn">내 진행도 저장하기</span>를 해 주세요. 저장을 마치면 이벤트 기간에 쌓아 둔 점수가 가족 점수에 더해져요.</p></div>
+      </details>
+      <details>
+        <summary>디스코드 커뮤니티는 어떻게 들어가나요?</summary>
+        <div><p>게임 로비의 설정에서 <span class="btn">커뮤니티</span>를 누르면 열려요. “한가위 가족 대항전 MVP” 채널에서 가족 MVP 인증과 가족 랭킹 확인을 할 수 있어요.</p></div>
+      </details>
+      <details>
+        <summary>가족을 떠날 수 있나요?</summary>
+        <div>
+          <p>가족으로 등록한 날부터 3개월이 지나면 가족 화면의 <span class="btn">가족 떠나기</span>로 떠날 수 있어요.</p>
+          <p>가족 관리자는 다른 가족에게 관리자를 위임한 뒤에 떠날 수 있어요.</p>
+        </div>
+      </details>
+      <details>
+        <summary>실수로 다른 가족에 등록했어요. / 가족 이름을 잘못 지었어요.</summary>
+        <div><p>직접 바꿀 수는 없어요. 고객센터로 계정 식별 번호와 함께 문의해 주세요. 계정 식별 번호는 내 정보 관리 화면에서 볼 수 있어요.</p></div>
+      </details>
+      <details>
+        <summary>모르는 사람이 우리 가족에 들어왔어요.</summary>
+        <div><p>가족 관리자가 그분의 <span class="btn">관리</span> 메뉴에서 추방을 신청해 주세요. 초대 링크가 새로 바뀌므로, 새 링크는 실제 가족에게만 보내 주세요.</p></div>
+      </details>
+      <details>
+        <summary>가족 관리자가 오랫동안 접속하지 않으면 어떻게 되나요?</summary>
+        <div><p>관리자가 2주 넘게 접속하지 않으면, 최근에 접속한 가족 중 가장 먼저 등록한 분에게 관리자 자리가 자동으로 넘어가요.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <p class="foot">이 길잡이의 화면 이름과 버튼 이름은 게임에 표시되는 것과 같아요.</p>
+
+</div>
+</body>
+</html>
