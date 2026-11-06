@@ -1,0 +1,594 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>블랙홀 프라이데이 신규 변장</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Noto+Sans:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" id="font-ko" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Black+Han+Sans&display=swap">
+<style>
+/* Layout: 블랙홀 링 히어로(8종 라인업) → 적용 가이드 3칸 → 변장별 [일러스트 | 플레이 영상 | 효과] 카드 → 안내사항 */
+:root {
+  --void: #07060b;
+  --panel: #110f19;
+  --panel-2: #191624;
+  --line: #2b2639;
+  --ink: #f4eff9;
+  --dim: #aaa0bc;
+  --faint: #6f6681;
+  --pink: #ff288c;
+  --gold: #ffd541;
+  --orange: #ff9d42;
+  --purple: #b98cff;
+  --f-body: "Noto Sans", system-ui, sans-serif;
+  --f-disp: "Unbounded", "Noto Sans", system-ui, sans-serif;
+  --w-disp: 800;
+  --f-mark: "Unbounded", "Noto Sans", system-ui, sans-serif;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  color-scheme: dark;
+}
+html:lang(ko) { --f-body: "Noto Sans KR", "Noto Sans", system-ui, sans-serif; --f-disp: "Black Han Sans", "Noto Sans KR", sans-serif; --w-disp: 400; }
+html:lang(ja) { --f-body: "Noto Sans JP", "Noto Sans", system-ui, sans-serif; --f-disp: "Dela Gothic One", "Noto Sans JP", sans-serif; --w-disp: 400; }
+html:lang(zh-Hant) { --f-body: "Noto Sans TC", "Noto Sans", system-ui, sans-serif; --f-disp: "Noto Sans TC", sans-serif; --w-disp: 900; }
+html:lang(zh-Hans) { --f-body: "Noto Sans SC", "Noto Sans", system-ui, sans-serif; --f-disp: "Noto Sans SC", sans-serif; --w-disp: 900; }
+html:lang(th) { --f-body: "Noto Sans Thai", "Noto Sans", system-ui, sans-serif; --f-disp: "Noto Sans Thai", sans-serif; --w-disp: 900; }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--void);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--void);
+}
+.wrap {
+  max-width: 1180px; margin-inline: auto;
+  padding-left: var(--gutter-l); padding-right: var(--gutter-r);
+}
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* ---------- top bar ---------- */
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; }
+.mark { font-family: var(--f-mark); font-weight: 800; font-style: italic; letter-spacing: .02em; font-size: 20px; color: var(--ink); }
+.lang { display: flex; align-items: center; gap: 8px; color: var(--dim); font-size: 13px; }
+.lang select {
+  appearance: none; background: var(--panel-2); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 7px 34px 7px 14px; font: inherit; font-size: 13px; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, var(--dim) 50%), linear-gradient(135deg, var(--dim) 50%, transparent 50%);
+  background-position: calc(100% - 17px) 52%, calc(100% - 12px) 52%;
+  background-size: 5px 5px; background-repeat: no-repeat;
+}
+
+/* ---------- hero ---------- */
+.hero { position: relative; overflow: hidden; padding-top: 28px; isolation: isolate; }
+.hero::before { /* starfield */
+  content: ""; position: absolute; inset: 0; z-index: -2; opacity: .7;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 78% 14%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 64% 38%, var(--gold) 50%, transparent 51%),
+    radial-gradient(1px 1px at 30% 64%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 88% 58%, var(--pink) 50%, transparent 51%),
+    radial-gradient(1px 1px at 6% 80%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 46% 8%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 94% 86%, #fff 50%, transparent 51%);
+}
+.hole {
+  position: absolute; z-index: -1; left: 50%; top: 58%;
+  width: min(118vw, 1020px); aspect-ratio: 1; max-width: none;
+  transform: translate(-50%, -50%); pointer-events: none;
+}
+.hole::before {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background: conic-gradient(from 20deg, var(--pink), var(--gold), #ff6a3d, var(--pink), #6b34ff, var(--pink));
+  -webkit-mask: radial-gradient(circle, transparent 33%, #000 36%, #000 41%, transparent 53%);
+          mask: radial-gradient(circle, transparent 33%, #000 36%, #000 41%, transparent 53%);
+  filter: blur(22px); opacity: .55;
+  animation: spin 60s linear infinite;
+}
+.hole::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 33.4%, rgba(255, 213, 65, .85) 34%, rgba(255, 40, 140, .5) 35%, transparent 37%),
+    radial-gradient(circle, var(--void) 0 33.5%, transparent 34%);
+}
+@keyframes spin { to { transform: rotate(1turn); } }
+
+.hero-copy { text-align: center; position: relative; }
+.eyebrow {
+  font-family: var(--f-mark); font-weight: 700; font-size: 12px;
+  letter-spacing: .32em; text-transform: uppercase; color: var(--gold); margin: 0 0 14px;
+}
+html:lang(ko) .eyebrow, html:lang(ja) .eyebrow, html:lang(zh-Hant) .eyebrow, html:lang(zh-Hans) .eyebrow, html:lang(th) .eyebrow { letter-spacing: .14em; }
+.hero h1 {
+  font-family: var(--f-disp); font-weight: var(--w-disp);
+  font-size: clamp(38px, 7.4vw, 76px); line-height: 1.08; margin: 0;
+  text-wrap: balance; letter-spacing: -.01em;
+  text-shadow: 0 0 40px rgba(255, 40, 140, .35);
+}
+.hero h1 .n { color: var(--pink); }
+.hero .sub { color: var(--dim); max-width: 34em; margin: 18px auto 0; text-wrap: balance; font-size: clamp(14px, 1.6vw, 16px); }
+
+.lineup {
+  display: flex; justify-content: center; align-items: flex-end;
+  margin-top: clamp(20px, 4vw, 40px); padding-inline: 2%;
+}
+.lineup img {
+  width: min(17.5%, 190px); margin-inline: calc(-1 * min(3.6%, 38px));
+  aspect-ratio: 1300 / 2048; object-fit: contain; object-position: bottom;
+  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, .7));
+  animation: rise .9s cubic-bezier(.2, .8, .2, 1) both;
+}
+.lineup img:nth-child(odd) { transform: translateY(4%); }
+.lineup img.front { position: relative; z-index: 1; }
+.lineup img:nth-child(1) { animation-delay: .05s } .lineup img:nth-child(2) { animation-delay: .1s }
+.lineup img:nth-child(3) { animation-delay: .15s } .lineup img:nth-child(4) { animation-delay: .2s }
+.lineup img:nth-child(5) { animation-delay: .25s } .lineup img:nth-child(6) { animation-delay: .3s }
+.lineup img:nth-child(7) { animation-delay: .35s } .lineup img:nth-child(8) { animation-delay: .4s }
+@keyframes rise { from { translate: 0 28px; } to { translate: 0 0; } }
+.hero-floor { height: 1px; background: linear-gradient(90deg, transparent, var(--line), transparent); }
+
+/* ---------- sticky nav ---------- */
+.kitnav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--void) 88%, transparent);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.kitnav .wrap { padding-block: 10px; }
+.kitnav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+.kitnav ul::-webkit-scrollbar { display: none; }
+/* 넓은 화면은 줄바꿈해서 전부 보이게(마우스로는 가로로 밀 수 없음), 휴대폰 폭은 밀어서 넘김 */
+@media (min-width: 700px) {
+  .kitnav ul { flex-wrap: wrap; overflow-x: visible; }
+}
+.kitnav a {
+  display: flex; align-items: center; gap: 8px; white-space: nowrap;
+  padding: 4px 14px 4px 4px; border-radius: 999px;
+  background: var(--panel-2); border: 1px solid var(--line);
+  color: var(--dim); text-decoration: none; font-size: 13px; font-weight: 500;
+  transition: border-color .2s, color .2s;
+}
+.kitnav a img { width: 28px; height: 28px; border-radius: 50%; background: var(--panel); object-fit: cover; }
+.kitnav a:hover { color: var(--ink); }
+.kitnav a[aria-current="true"] { color: var(--ink); border-color: var(--pink); }
+
+/* ---------- section headings ---------- */
+.section { padding-block: clamp(48px, 7vw, 88px) 0; }
+.sec-head { margin-bottom: 28px; }
+.sec-head .eyebrow { margin-bottom: 10px; }
+.sec-head h2 {
+  font-family: var(--f-disp); font-weight: var(--w-disp);
+  font-size: clamp(24px, 3.4vw, 34px); line-height: 1.2; margin: 0; text-wrap: balance;
+}
+.sec-head p { margin: 10px 0 0; color: var(--dim); font-size: 14px; }
+
+/* ---------- guide ---------- */
+.guide { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.guide article {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+  padding: 22px; display: grid; gap: 10px; align-content: start; min-width: 0;
+}
+.guide .ico { height: 34px; display: flex; align-items: center; gap: 6px; }
+.guide h3 { margin: 0; font-size: 17px; font-weight: 700; }
+.guide p { margin: 0; color: var(--dim); font-size: 14px; }
+.tier-scale { font-family: var(--f-mark); font-weight: 700; font-size: 13px; display: flex; align-items: center; gap: 6px; color: var(--faint); }
+.tier-scale span { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 7px; border: 1px solid var(--line); }
+.tier-scale span:last-child { background: var(--gold); color: #1a1406; border-color: var(--gold); }
+.base-dot { width: 26px; height: 26px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff6c9, var(--gold) 55%, #b98400); }
+.star { width: 28px; height: 28px; flex: none; }
+.star.orange { color: var(--orange); } .star.purple { color: var(--purple); }
+
+/* ---------- kits ---------- */
+.kits { display: grid; gap: clamp(20px, 3vw, 32px); }
+.kit {
+  background: linear-gradient(180deg, var(--panel-2), var(--panel) 40%);
+  border: 1px solid var(--line); border-radius: 22px;
+  padding: clamp(16px, 2.6vw, 28px);
+  scroll-margin-top: calc(var(--nav-h, 60px) + 12px);
+}
+.kit-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 14px; margin-bottom: 18px; }
+.kit-head .hero-name {
+  font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--pink); border: 1px solid color-mix(in srgb, var(--pink) 45%, transparent);
+  border-radius: 999px; padding: 2px 10px;
+}
+.kit-head h3 {
+  font-family: var(--f-disp); font-weight: var(--w-disp);
+  font-size: clamp(22px, 3vw, 30px); line-height: 1.2; margin: 0; text-wrap: balance;
+}
+.kit-body {
+  display: grid; gap: clamp(12px, 2vw, 22px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas: "art play" "fx fx";
+}
+@media (min-width: 1000px) {
+  .kit-body { grid-template-columns: minmax(0, .92fr) minmax(0, .78fr) minmax(0, 1.5fr); grid-template-areas: "art play fx"; align-items: start; }
+}
+.art, .play { aspect-ratio: 874 / 1426; max-width: 100%; border-radius: 16px; margin: 0; position: relative; overflow: hidden; }
+.art { grid-area: art; background:
+  radial-gradient(60% 40% at 50% 62%, rgba(255, 40, 140, .28), transparent 70%),
+  radial-gradient(80% 50% at 50% 100%, rgba(255, 213, 65, .14), transparent 70%),
+  var(--panel); border: 1px solid var(--line); }
+.art img { position: absolute; inset: 4% 2% 0; width: 96%; height: 96%; object-fit: contain; object-position: bottom; }
+
+.play {
+  grid-area: play; display: block; width: 100%; padding: 0; cursor: pointer;
+  background: #000; border: 1px solid var(--line); color: var(--ink); font: inherit;
+  box-shadow: inset 0 0 0 5px #0b0a10;
+}
+.play.empty { cursor: default; }
+.play .media, .play canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.play .badge {
+  position: absolute; left: 10px; top: 10px; z-index: 2;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 700; letter-spacing: .04em;
+  padding: 4px 9px; border-radius: 999px; background: rgba(7, 6, 11, .72); color: var(--ink);
+}
+.play .badge i { width: 7px; height: 7px; border-radius: 50%; background: var(--pink); box-shadow: 0 0 8px var(--pink); }
+.play.paused .badge i { background: var(--faint); box-shadow: none; }
+.play .soon {
+  position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 12px;
+  padding: 16px; text-align: center;
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, .025) 0 1px, transparent 1px 4px),
+    radial-gradient(70% 45% at 50% 45%, rgba(185, 140, 255, .16), transparent 70%),
+    #0c0a12;
+}
+.play .soon svg { width: 46px; height: 46px; color: var(--faint); }
+.play .soon strong { font-size: 13px; font-weight: 700; color: var(--dim); }
+.play .soon small { font-family: var(--f-mark); font-size: 10px; letter-spacing: .24em; color: var(--faint); }
+
+.fx { grid-area: fx; display: grid; gap: 12px; min-width: 0; }
+.fx-block { background: var(--void); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; min-width: 0; }
+.fx-block h4 { margin: 0 0 10px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; }
+.fx-block h4 .star { width: 18px; height: 18px; }
+.fx-block h4 .base-dot { width: 14px; height: 14px; }
+.fx-base p { margin: 0; font-size: 15px; }
+.fx b { font-weight: 700; }
+.fx-base b { color: var(--gold); }
+.fx-crown.orange h4 { color: var(--orange); } .fx-crown.orange b { color: var(--orange); }
+.fx-crown.purple h4 { color: var(--purple); } .fx-crown.purple b { color: var(--purple); }
+.tiers { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.tiers li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; align-items: start; }
+.tiers .tier {
+  font-size: 11px; font-weight: 700; white-space: nowrap; text-align: center; min-width: 58px;
+  padding: 3px 8px; border-radius: 6px; margin-top: 1px;
+  border: 1px solid var(--line); color: var(--dim);
+}
+.tiers li:last-child .tier { color: #160f02; background: var(--gold); border-color: var(--gold); }
+.tiers p { margin: 0; font-size: 14px; color: var(--ink); }
+
+/* ---------- outro & notice ---------- */
+.outro { text-align: center; padding-block: clamp(56px, 8vw, 96px) 0; }
+.outro h2 { font-family: var(--f-disp); font-weight: var(--w-disp); font-size: clamp(24px, 3.6vw, 36px); margin: 0; text-wrap: balance; }
+.outro h2 em { font-style: normal; color: var(--pink); }
+.outro p { color: var(--dim); margin: 10px 0 0; }
+.notice { margin-block: clamp(48px, 7vw, 72px) 56px; border-top: 1px solid var(--line); padding-top: 24px; }
+.notice h2 { font-size: 13px; font-weight: 700; color: var(--dim); margin: 0 0 8px; }
+.notice ul { margin: 0; padding-left: 18px; color: var(--faint); font-size: 13px; display: grid; gap: 2px; }
+.foot { padding-bottom: 28px; color: var(--faint); font-size: 12px; }
+.foot .mark { font-size: 14px; color: var(--faint); }
+
+@media (max-width: 560px) {
+  .tiers li { grid-template-columns: 1fr; gap: 4px; }
+  .tiers .tier { justify-self: start; min-width: 0; }
+  .kit-head h3 { flex-basis: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hole::before, .lineup img { animation: none; }
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.2l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2"/><path d="M19 15.5v17l14-8.5z" fill="currentColor"/></symbol>
+</svg>
+
+<header class="topbar">
+  <div class="wrap">
+    <span class="mark">PLAIUM</span>
+    <label class="lang"><span data-i="lang"></span>
+      <select id="lang-select"></select>
+    </label>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hole" aria-hidden="true"></div>
+  <div class="hero-copy wrap">
+    <p class="eyebrow" data-i="event"></p>
+    <h1 data-i="title"></h1>
+    <p class="sub" data-i="sub"></p>
+  </div>
+  <div class="lineup" id="lineup" aria-hidden="true"></div>
+  <div class="hero-floor"></div>
+</section>
+
+<nav class="kitnav" aria-label="disguises">
+  <div class="wrap"><ul id="kitnav"></ul></div>
+</nav>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Guide</p>
+      <h2 data-i="guideTitle"></h2>
+    </div>
+    <div class="guide">
+      <article>
+        <div class="ico"><span class="base-dot"></span></div>
+        <h3 data-i="g1t"></h3><p data-i="g1d"></p>
+      </article>
+      <article>
+        <div class="ico"><svg class="star orange"><use href="#i-star"/></svg><svg class="star purple"><use href="#i-star"/></svg></div>
+        <h3 data-i="g2t"></h3><p data-i="g2d"></p>
+      </article>
+      <article>
+        <div class="ico"><div class="tier-scale"><span>3</span>→<span>2</span>→<span>1</span></div></div>
+        <h3 data-i="g3t"></h3><p data-i="g3d"></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Disguise Effects</p>
+      <h2 data-i="listTitle"></h2>
+      <p data-i="listHint" id="list-hint"></p>
+    </div>
+    <div class="kits" id="kits"></div>
+  </div>
+</section>
+
+<section class="outro">
+  <div class="wrap">
+    <h2 data-i="outroTitle"></h2>
+    <p data-i="outroSub"></p>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="notice">
+    <h2 data-i="noticeTitle"></h2>
+    <ul><li data-i="n1"></li><li data-i="n2"></li><li data-i="n3"></li></ul>
+  </section>
+  <footer class="foot"><span class="mark">PLAIUM</span></footer>
+</div>
+
+<script>
+/* 플레이 영상: 변장 ID → 파일 경로. 원본 GIF(40~100MB)는 폭 400px MP4(H.264, CRF 26)로 변환해 넣었습니다.
+   .gif / .webp 는 <img>, .mp4 / .webm 은 <video> 로 재생됩니다. */
+const PLAY = {
+  Ketchapi_Nurse_BF: "play/Ketchapi_Nurse_BF.mp4",
+  Gum_Spy_BF: "play/Gum_Spy_BF.mp4",
+  Mamba_Dancer_BF: "play/Mamba_Dancer_BF.mp4",
+  Laika_Explorer_BF: "play/Laika_Explorer_BF.mp4",
+  Alpha_Pinky_BF: "play/Alpha_Pinky_BF.mp4",
+  Yoyo_TroubleMaker_BF: "play/Yoyo_TroubleMaker_BF.mp4",
+  Alpha_MatchGirl_BF: "play/Alpha_MatchGirl_BF.mp4",
+  Dice_Queen_BF: "play/Dice_Queen_BF.mp4",
+};
+
+const LANGS = [
+  { k: "kr", html: "ko", name: "한국어" },
+  { k: "en", html: "en", name: "English" },
+  { k: "jp", html: "ja", name: "日本語" },
+  { k: "tc", html: "zh-Hant", name: "繁體中文" },
+  { k: "sc", html: "zh-Hans", name: "简体中文" },
+  { k: "sp", html: "es", name: "Español" },
+  { k: "pt", html: "pt", name: "Português" },
+  { k: "vi", html: "vi", name: "Tiếng Việt" },
+  { k: "th", html: "th", name: "ไทย" },
+];
+const FONTS = {
+  ko: "Noto+Sans+KR:wght@400;500;700;900&family=Black+Han+Sans",
+  ja: "Noto+Sans+JP:wght@400;500;700;900&family=Dela+Gothic+One",
+  "zh-Hant": "Noto+Sans+TC:wght@400;500;700;900",
+  "zh-Hans": "Noto+Sans+SC:wght@400;500;700;900",
+  th: "Noto+Sans+Thai:wght@400;500;700;900",
+};
+
+/* 표시 순서(상단 일러스트·탭·카드 공통). 일러스트는 뒤에 오는 것이 앞의 것을 덮는데,
+   라이카는 얼굴(코기)이 이미지 오른쪽에 있어 오른쪽 이웃보다 위에 그립니다(.front). */
+const LINEUP = [
+  "Ketchapi_Nurse_BF", "Gum_Spy_BF", "Mamba_Dancer_BF", "Laika_Explorer_BF",
+  "Alpha_Pinky_BF", "Yoyo_TroubleMaker_BF", "Alpha_MatchGirl_BF", "Dice_Queen_BF",
+];
+
+// 탭·카드도 라인업과 같은 순서로
+const DATA = [{"id": "Dice_Queen_BF", "name": {"kr": "로드 오브 갬블", "en": "Lord of Gamble", "tc": "賭博之王", "sc": "赌博之王", "jp": "ギャンブルの王", "pt": "Rei das Apostas", "vi": "Vua Cờ bạc", "th": "ราชาแห่งการพนัน", "sp": "Rey de las Apuestas"}, "heroName": {"kr": "다이스", "en": "Dice", "tc": "戴斯", "sc": "戴斯", "jp": "ダイス", "pt": "Dice", "vi": "Đai-x", "th": "ไดซ์", "sp": "Dice"}, "base": {"kr": "다이스가 주사위를 2개 굴림<br>두 주사위 합 만큼 코인을 발사", "en": "Dice rolls 2 dice. Fires coins equal to the sum of both dice rolls", "tc": "骰子擲出2顆骰子。<br>發射等同於兩顆骰子點數總和的金幣。", "sc": "骰子掷出2枚骰子。<br>发射等同于两枚骰子点数总和的金币。", "jp": "ダイスがサイコロを2個振る。2個の出目の合計分だけコインを発射", "pt": "Dice lanza 2 dados. Dispara monedas equivalentes a la suma de los resultados de ambos dados", "vi": "Xúc xắc tung 2 viên xúc xắc.<br>Bắn số Xu bằng tổng của cả hai viên.", "th": "ลูกเต๋าทอยลูกเต๋า 2 ลูก<br>ยิงเหรียญตามผลรวมของลูกเต๋าทั้งสอง", "sp": "Dice rola 2 dados. Dispara moedas equivalentes à soma dos resultados dos dois dados"}, "crowns": {"B": {"tiers": {"Low": {"kr": "초월 시 잭팟 확률 <b>+2%<\/b>", "en": "Jackpot chance on transcendence <b>+2%<\/b>", "tc": "超越時命中大獎機率<b>+2%<\/b>", "sc": "超越时命中大奖概率<b>+2%<\/b>", "jp": "超越時にジャックポット発生確率<b>+2%<\/b>", "pt": "Chance de Jackpot ao transcender <b>+2%<\/b>", "vi": "Tỉ lệ Giắc-pót khi siêu việt <b>+2%<\/b>", "th": "โอกาส แจ็กพอต เมื่อทรานเซนด์ <b>+2%<\/b>", "sp": "Probabilidad de Jackpot al trascender <b>+2%<\/b>"}, "Medium": {"kr": "초월 시 잭팟 확률 <b>+3%<\/b>", "en": "Jackpot chance on transcendence <b>+3%<\/b>", "tc": "超越時命中大獎機率<b>+3%<\/b>", "sc": "超越时命中大奖概率<b>+3%<\/b>", "jp": "超越時にジャックポット発生確率<b>+3%<\/b>", "pt": "Chance de Jackpot ao transcender <b>+3%<\/b>", "vi": "Tỉ lệ Giắc-pót khi siêu việt <b>+3%<\/b>", "th": "โอกาส แจ็กพอต เมื่อทรานเซนด์ <b>+3%<\/b>", "sp": "Probabilidad de Jackpot al trascender <b>+3%<\/b>"}, "High": {"kr": "초월 시 잭팟 확률 <b>+5%<\/b>", "en": "Jackpot chance on transcendence <b>+5%<\/b>", "tc": "超越時命中大獎機率<b>+5%<\/b>", "sc": "超越时命中大奖概率<b>+5%<\/b>", "jp": "超越時にジャックポット発生確率<b>+5%<\/b>", "pt": "Chance de Jackpot ao transcender <b>+5%<\/b>", "vi": "Tỉ lệ Giắc-pót khi siêu việt <b>+5%<\/b>", "th": "โอกาส แจ็กพอต เมื่อทรานเซนด์ <b>+5%<\/b>", "sp": "Probabilidad de Jackpot al trascender <b>+5%<\/b>"}}}, "A": {"tiers": {"Low": {"kr": "최소/최대 코인 <b>+3<\/b><br>잭팟 발동 시 잭팟 <b>1회<\/b> 추가 발동", "en": "Min/Max Coin +<b>3<\/b><br>When Jackpot is triggered, it activates <b>1 time(s)<\/b> additionally", "tc": "最小/最大硬幣 <b>+3<\/b><br>命中大獎時額外觸發<b>1次<\/b>", "sc": "最小/最大硬币 <b>+3<\/b><br>命中大奖时额外触发<b>1次<\/b>", "jp": "最小/最大コイン <b>+3<\/b><br>ジャックポット発動時に<b>1回<\/b>追加で発動", "pt": "Moeda mín/máx <b>+3<\/b><br>Jackpot aciona <b>1 vez(es)<\/b> extra", "vi": "Xu tối thiểu/tối đa <b>+3<\/b><br>Giắc-pót kích hoạt thêm <b>1 lần<\/b>", "th": "เหรียญต่ำสุด/สูงสุด <b>+3<\/b><br>แจ็กพอต ทำงานเพิ่มอีก <b>1 ครั้ง<\/b>", "sp": "Moneda mín/máx <b>+3<\/b><br>El Jackpot se activa <b>1 vez/veces adicional(es)<\/b>"}, "Medium": {"kr": "최소/최대 코인 <b>+3<\/b><br>잭팟 발동 시 잭팟 <b>2회<\/b> 추가 발동", "en": "Min/Max Coin +<b>3<\/b><br>When Jackpot is triggered, it activates <b>2 time(s)<\/b> additionally", "tc": "最小/最大硬幣 <b>+3<\/b><br>命中大獎時額外觸發<b>2次<\/b>", "sc": "最小/最大硬币 <b>+3<\/b><br>命中大奖时额外触发<b>2次<\/b>", "jp": "最小/最大コイン <b>+3<\/b><br>ジャックポット発動時に<b>2回<\/b>追加で発動", "pt": "Moeda mín/máx <b>+3<\/b><br>Jackpot aciona <b>2 vez(es)<\/b> extra", "vi": "Xu tối thiểu/tối đa <b>+3<\/b><br>Giắc-pót kích hoạt thêm <b>2 lần<\/b>", "th": "เหรียญต่ำสุด/สูงสุด <b>+3<\/b><br>แจ็กพอต ทำงานเพิ่มอีก <b>2 ครั้ง<\/b>", "sp": "Moneda mín/máx <b>+3<\/b><br>El Jackpot se activa <b>2 vez/veces adicional(es)<\/b>"}, "High": {"kr": "최소/최대 코인 <b>+3<\/b><br>잭팟 발동 시 잭팟 <b>3회<\/b> 추가 발동", "en": "Min/Max Coin +<b>3<\/b><br>When Jackpot is triggered, it activates <b>3 time(s)<\/b> additionally", "tc": "最小/最大硬幣 <b>+3<\/b><br>命中大獎時額外觸發<b>3次<\/b>", "sc": "最小/最大硬币 <b>+3<\/b><br>命中大奖时额外触发<b>3次<\/b>", "jp": "最小/最大コイン <b>+3<\/b><br>ジャックポット発動時に<b>3回<\/b>追加で発動", "pt": "Moeda mín/máx <b>+3<\/b><br>Jackpot aciona <b>3 vez(es)<\/b> extra", "vi": "Xu tối thiểu/tối đa <b>+3<\/b><br>Giắc-pót kích hoạt thêm <b>3 lần<\/b>", "th": "เหรียญต่ำสุด/สูงสุด <b>+3<\/b><br>แจ็กพอต ทำงานเพิ่มอีก <b>3 ครั้ง<\/b>", "sp": "Moneda mín/máx <b>+3<\/b><br>El Jackpot se activa <b>3 vez/veces adicional(es)<\/b>"}}}}}, {"id": "Alpha_Pinky_BF", "name": {"kr": "핫 핑키 블릿", "en": "Hot Pinky Bullet", "tc": "熱辣粉紅子彈", "sc": "热辣粉红子弹", "jp": "ホット・ピンキー・バレット", "pt": "Bala Rosa Ardente", "vi": "Viên Đạn Hồng Nóng Bỏng", "th": "กระสุนสีชมพูสุดฮอต", "sp": "Bala Rosada Ardiente"}, "heroName": {"kr": "알파", "en": "Alpha", "tc": "阿爾法", "sc": "阿尔法", "jp": "アルファ", "pt": "Alpha", "vi": "An-pha", "th": "อัลฟา", "sp": "Alpha"}, "base": {"kr": "일정 주기마다 폭발탄을 발사", "en": "Fires an Explosive Shell at regular intervals", "tc": "定期發射爆炸彈。", "sc": "定期发射爆炸弹。", "jp": "一定周期ごとに爆発弾を発射", "pt": "Dispara um Projétil Explosivo em intervalos regulares", "vi": "Định kỳ bắn Đạn Nổ.", "th": "ยิงกระสุนระเบิดเป็นระยะ", "sp": "Dispara un Proyectil Explosivo a intervalos regulares"}, "crowns": {"B": {"tiers": {"Low": {"kr": "알파 개틀링 투사체 <b>+1<\/b>,<br>알파 개틀링 대미지 35% 감소", "en": "Alpha Gatling Projectile<b>+1<\/b>,<br>Alpha Gatling Damage -35%", "tc": "阿爾法加特林彈體 <b>+1<\/b>，<br>阿爾法加特林傷害降低 35%", "sc": "阿尔法加特林弹体 <b>+1<\/b>，<br>阿尔法加特林伤害减少 35%", "jp": "アルファガトリングの弾体 <b>+1<\/b>、<br>アルファガトリングのダメージ 35% 減少", "pt": "Projétil do Alfa Gatling <b>+1<\/b>, Dano -35%", "vi": "Đạn Gatling An-pha <b>+1<\/b>, Sát thương -35%", "th": "กระสุนแกตลิงอัลฟา <b>+1<\/b>, ดาเมจ -35%", "sp": "Proyectil de Alfa Gatling <b>+1<\/b>, Daño -35%"}, "Medium": {"kr": "알파 개틀링 투사체 <b>+2<\/b>,<br>알파 개틀링 대미지 35% 감소", "en": "Alpha Gatling Projectile<b>+2<\/b>,<br>Alpha Gatling Damage -35%", "tc": "阿爾法加特林彈體 <b>+2<\/b>，<br>阿爾法加特林傷害降低 35%", "sc": "阿尔法加特林弹体 <b>+2<\/b>，<br>阿尔法加特林伤害减少 35%", "jp": "アルファガトリングの弾体 <b>+2<\/b>、<br>アルファガトリングのダメージ 35% 減少", "pt": "Projétil do Alfa Gatling <b>+2<\/b>, Dano -35%", "vi": "Đạn Gatling An-pha <b>+2<\/b>, Sát thương -35%", "th": "กระสุนแกตลิงอัลฟา <b>+2<\/b>, ดาเมจ -35%", "sp": "Proyectil de Alfa Gatling <b>+2<\/b>, Daño -35%"}, "High": {"kr": "알파 개틀링 투사체 <b>+3<\/b>,<br>알파 개틀링 대미지 35% 감소", "en": "Alpha Gatling Projectile<b>+3<\/b>,<br>Alpha Gatling Damage -35%", "tc": "阿爾法加特林彈體 <b>+3<\/b>，<br>阿爾法加特林傷害降低 35%", "sc": "阿尔法加特林弹体 <b>+3<\/b>，<br>阿尔法加特林伤害减少 35%", "jp": "アルファガトリングの弾体 <b>+3<\/b>、<br>アルファガトリングのダメージ 35% 減少", "pt": "Projétil do Alfa Gatling <b>+3<\/b>, Dano -35%", "vi": "Đạn Gatling An-pha <b>+3<\/b>, Sát thương -35%", "th": "กระสุนแกตลิงอัลฟา <b>+3<\/b>, ดาเมจ -35%", "sp": "Proyectil de Alfa Gatling <b>+3<\/b>, Daño -35%"}}}, "A": {"tiers": {"Low": {"kr": "알파 개틀링 생명체 <b>1<\/b>마리 관통 추가,<br>알파 개틀링 대미지 35% 감소", "en": "Alpha Gatling Pierces <b>1<\/b> More Targets,<br>Alpha Gatling Damage -35%", "tc": "阿爾法加特林可多穿透 <b>1<\/b> 個生物，<br>阿爾法加特林傷害降低 35%", "sc": "阿尔法加特林可额外穿透 <b>1<\/b> 个生物，<br>阿尔法加特林伤害减少 35%", "jp": "アルファガトリングが<b>1<\/b>体の敵を追加で貫通、<br>アルファガトリングのダメージ 35% 減少", "pt": "Alfa Gatling perfura +<b>1<\/b> alvos, Dano -35%", "vi": "Gatling An-pha xuyên thêm <b>1<\/b> mục tiêu, Sát thương -35%", "th": "แกตลิงอัลฟาทะลุเพิ่ม <b>1<\/b> ตัว, ดาเมจ -35%", "sp": "Alfa Gatling atraviesa +<b>1<\/b> enemigos, Daño -35%"}, "Medium": {"kr": "알파 개틀링 생명체 <b>2<\/b>마리 관통 추가,<br>알파 개틀링 대미지 35% 감소", "en": "Alpha Gatling Pierces <b>2<\/b> More Targets,<br>Alpha Gatling Damage -35%", "tc": "阿爾法加特林可多穿透 <b>2<\/b> 個生物，<br>阿爾法加特林傷害降低 35%", "sc": "阿尔法加特林可额外穿透 <b>2<\/b> 个生物，<br>阿尔法加特林伤害减少 35%", "jp": "アルファガトリングが<b>2<\/b>体の敵を追加で貫通、<br>アルファガトリングのダメージ 35% 減少", "pt": "Alfa Gatling perfura +<b>2<\/b> alvos, Dano -35%", "vi": "Gatling An-pha xuyên thêm <b>2<\/b> mục tiêu, Sát thương -35%", "th": "แกตลิงอัลฟาทะลุเพิ่ม <b>2<\/b> ตัว, ดาเมจ -35%", "sp": "Alfa Gatling atraviesa +<b>2<\/b> enemigos, Daño -35%"}, "High": {"kr": "알파 개틀링 생명체 <b>3<\/b>마리 관통 추가,<br>알파 개틀링 대미지 35% 감소", "en": "Alpha Gatling Pierces <b>3<\/b> More Targets,<br>Alpha Gatling Damage -35%", "tc": "阿爾法加特林可多穿透 <b>3<\/b> 個生物，<br>阿爾法加特林傷害降低 35%", "sc": "阿尔法加特林可额外穿透 <b>3<\/b> 个生物，<br>阿尔法加特林伤害减少 35%", "jp": "アルファガトリングが<b>3<\/b>体の敵を追加で貫通、<br>アルファガトリングのダメージ 35% 減少", "pt": "Alfa Gatling perfura +<b>3<\/b> alvos, Dano -35%", "vi": "Gatling An-pha xuyên thêm <b>3<\/b> mục tiêu, Sát thương -35%", "th": "แกตลิงอัลฟาทะลุเพิ่ม <b>3<\/b> ตัว, ดาเมจ -35%", "sp": "Alfa Gatling atraviesa +<b>3<\/b> enemigos, Daño -35%"}}}}}, {"id": "Alpha_MatchGirl_BF", "name": {"kr": "정규직 성냥팔이 알파", "en": "Full-Time MatchGirl Alpha", "tc": "正式員工賣火柴的阿爾法", "sc": "正式员工卖火柴的阿尔法", "jp": "正社員マッチ売りアルファ", "pt": "Vendedora de Fósforos Efetiva", "vi": "Cô Bé Bán Diêm Chính Thức", "th": "เด็กหญิงขายไม้ขีดประจำ", "sp": "La Vendedora de Cerillas Fija"}, "heroName": {"kr": "알파", "en": "Alpha", "tc": "阿爾法", "sc": "阿尔法", "jp": "アルファ", "pt": "Alpha", "vi": "An-pha", "th": "อัลฟา", "sp": "Alpha"}, "base": {"kr": "<b>11초<\/b>마다 전탄 발사", "en": "Fires a full salvo every <b>11s<\/b>", "tc": "每<b>11秒<\/b>發射全彈", "sc": "每<b>11秒<\/b>发射全弹", "jp": "<b>11秒<\/b>ごとに全弾発射", "pt": "Dispara todos os projéteis a cada <b>11s<\/b>", "vi": "Bắn toàn bộ đạn mỗi <b>11 giây<\/b>", "th": "ยิงกระสุนทั้งหมดทุก ๆ <b>11 วินาที<\/b>", "sp": "Dispara una salva completa cada <b>11s<\/b>"}, "crowns": {"B": {"tiers": {"Low": {"kr": "전탄 발사 쿨타임 <b>-2초<\/b>", "en": "Full Salvo cooldown <b>-2s<\/b>", "tc": "全彈發射冷卻時間 <b>-2秒<\/b>", "sc": "全弹发射冷却时间 <b>-2秒<\/b>", "jp": "全弾発射のクールタイム <b>-2秒<\/b>", "pt": "Tempo de recarga de Disparo Total <b>-2s<\/b>", "vi": "Thời gian hồi Bắn Toàn Bộ <b>-2 giây<\/b>", "th": "คูลดาวน์ยิงกระสุนทั้งหมด <b>-2 วินาที<\/b>", "sp": "Tiempo de reutilización de Salva Completa <b>-2s<\/b>"}, "Medium": {"kr": "전탄 발사 쿨타임 <b>-3초<\/b>", "en": "Full Salvo cooldown <b>-3s<\/b>", "tc": "全彈發射冷卻時間 <b>-3秒<\/b>", "sc": "全弹发射冷却时间 <b>-3秒<\/b>", "jp": "全弾発射のクールタイム <b>-3秒<\/b>", "pt": "Tempo de recarga de Disparo Total <b>-3s<\/b>", "vi": "Thời gian hồi Bắn Toàn Bộ <b>-3 giây<\/b>", "th": "คูลดาวน์ยิงกระสุนทั้งหมด <b>-3 วินาที<\/b>", "sp": "Tiempo de reutilización de Salva Completa <b>-3s<\/b>"}, "High": {"kr": "전탄 발사 쿨타임 <b>-4초<\/b>", "en": "Full Salvo cooldown <b>-4s<\/b>", "tc": "全彈發射冷卻時間 <b>-4秒<\/b>", "sc": "全弹发射冷却时间 <b>-4秒<\/b>", "jp": "全弾発射のクールタイム <b>-4秒<\/b>", "pt": "Tempo de recarga de Disparo Total <b>-4s<\/b>", "vi": "Thời gian hồi Bắn Toàn Bộ <b>-4 giây<\/b>", "th": "คูลดาวน์ยิงกระสุนทั้งหมด <b>-4 วินาที<\/b>", "sp": "Tiempo de reutilización de Salva Completa <b>-4s<\/b>"}}}, "A": {"tiers": {"Low": {"kr": "전탄 발사 미사일 폭발 범위 <b>+60%<\/b><br>전탄 발사 미사일 <b>+3<\/b>", "en": "Full Salvo missile explosion range <b>+60%<\/b><br>Full Salvo missiles <b>+3<\/b>", "tc": "全彈發射導彈爆炸範圍 <b>+60%<\/b><br>全彈發射導彈 <b>+3<\/b>", "sc": "全弹发射导弹爆炸范围 <b>+60%<\/b><br>全弹发射导弹 <b>+3<\/b>", "jp": "全弾発射ミサイルの爆発範囲 <b>+60%<\/b><br>全弾発射ミサイル <b>+3<\/b>", "pt": "Área de explosão dos Mísseis do Disparo Total <b>+60%<\/b><br>Mísseis do Disparo Total <b>+3<\/b>", "vi": "Phạm vi nổ của Tên lửa Bắn Toàn Bộ <b>+60%<\/b><br>Tên lửa Bắn Toàn Bộ <b>+3<\/b>", "th": "ขอบเขตระเบิดของจรวดจากการยิงกระสุนทั้งหมด <b>+60%<\/b><br>จรวดจากการยิงกระสุนทั้งหมด <b>+3<\/b>", "sp": "Alcance de explosión de los Misiles de Salva Completa <b>+60%<\/b><br>Misiles de Salva Completa <b>+3<\/b>"}, "Medium": {"kr": "전탄 발사 미사일 폭발 범위 <b>+90%<\/b><br>전탄 발사 미사일 <b>+5<\/b>", "en": "Full Salvo missile explosion range <b>+90%<\/b><br>Full Salvo missiles <b>+5<\/b>", "tc": "全彈發射導彈爆炸範圍 <b>+90%<\/b><br>全彈發射導彈 <b>+5<\/b>", "sc": "全弹发射导弹爆炸范围 <b>+90%<\/b><br>全弹发射导弹 <b>+5<\/b>", "jp": "全弾発射ミサイルの爆発範囲 <b>+90%<\/b><br>全弾発射ミサイル <b>+5<\/b>", "pt": "Área de explosão dos Mísseis do Disparo Total <b>+90%<\/b><br>Mísseis do Disparo Total <b>+5<\/b>", "vi": "Phạm vi nổ của Tên lửa Bắn Toàn Bộ <b>+90%<\/b><br>Tên lửa Bắn Toàn Bộ <b>+5<\/b>", "th": "ขอบเขตระเบิดของจรวดจากการยิงกระสุนทั้งหมด <b>+90%<\/b><br>จรวดจากการยิงกระสุนทั้งหมด <b>+5<\/b>", "sp": "Alcance de explosión de los Misiles de Salva Completa <b>+90%<\/b><br>Misiles de Salva Completa <b>+5<\/b>"}, "High": {"kr": "전탄 발사 미사일 폭발 범위 <b>+120%<\/b><br>전탄 발사 미사일 <b>+8<\/b>", "en": "Full Salvo missile explosion range <b>+120%<\/b><br>Full Salvo missiles <b>+8<\/b>", "tc": "全彈發射導彈爆炸範圍 <b>+120%<\/b><br>全彈發射導彈 <b>+8<\/b>", "sc": "全弹发射导弹爆炸范围 <b>+120%<\/b><br>全弹发射导弹 <b>+8<\/b>", "jp": "全弾発射ミサイルの爆発範囲 <b>+120%<\/b><br>全弾発射ミサイル <b>+8<\/b>", "pt": "Área de explosão dos Mísseis do Disparo Total <b>+120%<\/b><br>Mísseis do Disparo Total <b>+8<\/b>", "vi": "Phạm vi nổ của Tên lửa Bắn Toàn Bộ <b>+120%<\/b><br>Tên lửa Bắn Toàn Bộ <b>+8<\/b>", "th": "ขอบเขตระเบิดของจรวดจากการยิงกระสุนทั้งหมด <b>+120%<\/b><br>จรวดจากการยิงกระสุนทั้งหมด <b>+8<\/b>", "sp": "Alcance de explosión de los Misiles de Salva Completa <b>+120%<\/b><br>Misiles de Salva Completa <b>+8<\/b>"}}}}}, {"id": "Yoyo_TroubleMaker_BF", "name": {"kr": "트릭스터", "en": "Trickster", "tc": "詭計者", "sc": "诡计者", "jp": "トリックスター", "pt": "Trapaceiro", "vi": "Kẻ Lừa Gạt", "th": "จอมเจ้าเล่ห์", "sp": "Tramposo"}, "heroName": {"kr": "요요", "en": "Yoyo", "tc": "優優", "sc": "优优", "jp": "ヨーヨー", "pt": "Yoyo", "vi": "Dô-dô", "th": "โยโย", "sp": "Yoyo"}, "base": {"kr": "요요 트릭 투사체 + 1", "en": "Yo-yo Trick projectile +1", "tc": "溜溜球特技彈體 +1", "sc": "溜溜球特技弹体 +1", "jp": "ヨーヨートリックの弾体 +1", "pt": "Projétil de Truque de Yo-yo +1", "vi": "Đạn Mẹo Dô-dô +1", "th": "กระสุนทริคโยโย่ +1", "sp": "Proyectil de Truco de Yo-yo +1"}, "crowns": {"B": {"tiers": {"Low": {"kr": "외계인 스킬 공격 시<br><b>3초<\/b> 동안 지속되는 요요를 설치", "en": "Deploy a yoyo that lasts for <b>3 seconds<\/b> when an Alien Skill is used", "tc": "使用外星人技能時，部署持續 <b>3秒<\/b> 的溜溜球", "sc": "使用外星人技能时，部署持续 <b>3秒<\/b> 的悠悠球", "jp": "エイリアンスキル使用時、<br><b>3秒<\/b> 持続するヨーヨーを設置", "pt": "Coloca um Yo-yo que dura <b>3s<\/b> ao usar uma Habilidade Alienígena", "vi": "Đặt Dô-dô tồn tại <b>3giây<\/b> khi sử dụng Kỹ năng Ngoài hành tinh", "th": "วางโยโย่ที่อยู่ได้นาน <b>3วิ<\/b> เมื่อใช้สกิลเอเลี่ยน", "sp": "Coloca un Yo-yo que dura <b>3s<\/b> al usar una Habilidad Alienígena"}, "Medium": {"kr": "외계인 스킬 공격 시<br><b>4초<\/b> 동안 지속되는 요요를 설치", "en": "Deploy a yoyo that lasts for <b>4 seconds<\/b> when an Alien Skill is used", "tc": "使用外星人技能時，部署持續 <b>4秒<\/b> 的溜溜球", "sc": "使用外星人技能时，部署持续 <b>4秒<\/b> 的悠悠球", "jp": "エイリアンスキル使用時、<br><b>4秒<\/b> 持続するヨーヨーを設置", "pt": "Coloca um Yo-yo que dura <b>4s<\/b> ao usar uma Habilidade Alienígena", "vi": "Đặt Dô-dô tồn tại <b>4giây<\/b> khi sử dụng Kỹ năng Ngoài hành tinh", "th": "วางโยโย่ที่อยู่ได้นาน <b>4วิ<\/b> เมื่อใช้สกิลเอเลี่ยน", "sp": "Coloca un Yo-yo que dura <b>4s<\/b> al usar una Habilidad Alienígena"}, "High": {"kr": "외계인 스킬 공격 시<br><b>5초<\/b> 동안 지속되는 요요를 설치", "en": "Deploy a yoyo that lasts for <b>5 seconds<\/b> when an Alien Skill is used", "tc": "使用外星人技能時，部署持續 <b>5秒<\/b> 的溜溜球", "sc": "使用外星人技能时，部署持续 <b>5秒<\/b> 的悠悠球", "jp": "エイリアンスキル使用時、<br><b>5秒<\/b> 持続するヨーヨーを設置", "pt": "Coloca um Yo-yo que dura <b>5s<\/b> ao usar uma Habilidade Alienígena", "vi": "Đặt Dô-dô tồn tại <b>5giây<\/b> khi sử dụng Kỹ năng Ngoài hành tinh", "th": "วางโยโย่ที่อยู่ได้นาน <b>5วิ<\/b> เมื่อใช้สกิลเอเลี่ยน", "sp": "Coloca un Yo-yo que dura <b>5s<\/b> al usar una Habilidad Alienígena"}}}, "A": {"tiers": {"Low": {"kr": "방어막 또는 체력 버퍼 활성화 시 공격력 <b>+18%<\/b>", "en": "Shield or HP buffer is active, ATK <b>+18%<\/b>", "tc": "有護盾或生命值緩衝器區活動中，攻擊力 <b>+18%<\/b>", "sc": "有护盾或生命值缓冲器区活动中，攻击力 <b>+18%<\/b>", "jp": "シールドまたはHPバッファが有効時、攻撃力 <b>+18%<\/b>", "pt": "Com Escudo ou buffer de PV ativos, ATQ <b>+18%<\/b>", "vi": "Khi Khiên hoặc bộ đệm HP đang kích hoạt, Tấn công <b>+18%<\/b>", "th": "เมื่อมีโล่หรือบัฟเฟอร์ HP ทำงาน พลังโจมตี <b>+18%<\/b>", "sp": "Con Escudo o búfer de PV activos, ATQ <b>+18%<\/b>"}, "Medium": {"kr": "방어막 또는 체력 버퍼 활성화 시 공격력 <b>+23%<\/b>", "en": "Shield or HP buffer is active, ATK <b>+23%<\/b>", "tc": "有護盾或生命值緩衝器區活動中，攻擊力 <b>+23%<\/b>", "sc": "有护盾或生命值缓冲器区活动中，攻击力 <b>+23%<\/b>", "jp": "シールドまたはHPバッファが有効時、攻撃力 <b>+23%<\/b>", "pt": "Com Escudo ou buffer de PV ativos, ATQ <b>+23%<\/b>", "vi": "Khi Khiên hoặc bộ đệm HP đang kích hoạt, Tấn công <b>+23%<\/b>", "th": "เมื่อมีโล่หรือบัฟเฟอร์ HP ทำงาน พลังโจมตี <b>+23%<\/b>", "sp": "Con Escudo o búfer de PV activos, ATQ <b>+23%<\/b>"}, "High": {"kr": "방어막 또는 체력 버퍼 활성화 시 공격력 <b>+30%<\/b>", "en": "Shield or HP buffer is active, ATK <b>+30%<\/b>", "tc": "有護盾或生命值緩衝器區活動中，攻擊力 <b>+30%<\/b>", "sc": "有护盾或生命值缓冲器区活动中，攻击力 <b>+30%<\/b>", "jp": "シールドまたはHPバッファが有効時、攻撃力 <b>+30%<\/b>", "pt": "Com Escudo ou buffer de PV ativos, ATQ <b>+30%<\/b>", "vi": "Khi Khiên hoặc bộ đệm HP đang kích hoạt, Tấn công <b>+30%<\/b>", "th": "เมื่อมีโล่หรือบัฟเฟอร์ HP ทำงาน พลังโจมตี <b>+30%<\/b>", "sp": "Con Escudo o búfer de PV activos, ATQ <b>+30%<\/b>"}}}}}, {"id": "Gum_Spy_BF", "name": {"kr": "비밀 요원 껌", "en": "Secret Agent Gum", "tc": "秘密特務甘", "sc": "秘密特工甘", "jp": "秘密諜報員ガム", "pt": "Agente Secreto Gum", "vi": "Đặc Vụ Bí Mật Kẹo Cao Su", "th": "สายลับลับสุดยอด กัม", "sp": "Agente Secreto Gum"}, "heroName": {"kr": "껌", "en": "Gum", "tc": "甘", "sc": "甘", "jp": "ガム", "pt": "Gum", "vi": "Găm", "th": "กัม", "sp": "Gum"}, "base": {"kr": "풍선껌을 2개로 분할해서 발사", "en": "Split and fire bubblegum into 2 pieces", "tc": "將泡泡糖分裂為2個發射", "sc": "将泡泡糖分裂为2个发射", "jp": "バブルガムを2個に分裂して発射", "pt": "Divide o chiclete em 2 partes e dispara", "vi": "Chia kẹo cao su thành 2 phần và bắn", "th": "แยกบับเบิ้ลกัมเป็น 2 ชิ้นแล้วยิง", "sp": "Divide el chicle en 2 partes y dispáralo"}, "crowns": {"B": {"tiers": {"Low": {"kr": "<b>14초<\/b>마다 중앙본부에서 지원사격 개시", "en": "Initiate support fire from Central Command every <b>14 seconds<\/b>", "tc": "每隔<b>14<\/b>秒由中央總部發動支援射擊", "sc": "每隔<b>14<\/b>秒由中央总部发起支援射击", "jp": "<b>14<\/b>秒ごとに中央本部が支援砲撃を開始", "pt": "Disparo de apoio do Comando Central a cada <b>14s<\/b>", "vi": "Khai hỏa hỗ trợ từ Tổng hành dinh mỗi <b>14giây<\/b>", "th": "เปิดฉากยิงสนับสนุนจากกองบัญชาการกลางทุก <b>14วิ<\/b>", "sp": "Fuego de apoyo del Comando Central cada <b>14s<\/b>"}, "Medium": {"kr": "<b>12초<\/b>마다 중앙본부에서 지원사격 개시", "en": "Initiate support fire from Central Command every <b>12 seconds<\/b>", "tc": "每隔<b>12<\/b>秒由中央總部發動支援射擊", "sc": "每隔<b>12<\/b>秒由中央总部发起支援射击", "jp": "<b>12<\/b>秒ごとに中央本部が支援砲撃を開始", "pt": "Disparo de apoio do Comando Central a cada <b>12s<\/b>", "vi": "Khai hỏa hỗ trợ từ Tổng hành dinh mỗi <b>12giây<\/b>", "th": "เปิดฉากยิงสนับสนุนจากกองบัญชาการกลางทุก <b>12วิ<\/b>", "sp": "Fuego de apoyo del Comando Central cada <b>12s<\/b>"}, "High": {"kr": "<b>9초<\/b>마다 중앙본부에서 지원사격 개시", "en": "Initiate support fire from Central Command every <b>9 seconds<\/b>", "tc": "每隔<b>9<\/b>秒由中央總部發動支援射擊", "sc": "每隔<b>9<\/b>秒由中央总部发起支援射击", "jp": "<b>9<\/b>秒ごとに中央本部が支援砲撃を開始", "pt": "Disparo de apoio do Comando Central a cada <b>9s<\/b>", "vi": "Khai hỏa hỗ trợ từ Tổng hành dinh mỗi <b>9giây<\/b>", "th": "เปิดฉากยิงสนับสนุนจากกองบัญชาการกลางทุก <b>9วิ<\/b>", "sp": "Fuego de apoyo del Comando Central cada <b>9s<\/b>"}}}, "A": {"tiers": {"Low": {"kr": "풍선껌 <b>+1개<\/b>", "en": "Bubblegum <b>+1<\/b>", "tc": "泡泡糖 <b>+1個<\/b>", "sc": "泡泡糖 <b>+1个<\/b>", "jp": "バブルガム <b>+1個<\/b>", "pt": "Chiclete <b>+1<\/b>", "vi": "Kẹo cao su <b>+1<\/b>", "th": "บับเบิ้ลกัม <b>+1<\/b>", "sp": "Chicle <b>+1<\/b>"}, "Medium": {"kr": "풍선껌 <b>+2개<\/b>", "en": "Bubblegum <b>+2<\/b>", "tc": "泡泡糖 <b>+2個<\/b>", "sc": "泡泡糖 <b>+2个<\/b>", "jp": "バブルガム <b>+2個<\/b>", "pt": "Chiclete <b>+2<\/b>", "vi": "Kẹo cao su <b>+2<\/b>", "th": "บับเบิ้ลกัม <b>+2<\/b>", "sp": "Chicle <b>+2<\/b>"}, "High": {"kr": "풍선껌 <b>+3개<\/b>", "en": "Bubblegum <b>+3<\/b>", "tc": "泡泡糖 <b>+3個<\/b>", "sc": "泡泡糖 <b>+3个<\/b>", "jp": "バブルガム <b>+3個<\/b>", "pt": "Chiclete <b>+3<\/b>", "vi": "Kẹo cao su <b>+3<\/b>", "th": "บับเบิ้ลกัม <b>+3<\/b>", "sp": "Chicle <b>+3<\/b>"}}}}}, {"id": "Mamba_Dancer_BF", "name": {"kr": "은하수 무희 맘바", "en": "Milky Way Dancer Mamba", "tc": "銀河舞姬曼巴", "sc": "银河舞姬曼巴", "jp": "天の川の舞姫マンバ", "pt": "Mamba Dançarina da Via Láctea", "vi": "Mam-ba Vũ Công Ngân Hà", "th": "นักเต้นแห่งทางช้างเผือก มัมบา", "sp": "Mamba Bailarina de la Vía Láctea"}, "heroName": {"kr": "맘바", "en": "Mamba", "tc": "曼巴", "sc": "曼巴", "jp": "マンバ", "pt": "Mamba", "vi": "Mam-ba", "th": "แมนบา", "sp": "Mamba"}, "base": {"kr": "투사체 방어 장막을 펼치는 수호 토템을<br><b>4초<\/b> 동안 설치", "en": "Place a Guardian Totem that creates a projectile-blocking barrier for <b>4 seconds<\/b>", "tc": "放置能展開投射防護結界的守護圖騰<b>持續 4 秒<\/b>", "sc": "部署展开投射防御结界的守护图腾<b>持续 4 秒<\/b>", "jp": "投射物を防ぐバリアを展開するガーディアン・トーテムを<b>4秒<\/b>間設置", "pt": "Coloca um Totem Guardião que bloqueia projéteis por <b>4s<\/b>", "vi": "Đặt Totem Hộ Vệ tạo lá chắn chặn đạn trong <b>4giây<\/b>", "th": "วางโทเท็มพิทักษ์ที่สร้างม่านป้องกันกระสุนเป็นเวลา <b>4วิ<\/b>", "sp": "Coloca un Tótem Guardián que bloquea proyectiles durante <b>4s<\/b>"}, "crowns": {"B": {"tiers": {"Low": {"kr": "생명체를 끌어당기는 중력 토템을 <b>5초<\/b> 동안 설치", "en": "Place a Gravity Totem that pulls in enemies for <b>5 seconds<\/b>", "tc": "放置能吸引敵人的重力圖騰<b>持續 5 秒<\/b>", "sc": "部署吸引敌人的重力图腾<b>持续 5 秒<\/b>", "jp": "敵を引き寄せるグラビティ・トーテムを<b>5秒<\/b>間設置", "pt": "Coloca um Totem de Gravidade que puxa inimigos por <b>5s<\/b>", "vi": "Đặt Totem Trọng lực hút kẻ địch trong <b>5giây<\/b>", "th": "วางโทเท็มแรงโน้มถ่วงที่ดึงศัตรูเข้ามาเป็นเวลา <b>5วิ<\/b>", "sp": "Coloca un Tótem de Gravedad que atrae enemigos durante <b>5s<\/b>"}, "Medium": {"kr": "생명체를 끌어당기는 중력 토템을 <b>6초<\/b> 동안 설치", "en": "Place a Gravity Totem that pulls in enemies for <b>6 seconds<\/b>", "tc": "放置能吸引敵人的重力圖騰<b>持續 6 秒<\/b>", "sc": "部署吸引敌人的重力图腾<b>持续 6 秒<\/b>", "jp": "敵を引き寄せるグラビティ・トーテムを<b>6秒<\/b>間設置", "pt": "Coloca um Totem de Gravidade que puxa inimigos por <b>6s<\/b>", "vi": "Đặt Totem Trọng lực hút kẻ địch trong <b>6giây<\/b>", "th": "วางโทเท็มแรงโน้มถ่วงที่ดึงศัตรูเข้ามาเป็นเวลา <b>6วิ<\/b>", "sp": "Coloca un Tótem de Gravedad que atrae enemigos durante <b>6s<\/b>"}, "High": {"kr": "생명체를 끌어당기는 중력 토템을 <b>7초<\/b> 동안 설치", "en": "Place a Gravity Totem that pulls in enemies for <b>7 seconds<\/b>", "tc": "放置能吸引敵人的重力圖騰<b>持續 7 秒<\/b>", "sc": "部署吸引敌人的重力图腾<b>持续 7 秒<\/b>", "jp": "敵を引き寄せるグラビティ・トーテムを<b>7秒<\/b>間設置", "pt": "Coloca um Totem de Gravidade que puxa inimigos por <b>7s<\/b>", "vi": "Đặt Totem Trọng lực hút kẻ địch trong <b>7giây<\/b>", "th": "วางโทเท็มแรงโน้มถ่วงที่ดึงศัตรูเข้ามาเป็นเวลา <b>7วิ<\/b>", "sp": "Coloca un Tótem de Gravedad que atrae enemigos durante <b>7s<\/b>"}}}, "A": {"tiers": {"Low": {"kr": "토템들이 주변 생명체를 공격<br>토템 크기 <b>+10%<\/b>", "en": "Totems attack nearby creatures<br>Totem size <b>+10%<\/b>", "tc": "圖騰攻擊周圍的生命體<br>圖騰大小 <b>+10%<\/b>", "sc": "图腾攻击周围的生命体<br>图腾大小 <b>+10%<\/b>", "jp": "トーテムが周囲の生命体を攻撃<br>トーテムサイズ <b>+10%<\/b>", "pt": "Os Totens atacam criaturas próximas<br>Tamanho dos Totens <b>+10%<\/b>", "vi": "Các Totem tấn công sinh vật xung quanh<br>Kích thước Totem <b>+10%<\/b>", "th": "โทเท็มโจมตีสิ่งมีชีวิตโดยรอบ<br>ขนาดโทเท็ม <b>+10%<\/b>", "sp": "Los Tótems atacan a las criaturas cercanas<br>Tamaño de los Tótems <b>+10%<\/b>"}, "Medium": {"kr": "토템들이 주변 생명체를 공격<br>토템 크기 <b>+20%<\/b>", "en": "Totems attack nearby creatures<br>Totem size <b>+20%<\/b>", "tc": "圖騰攻擊周圍的生命體<br>圖騰大小 <b>+20%<\/b>", "sc": "图腾攻击周围的生命体<br>图腾大小 <b>+20%<\/b>", "jp": "トーテムが周囲の生命体を攻撃<br>トーテムサイズ <b>+20%<\/b>", "pt": "Os Totens atacam criaturas próximas<br>Tamanho dos Totens <b>+20%<\/b>", "vi": "Các Totem tấn công sinh vật xung quanh<br>Kích thước Totem <b>+20%<\/b>", "th": "โทเท็มโจมตีสิ่งมีชีวิตโดยรอบ<br>ขนาดโทเท็ม <b>+20%<\/b>", "sp": "Los Tótems atacan a las criaturas cercanas<br>Tamaño de los Tótems <b>+20%<\/b>"}, "High": {"kr": "토템들이 주변 생명체를 공격<br>토템 크기 <b>+30%<\/b>", "en": "Totems attack nearby creatures<br>Totem size <b>+30%<\/b>", "tc": "圖騰攻擊周圍的生命體<br>圖騰大小 <b>+30%<\/b>", "sc": "图腾攻击周围的生命体<br>图腾大小 <b>+30%<\/b>", "jp": "トーテムが周囲の生命体を攻撃<br>トーテムサイズ <b>+30%<\/b>", "pt": "Os Totens atacam criaturas próximas<br>Tamanho dos Totens <b>+30%<\/b>", "vi": "Các Totem tấn công sinh vật xung quanh<br>Kích thước Totem <b>+30%<\/b>", "th": "โทเท็มโจมตีสิ่งมีชีวิตโดยรอบ<br>ขนาดโทเท็ม <b>+30%<\/b>", "sp": "Los Tótems atacan a las criaturas cercanas<br>Tamaño de los Tótems <b>+30%<\/b>"}}}}}, {"id": "Laika_Explorer_BF", "name": {"kr": "탐험대장 라이카", "en": "Expedition Leader Laika", "tc": "探險隊長萊卡", "sc": "探险队长莱卡", "jp": "探検隊長ライカ", "pt": "Líder da Expedição Laika", "vi": "Đội Trưởng Thám Hiểm Lai-ca", "th": "หัวหน้าคณะสำรวจไลก้า", "sp": "Líder de Expedición Laika"}, "heroName": {"kr": "라이카", "en": "Laika", "tc": "萊卡", "sc": "莱卡", "jp": "ライカ", "pt": "Laika", "vi": "Lai-ca", "th": "ไลก้า", "sp": "Laika"}, "base": {"kr": "강철 주먹이 사라질때 폭발합니다.", "en": "The Iron Fist explodes when it disappears.", "tc": "鋼鐵拳消失時會爆炸。", "sc": "钢铁拳消失时会爆炸。", "jp": "鋼鉄の拳が消えるときに爆発します。", "pt": "O Punho de Ferro explode quando desaparece.", "vi": "Nắm Đấm Sắt phát nổ khi biến mất.", "th": "เมื่อหมัดเหล็กหายไป จะเกิดการระเบิด.", "sp": "El Puño de Hierro explota cuando desaparece."}, "crowns": {"B": {"tiers": {"Low": {"kr": "강철 주먹 폭발 대미지 <b>+10%<\/b>, 폭발 범위 <b>+10%<\/b>", "en": "Iron Fist explosion damage <b>+10%<\/b>, explosion radius <b>+10%<\/b>", "tc": "鋼鐵拳爆炸傷害 <b>+10%<\/b>，爆炸範圍 <b>+10%<\/b>", "sc": "钢铁拳爆炸伤害 <b>+10%<\/b>，爆炸范围 <b>+10%<\/b>", "jp": "鋼鉄の拳の爆発ダメージ <b>+10%<\/b>、爆発範囲 <b>+10%<\/b>", "pt": "Dano da explosão do Punho de Ferro <b>+10%<\/b>, alcance da explosão <b>+10%<\/b>", "vi": "Sát thương nổ của Nắm Đấm Sắt <b>+10%<\/b>, phạm vi nổ <b>+10%<\/b>", "th": "ความเสียหายจากการระเบิดของหมัดเหล็ก <b>+10%<\/b>, รัศมีระเบิด <b>+10%<\/b>", "sp": "Daño de explosión del Puño de Hierro <b>+10%<\/b>, radio de explosión <b>+10%<\/b>"}, "Medium": {"kr": "강철 주먹 폭발 대미지 <b>+15%<\/b>, 폭발 범위 <b>+20%<\/b>", "en": "Iron Fist explosion damage <b>+15%<\/b>, explosion radius <b>+20%<\/b>", "tc": "鋼鐵拳爆炸傷害 <b>+15%<\/b>，爆炸範圍 <b>+20%<\/b>", "sc": "钢铁拳爆炸伤害 <b>+15%<\/b>，爆炸范围 <b>+20%<\/b>", "jp": "鋼鉄の拳の爆発ダメージ <b>+15%<\/b>、爆発範囲 <b>+20%<\/b>", "pt": "Dano da explosão do Punho de Ferro <b>+15%<\/b>, alcance da explosão <b>+20%<\/b>", "vi": "Sát thương nổ của Nắm Đấm Sắt <b>+15%<\/b>, phạm vi nổ <b>+20%<\/b>", "th": "ความเสียหายจากการระเบิดของหมัดเหล็ก <b>+15%<\/b>, รัศมีระเบิด <b>+20%<\/b>", "sp": "Daño de explosión del Puño de Hierro <b>+15%<\/b>, radio de explosión <b>+20%<\/b>"}, "High": {"kr": "강철 주먹 폭발 대미지 <b>+20%<\/b>, 폭발 범위 <b>+30%<\/b>", "en": "Iron Fist explosion damage <b>+20%<\/b>, explosion radius <b>+30%<\/b>", "tc": "鋼鐵拳爆炸傷害 <b>+20%<\/b>，爆炸範圍 <b>+30%<\/b>", "sc": "钢铁拳爆炸伤害 <b>+20%<\/b>，爆炸范围 <b>+30%<\/b>", "jp": "鋼鉄の拳の爆発ダメージ <b>+20%<\/b>、爆発範囲 <b>+30%<\/b>", "pt": "Dano da explosão do Punho de Ferro <b>+20%<\/b>, alcance da explosão <b>+30%<\/b>", "vi": "Sát thương nổ của Nắm Đấm Sắt <b>+20%<\/b>, phạm vi nổ <b>+30%<\/b>", "th": "ความเสียหายจากการระเบิดของหมัดเหล็ก <b>+20%<\/b>, รัศมีระเบิด <b>+30%<\/b>", "sp": "Daño de explosión del Puño de Hierro <b>+20%<\/b>, radio de explosión <b>+30%<\/b>"}}}, "A": {"tiers": {"Low": {"kr": "강철 주먹 크기 <b>-50%<\/b>, 강철 주먹 <b>1<\/b>개 추가", "en": "Iron Fist size <b>-50%<\/b>, <b>+1<\/b> additional Iron Fists", "tc": "鋼鐵拳大小 <b>-50%<\/b>，額外增加 <b>1<\/b> 個鋼鐵拳", "sc": "钢铁拳大小 <b>-50%<\/b>，额外增加 <b>1<\/b> 个钢铁拳", "jp": "鋼鉄の拳サイズ <b>-50%<\/b>、鋼鉄の拳 <b>1<\/b> 個追加", "pt": "Tamanho do Punho de Ferro <b>-50%<\/b>, <b>+1<\/b> Punhos de Ferro adicionais", "vi": "Kích thước Nắm Đấm Sắt <b>-50%<\/b>, thêm <b>1<\/b> Nắm Đấm Sắt", "th": "ขนาดหมัดเหล็กลดลง <b>50%<\/b>, เพิ่มหมัดเหล็ก <b>1<\/b> อัน", "sp": "Size del Puño de Hierro <b>-50%<\/b>, <b>+1<\/b> Puños de Hierro adicionales"}, "Medium": {"kr": "강철 주먹 크기 <b>-50%<\/b>, 강철 주먹 <b>2<\/b>개 추가", "en": "Iron Fist size <b>-50%<\/b>, <b>+2<\/b> additional Iron Fists", "tc": "鋼鐵拳大小 <b>-50%<\/b>，額外增加 <b>2<\/b> 個鋼鐵拳", "sc": "钢铁拳大小 <b>-50%<\/b>，额外增加 <b>2<\/b> 个钢铁拳", "jp": "鋼鉄の拳サイズ <b>-50%<\/b>、鋼鉄の拳 <b>2<\/b> 個追加", "pt": "Tamanho do Punho de Ferro <b>-50%<\/b>, <b>+2<\/b> Punhos de Ferro adicionais", "vi": "Kích thước Nắm Đấm Sắt <b>-50%<\/b>, thêm <b>2<\/b> Nắm Đấm Sắt", "th": "ขนาดหมัดเหล็กลดลง <b>50%<\/b>, เพิ่มหมัดเหล็ก <b>2<\/b> อัน", "sp": "Size del Puño de Hierro <b>-50%<\/b>, <b>+2<\/b> Puños de Hierro adicionales"}, "High": {"kr": "강철 주먹 크기 <b>-50%<\/b>, 강철 주먹 <b>3<\/b>개 추가", "en": "Iron Fist size <b>-50%<\/b>, <b>+3<\/b> additional Iron Fists", "tc": "鋼鐵拳大小 <b>-50%<\/b>，額外增加 <b>3<\/b> 個鋼鐵拳", "sc": "钢铁拳大小 <b>-50%<\/b>，额外增加 <b>3<\/b> 个钢铁拳", "jp": "鋼鉄の拳サイズ <b>-50%<\/b>、鋼鉄の拳 <b>3<\/b> 個追加", "pt": "Tamanho do Punho de Ferro <b>-50%<\/b>, <b>+3<\/b> Punhos de Ferro adicionais", "vi": "Kích thước Nắm Đấm Sắt <b>-50%<\/b>, thêm <b>3<\/b> Nắm Đấm Sắt", "th": "ขนาดหมัดเหล็กลดลง <b>50%<\/b>, เพิ่มหมัดเหล็ก <b>3<\/b> อัน", "sp": "Size del Puño de Hierro <b>-50%<\/b>, <b>+3<\/b> Puños de Hierro adicionales"}}}}}, {"id": "Ketchapi_Nurse_BF", "name": {"kr": "수간호사 케챠피", "en": "Head Nurse Ketchapi", "tc": "護理長凱恰皮", "sc": "护士长凯恰皮", "jp": "主任ナース・ケチャピ", "pt": "Enfermeira-Chefe Ketchapi", "vi": "Y Tá Trưởng Kê-cha-pi", "th": "หัวหน้าพยาบาล เคชาปี", "sp": "Enfermera Jefa Ketchapi"}, "heroName": {"kr": "케챠피", "en": "Ketchapi", "tc": "凱恰皮", "sc": "凯恰皮", "jp": "ケチャピ", "pt": "Ketchapi", "vi": "Kê-cha-pi", "th": "เคชาปี", "sp": "Ketchapi"}, "base": {"kr": "체력이 <b>50%<\/b> 이하가 되면 토마토 결핍 상태가 되고 방어막 <b>2개<\/b> 생성", "en": "When HP falls below <b>50%<\/b>, enter Tomato Shortage state and gain <b>2<\/b> shields", "tc": "生命值低於 <b>50%<\/b> 時進入番茄匱乏狀態並獲得 <b>2個<\/b>護盾", "sc": "生命值低于 <b>50%<\/b> 时进入番茄不足状态，并获得 <b>2个<\/b>护盾", "jp": "HPが <b>50%<\/b> 以下になるとトマト不足状態となり、シールド<b>2個<\/b>獲得", "pt": "Quando o HP fica abaixo de <b>50%<\/b>, entra no estado Falta de Tomate e ganha <b>2<\/b> escudos", "vi": "Khi HP dưới <b>50%<\/b> sẽ vào trạng thái Thiếu Cà Chua và nhận <b>2<\/b> lá chắn", "th": "เมื่อ HP ต่ำกว่า <b>50%<\/b> จะเข้าสู่สถานะขาดแคลนมะเขือเทศและได้รับโล่ <b>2<\/b>", "sp": "Cuando el HP cae por debajo de <b>50%<\/b>, entra en estado Falta de Tomate y obtiene <b>2<\/b> escudos"}, "crowns": {"B": {"tiers": {"Low": {"kr": "토마토 결핍 상태에서 받는 피해 <b>-2%<\/b>", "en": "Damage taken in Tomato Shortage <b>-2%<\/b>", "tc": "番茄匱乏狀態下所受傷害 <b>-2%<\/b>", "sc": "番茄不足状态下受到的伤害 <b>-2%<\/b>", "jp": "トマト不足状態で受けるダメージ <b>-2%<\/b>", "pt": "Dano recebido no estado Falta de Tomate <b>-2%<\/b>", "vi": "Sát thương nhận vào trong trạng thái Thiếu Cà Chua <b>-2%<\/b>", "th": "ความเสียหายที่ได้รับในสถานะขาดแคลนมะเขือเทศ <b>-2%<\/b>", "sp": "Daño recibido en estado Falta de Tomate <b>-2%<\/b>"}, "Medium": {"kr": "토마토 결핍 상태에서 받는 피해 <b>-3%<\/b>", "en": "Damage taken in Tomato Shortage <b>-3%<\/b>", "tc": "番茄匱乏狀態下所受傷害 <b>-3%<\/b>", "sc": "番茄不足状态下受到的伤害 <b>-3%<\/b>", "jp": "トマト不足状態で受けるダメージ <b>-3%<\/b>", "pt": "Dano recebido no estado Falta de Tomate <b>-3%<\/b>", "vi": "Sát thương nhận vào trong trạng thái Thiếu Cà Chua <b>-3%<\/b>", "th": "ความเสียหายที่ได้รับในสถานะขาดแคลนมะเขือเทศ <b>-3%<\/b>", "sp": "Daño recibido en estado Falta de Tomate <b>-3%<\/b>"}, "High": {"kr": "토마토 결핍 상태에서 받는 피해 <b>-5%<\/b>", "en": "Damage taken in Tomato Shortage <b>-5%<\/b>", "tc": "番茄匱乏狀態下所受傷害 <b>-5%<\/b>", "sc": "番茄不足状态下受到的伤害 <b>-5%<\/b>", "jp": "トマト不足状態で受けるダメージ <b>-5%<\/b>", "pt": "Dano recebido no estado Falta de Tomate <b>-5%<\/b>", "vi": "Sát thương nhận vào trong trạng thái Thiếu Cà Chua <b>-5%<\/b>", "th": "ความเสียหายที่ได้รับในสถานะขาดแคลนมะเขือเทศ <b>-5%<\/b>", "sp": "Daño recibido en estado Falta de Tomate <b>-5%<\/b>"}}}, "A": {"tiers": {"Low": {"kr": "토마토 결핍 상태에서 빨간 우산 공격 속도 <b>-88%<\/b>,<br>빨간 우산 대미지 <b>+300%<\/b>", "en": "Red Umbrella attack speed <b>-88%<\/b> and damage <b>+300%<\/b> in Tomato Shortage", "tc": "番茄匱乏狀態下，紅雨傘攻擊速度 <b>-88%<\/b>、<br>紅雨傘傷害 <b>+300%<\/b>", "sc": "番茄不足状态下，红雨伞攻击速度 <b>-88%<\/b>、<br>红雨伞伤害 <b>+300%<\/b>", "jp": "トマト不足状態で赤い傘の攻撃速度 <b>-88%<\/b>、<br>赤い傘のダメージ <b>+300%<\/b>", "pt": "No estado Falta de Tomate, velocidade de ataque do Guarda-chuva Vermelho <b>-88%<\/b> e dano <b>+300%<\/b>", "vi": "Trong trạng thái Thiếu Cà Chua, tốc độ tấn công của Ô Dù Đỏ <b>-88%<\/b>,<br>sát thương của Ô Dù Đỏ <b>+300%<\/b>", "th": "ในสถานะขาดแคลนมะเขือเทศ ความเร็วโจมตีของร่มแดง <b>-88%<\/b><br>ความเสียหายของร่มแดง <b>+300%<\/b>", "sp": "En estado Falta de Tomate, velocidad de ataque del Paraguas Rojo <b>-88%<\/b> y daño <b>+300%<\/b>"}, "Medium": {"kr": "토마토 결핍 상태에서 빨간 우산 공격 속도 <b>-88%<\/b>,<br>빨간 우산 대미지 <b>+400%<\/b>", "en": "Red Umbrella attack speed <b>-88%<\/b> and damage <b>+400%<\/b> in Tomato Shortage", "tc": "番茄匱乏狀態下，紅雨傘攻擊速度 <b>-88%<\/b>、<br>紅雨傘傷害 <b>+400%<\/b>", "sc": "番茄不足状态下，红雨伞攻击速度 <b>-88%<\/b>、<br>红雨伞伤害 <b>+400%<\/b>", "jp": "トマト不足状態で赤い傘の攻撃速度 <b>-88%<\/b>、<br>赤い傘のダメージ <b>+400%<\/b>", "pt": "No estado Falta de Tomate, velocidade de ataque do Guarda-chuva Vermelho <b>-88%<\/b> e dano <b>+400%<\/b>", "vi": "Trong trạng thái Thiếu Cà Chua, tốc độ tấn công của Ô Dù Đỏ <b>-88%<\/b>,<br>sát thương của Ô Dù Đỏ <b>+400%<\/b>", "th": "ในสถานะขาดแคลนมะเขือเทศ ความเร็วโจมตีของร่มแดง <b>-88%<\/b><br>ความเสียหายของร่มแดง <b>+400%<\/b>", "sp": "En estado Falta de Tomate, velocidad de ataque del Paraguas Rojo <b>-88%<\/b> y daño <b>+400%<\/b>"}, "High": {"kr": "토마토 결핍 상태에서 빨간 우산 공격 속도 <b>-88%<\/b>,<br>빨간 우산 대미지 <b>+600%<\/b>", "en": "Red Umbrella attack speed <b>-88%<\/b> and damage <b>+600%<\/b> in Tomato Shortage", "tc": "番茄匱乏狀態下，紅雨傘攻擊速度 <b>-88%<\/b>、<br>紅雨傘傷害 <b>+600%<\/b>", "sc": "番茄不足状态下，红雨伞攻击速度 <b>-88%<\/b>、<br>红雨伞伤害 <b>+600%<\/b>", "jp": "トマト不足状態で赤い傘の攻撃速度 <b>-88%<\/b>、<br>赤い傘のダメージ <b>+600%<\/b>", "pt": "No estado Falta de Tomate, velocidade de ataque do Guarda-chuva Vermelho <b>-88%<\/b> e dano <b>+600%<\/b>", "vi": "Trong trạng thái Thiếu Cà Chua, tốc độ tấn công của Ô Dù Đỏ <b>-88%<\/b>,<br>sát thương của Ô Dù Đỏ <b>+600%<\/b>", "th": "ในสถานะขาดแคลนมะเขือเทศ ความเร็วโจมตีของร่มแดง <b>-88%<\/b><br>ความเสียหายของร่มแดง <b>+600%<\/b>", "sp": "En estado Falta de Tomate, velocidad de ataque del Paraguas Rojo <b>-88%<\/b> y daño <b>+600%<\/b>"}}}}}].sort((a, b) => LINEUP.indexOf(a.id) - LINEUP.indexOf(b.id));
+const I18N = {"kr": {"lang": "언어", "event": "블랙홀 프라이데이", "title": "신규 리뉴얼 변장 8종", "sub": "블랙홀 프라이데이와 함께 찾아온 신규 리뉴얼 변장 8종과 변장 효과를 소개합니다.", "guideTitle": "변장 효과, 이렇게 적용돼요", "g1d": "변장을 장착하면 그 변장만의 기본 효과가 적용됩니다.", "g2t": "주황별 · 보라별 왕관 효과", "g2d": "변장 등급이 오르면 열리는 효과 슬롯에서 얻을 수 있는 가장 강력한 효과입니다. 변장마다 고유한 왕관 효과를 가지고 있습니다.", "g3t": "티어", "g3d": "왕관 효과는 티어 3 → 티어 2 → 티어 1 순서로 강해집니다.", "listTitle": "신규 리뉴얼 변장 효과 한눈에 보기", "listHint": "플레이 영상을 탭하면 멈추거나 다시 재생할 수 있습니다.", "play": "플레이 영상", "playSoon": "플레이 영상 준비 중", "paused": "일시정지", "orange": "주황별 왕관 효과", "purple": "보라별 왕관 효과", "outroTitle": "블랙홀 프라이데이, 지금 만나보세요!", "outroSub": "<외계인은 배고파>에서 신규 리뉴얼 변장을 직접 확인해 보세요.", "noticeTitle": "안내사항", "n1": "본 페이지에 소개된 효과와 수치는 게임 업데이트에 따라 변경될 수 있습니다.", "n2": "수록된 영상은 개발 중인 화면으로, 실제 게임 화면과 다를 수 있습니다.", "n3": "자세한 내용은 게임 내 공지사항을 확인해 주세요.", "g1t": "기본 효과", "base": "기본 효과", "tierLow": "티어 3", "tierMedium": "티어 2", "tierHigh": "티어 1"}, "en": {"lang": "Language", "event": "Black Hole Friday", "title": "8 Renewed Disguises", "sub": "Meet the 8 renewed disguises arriving with Black Hole Friday, and the effects each one brings.", "guideTitle": "How Disguise Effects Work", "g1d": "Equip a disguise to apply its own Base Effect.", "g2t": "Orange Star · Purple Star Crown Effects", "g2d": "The most powerful effects, found in the effect slots that open as a disguise's grade rises. Every disguise has its own crown effects.", "g3t": "Tiers", "g3d": "Crown effects grow stronger from Tier 3 to Tier 2 to Tier 1.", "listTitle": "All 8 Disguises at a Glance", "listHint": "Tap a gameplay clip to pause or resume it.", "play": "Gameplay", "playSoon": "Gameplay clip coming soon", "paused": "Paused", "orange": "Orange Star Crown Effect", "purple": "Purple Star Crown Effect", "outroTitle": "Black Hole Friday is here!", "outroSub": "Try the renewed disguises yourself in Hungry Aliens.", "noticeTitle": "Notes", "n1": "Effects and values on this page may change with game updates.", "n2": "Clips show in-development footage and may differ from the live game.", "n3": "See the in-game notices for full details.", "g1t": "Base Effect", "base": "Base Effect", "tierLow": "Tier 3", "tierMedium": "Tier 2", "tierHigh": "Tier 1"}, "jp": {"lang": "言語", "event": "ブラックホール・フライデー", "title": "リニューアル変装8種", "sub": "ブラックホール・フライデーとともに登場するリニューアル変装8種と、その変装効果をご紹介します。", "guideTitle": "変装効果の仕組み", "g1d": "変装を装着すると、その変装固有の基本効果が適用されます。", "g2t": "オレンジスター・パープルスター王冠効果", "g2d": "変装のグレードが上がると開放される効果スロットで獲得できる、最強の効果です。変装ごとに固有の王冠効果があります。", "g3t": "ティア", "g3d": "王冠効果はティア3 → ティア2 → ティア1の順に強くなります。", "listTitle": "リニューアル変装8種の効果一覧", "listHint": "プレイ映像をタップすると一時停止・再生できます。", "play": "プレイ映像", "playSoon": "プレイ映像は近日公開", "paused": "一時停止", "orange": "オレンジスター王冠効果", "purple": "パープルスター王冠効果", "outroTitle": "ブラックホール・フライデー開催中！", "outroSub": "ゲーム内でリニューアル変装をぜひお試しください。", "noticeTitle": "ご案内", "n1": "本ページで紹介している効果や数値は、ゲームのアップデートにより変更される場合があります。", "n2": "掲載映像は開発中の画面のため、実際のゲーム画面と異なる場合があります。", "n3": "詳しくはゲーム内のお知らせをご確認ください。", "g1t": "基本効果", "base": "基本効果", "tierLow": "ティア3", "tierMedium": "ティア2", "tierHigh": "ティア1"}, "tc": {"lang": "語言", "event": "Black Hole Friday", "title": "8款煥新變裝", "sub": "隨 Black Hole Friday 登場的 8 款煥新變裝與其變裝效果介紹。", "guideTitle": "變裝效果的套用方式", "g1d": "裝備變裝後，即可套用該變裝專屬的基本效果。", "g2t": "橘星・紫星王冠效果", "g2d": "隨變裝等級提升而開放的效果欄位中可獲得的最強效果。每款變裝都擁有專屬的王冠效果。", "g3t": "階級", "g3d": "王冠效果依第三階級 → 第二階級 → 第一階級的順序逐漸增強。", "listTitle": "煥新變裝效果一覽", "listHint": "點擊遊戲影片即可暫停或重新播放。", "play": "遊戲影片", "playSoon": "遊戲影片即將公開", "paused": "已暫停", "orange": "橘星王冠效果", "purple": "紫星王冠效果", "outroTitle": "Black Hole Friday 現正進行中！", "outroSub": "立即在遊戲中體驗煥新變裝吧。", "noticeTitle": "注意事項", "n1": "本頁面介紹的效果與數值可能因遊戲更新而有所變更。", "n2": "收錄影片為開發中畫面，可能與實際遊戲畫面不同。", "n3": "詳細內容請參閱遊戲內公告。", "g1t": "基本效果", "base": "基本效果", "tierLow": "第三階級", "tierMedium": "第二階級", "tierHigh": "第一階級"}, "sc": {"lang": "语言", "event": "Black Hole Friday", "title": "8款焕新变装", "sub": "随 Black Hole Friday 登场的 8 款焕新变装及其变装效果介绍。", "guideTitle": "变装效果的生效方式", "g1d": "装备变装后，即可获得该变装专属的基础效果。", "g2t": "橙星・紫星王冠效果", "g2d": "随变装等级提升而开放的效果栏位中可获得的最强效果。每款变装都拥有专属的王冠效果。", "g3t": "级别", "g3d": "王冠效果按第三级 → 第二级 → 第一级的顺序逐渐增强。", "listTitle": "焕新变装效果一览", "listHint": "点击游戏视频即可暂停或继续播放。", "play": "游戏视频", "playSoon": "游戏视频即将公开", "paused": "已暂停", "orange": "橙星王冠效果", "purple": "紫星王冠效果", "outroTitle": "Black Hole Friday 火热进行中！", "outroSub": "快去游戏中体验焕新变装吧。", "noticeTitle": "注意事项", "n1": "本页面介绍的效果与数值可能随游戏更新而变更。", "n2": "收录视频为开发中画面，可能与实际游戏画面不同。", "n3": "详细内容请查看游戏内公告。", "g1t": "基础效果", "base": "基础效果", "tierLow": "第三级", "tierMedium": "第二级", "tierHigh": "第一级"}, "sp": {"lang": "Idioma", "event": "Black Hole Friday", "title": "8 Disfraces Renovados", "sub": "Descubre los 8 disfraces renovados que llegan con el Black Hole Friday y los efectos de cada uno.", "guideTitle": "Cómo funcionan los efectos de disfraz", "g1d": "Al equipar un disfraz, se aplica su propio Efecto Básico.", "g2t": "Efectos de Corona Estrella Naranja · Estrella Morada", "g2d": "Los efectos más poderosos, que se obtienen en las ranuras de efecto que se abren al subir el grado del disfraz. Cada disfraz tiene sus propios efectos de corona.", "g3t": "Niveles", "g3d": "Los efectos de corona se vuelven más fuertes del Nivel 3 al Nivel 2 y al Nivel 1.", "listTitle": "Los 8 disfraces de un vistazo", "listHint": "Toca un video de juego para pausarlo o reanudarlo.", "play": "Jugabilidad", "playSoon": "Video de juego próximamente", "paused": "En pausa", "orange": "Efecto de Corona Estrella Naranja", "purple": "Efecto de Corona Estrella Morada", "outroTitle": "¡Llegó el Black Hole Friday!", "outroSub": "Prueba los disfraces renovados en el juego.", "noticeTitle": "Avisos", "n1": "Los efectos y valores de esta página pueden cambiar con las actualizaciones del juego.", "n2": "Los videos muestran imágenes en desarrollo y pueden diferir del juego final.", "n3": "Consulta los avisos del juego para más detalles.", "g1t": "Efecto Básico", "base": "Efecto Básico", "tierLow": "Nivel 3", "tierMedium": "Nivel 2", "tierHigh": "Nivel 1"}, "pt": {"lang": "Idioma", "event": "Black Hole Friday", "title": "8 Disfarces Renovados", "sub": "Conheça os 8 disfarces renovados que chegam com a Black Hole Friday e os efeitos de cada um.", "guideTitle": "Como funcionam os efeitos de disfarce", "g1d": "Ao equipar um disfarce, o Efeito Básico exclusivo dele é aplicado.", "g2t": "Efeitos de Coroa Estrela Laranja · Estrela Roxa", "g2d": "Os efeitos mais poderosos, obtidos nos espaços de efeito que se abrem conforme o grau do disfarce sobe. Cada disfarce tem seus próprios efeitos de coroa.", "g3t": "Tiers", "g3d": "Os efeitos de coroa ficam mais fortes do Tier 3 para o Tier 2 e o Tier 1.", "listTitle": "Os 8 disfarces em resumo", "listHint": "Toque em um vídeo de jogabilidade para pausar ou retomar.", "play": "Jogabilidade", "playSoon": "Vídeo de jogabilidade em breve", "paused": "Pausado", "orange": "Efeito de Coroa Estrela Laranja", "purple": "Efeito de Coroa Estrela Roxa", "outroTitle": "A Black Hole Friday chegou!", "outroSub": "Experimente os disfarces renovados no jogo.", "noticeTitle": "Avisos", "n1": "Os efeitos e valores desta página podem mudar com atualizações do jogo.", "n2": "Os vídeos mostram imagens em desenvolvimento e podem diferir do jogo final.", "n3": "Confira os avisos dentro do jogo para mais detalhes.", "g1t": "Efeito Básico", "base": "Efeito Básico", "tierLow": "Tier 3", "tierMedium": "Tier 2", "tierHigh": "Tier 1"}, "vi": {"lang": "Ngôn ngữ", "event": "Black Hole Friday", "title": "8 Ngụy Trang Mới", "sub": "Giới thiệu 8 ngụy trang mới ra mắt cùng Black Hole Friday và hiệu ứng của từng ngụy trang.", "guideTitle": "Cách hiệu ứng ngụy trang hoạt động", "g1d": "Khi trang bị ngụy trang, Hiệu ứng Cơ bản riêng của ngụy trang đó sẽ được áp dụng.", "g2t": "Hiệu ứng Vương Miện Sao Cam · Sao Tím", "g2d": "Hiệu ứng mạnh nhất, nhận được từ các ô hiệu ứng mở ra khi cấp ngụy trang tăng. Mỗi ngụy trang có hiệu ứng vương miện riêng.", "g3t": "Bậc", "g3d": "Hiệu ứng vương miện mạnh dần từ Bậc 3 → Bậc 2 → Bậc 1.", "listTitle": "Tổng quan 8 ngụy trang mới", "listHint": "Chạm vào video để tạm dừng hoặc phát lại.", "play": "Video chơi game", "playSoon": "Video chơi game sắp ra mắt", "paused": "Đã tạm dừng", "orange": "Hiệu ứng Vương Miện Sao Cam", "purple": "Hiệu ứng Vương Miện Sao Tím", "outroTitle": "Black Hole Friday đã bắt đầu!", "outroSub": "Hãy trải nghiệm các ngụy trang mới ngay trong game.", "noticeTitle": "Lưu ý", "n1": "Hiệu ứng và chỉ số trên trang này có thể thay đổi theo các bản cập nhật của game.", "n2": "Video là hình ảnh đang phát triển và có thể khác với game thực tế.", "n3": "Vui lòng xem thông báo trong game để biết thêm chi tiết.", "g1t": "Hiệu ứng Cơ bản", "base": "Hiệu ứng Cơ bản", "tierLow": "Bậc 3", "tierMedium": "Bậc 2", "tierHigh": "Bậc 1"}, "th": {"lang": "ภาษา", "event": "Black Hole Friday", "title": "ชุดปลอมตัวโฉมใหม่ 8 แบบ", "sub": "แนะนำชุดปลอมตัวโฉมใหม่ 8 แบบที่มาพร้อม Black Hole Friday และเอฟเฟกต์ของแต่ละชุด", "guideTitle": "เอฟเฟกต์การปลอมตัวทำงานอย่างไร", "g1d": "เมื่อสวมชุดปลอมตัว จะได้รับเอฟเฟกต์พื้นฐานเฉพาะของชุดนั้น", "g2t": "เอฟเฟกต์มงกุฎดาวส้ม · ดาวม่วง", "g2d": "เอฟเฟกต์ที่ทรงพลังที่สุด ได้รับจากช่องเอฟเฟกต์ที่เปิดเมื่อเกรดของชุดปลอมตัวสูงขึ้น ชุดปลอมตัวแต่ละแบบมีเอฟเฟกต์มงกุฎเฉพาะตัว", "g3t": "ระดับ", "g3d": "เอฟเฟกต์มงกุฎจะแรงขึ้นตามลำดับ ระดับ 3 → ระดับ 2 → ระดับ 1", "listTitle": "สรุปชุดปลอมตัวโฉมใหม่ทั้ง 8 แบบ", "listHint": "แตะวิดีโอเพื่อหยุดชั่วคราวหรือเล่นต่อ", "play": "วิดีโอการเล่น", "playSoon": "วิดีโอการเล่นเร็วๆ นี้", "paused": "หยุดชั่วคราว", "orange": "เอฟเฟกต์มงกุฎดาวส้ม", "purple": "เอฟเฟกต์มงกุฎดาวม่วง", "outroTitle": "Black Hole Friday มาแล้ว!", "outroSub": "มาลองชุดปลอมตัวโฉมใหม่ในเกมกันเลย", "noticeTitle": "หมายเหตุ", "n1": "เอฟเฟกต์และค่าตัวเลขในหน้านี้อาจเปลี่ยนแปลงตามการอัปเดตเกม", "n2": "วิดีโอเป็นภาพระหว่างการพัฒนา อาจแตกต่างจากเกมจริง", "n3": "ดูรายละเอียดเพิ่มเติมได้ที่ประกาศในเกม", "g1t": "เอฟเฟกต์พื้นฐาน", "base": "เอฟเฟกต์พื้นฐาน", "tierLow": "ระดับ 3", "tierMedium": "ระดับ 2", "tierHigh": "ระดับ 1"}};
+
+/* 단일 HTML 버전에서는 빌드가 이미지·영상을 data URI 로 채워 넣습니다. 폴더 버전은 비어 있어 상대 경로를 그대로 씁니다. */
+const ASSET = {};
+const res = path => ASSET[path] || path;
+
+const slug = id =>id.toLowerCase().replace(/_/g, "-");
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function loadFont(htmlLang) {
+  const fam = FONTS[htmlLang];
+  if (!fam || document.getElementById("font-" + htmlLang)) return;
+  const l = document.createElement("link");
+  l.rel = "stylesheet"; l.id = "font-" + htmlLang;
+  l.href = "https://fonts.googleapis.com/css2?family=" + fam + "&display=swap";
+  document.head.appendChild(l);
+}
+
+function playMarkup(id, t) {
+  const src = PLAY[id];
+  if (!src) {
+    return `<div class="play empty" role="img" aria-label="${esc(t.playSoon)}">
+      <span class="soon"><svg><use href="#i-play"/></svg><strong>${esc(t.playSoon)}</strong><small>COMING SOON</small></span></div>`;
+  }
+  const isVideo = /\.(mp4|webm)$/i.test(src);
+  const media = isVideo
+    ? `<video class="media" data-src="${esc(res(src))}" muted loop playsinline preload="none"></video>`
+    : `<img class="media" src="${esc(res(src))}" alt="" loading="lazy" decoding="async">`;
+  return `<button type="button" class="play" aria-pressed="false" aria-label="${esc(t.play)}">
+    ${media}<canvas hidden></canvas>
+    <span class="badge"><i></i><span class="badge-t">${esc(t.play)}</span></span></button>`;
+}
+
+function star(cls) { return `<svg class="star ${cls}" aria-hidden="true"><use href="#i-star"/></svg>`; }
+
+function crownBlock(crown, cls, title, t, lang) {
+  const order = [["Low", t.tierLow], ["Medium", t.tierMedium], ["High", t.tierHigh]];
+  return `<section class="fx-block fx-crown ${cls}">
+    <h4>${star(cls)}${esc(title)}</h4>
+    <ol class="tiers">${order.map(([k, label]) =>
+      `<li><span class="tier">${esc(label)}</span><p>${crown.tiers[k][lang]}</p></li>`).join("")}</ol>
+  </section>`;
+}
+
+function render(lang) {
+  const meta = LANGS.find(l => l.k === lang) || LANGS[0];
+  const t = I18N[meta.k];
+  document.documentElement.lang = meta.html;
+  loadFont(meta.html);
+  document.title = t.event + " · " + t.title;
+
+  document.querySelectorAll("[data-i]").forEach(el => {
+    const v = t[el.dataset.i];
+    if (v != null) el.textContent = v;
+  });
+  $("#list-hint").hidden = Object.keys(PLAY).length === 0;
+
+  $("#lineup").innerHTML = DATA.map(k =>
+    `<img src="${res(`img/${k.id}.webp`)}" alt="" decoding="async"${k.id === "Laika_Explorer_BF" ? ' class="front"' : ""}>`).join("");
+
+  $("#kitnav").innerHTML = DATA.map(k =>
+    `<li><a href="#${slug(k.id)}"><img src="${res(`img/${k.id}_face.webp`)}" alt="" loading="lazy">${esc(k.name[meta.k])}</a></li>`).join("");
+
+  $("#kits").innerHTML = DATA.map(k => `
+    <article class="kit" id="${slug(k.id)}">
+      <header class="kit-head">
+        <span class="hero-name">${esc(k.heroName[meta.k])}</span>
+        <h3>${esc(k.name[meta.k])}</h3>
+      </header>
+      <div class="kit-body">
+        <figure class="art"><img src="${res(`img/${k.id}.webp`)}" alt="${esc(k.name[meta.k])}" loading="lazy" decoding="async"></figure>
+        ${playMarkup(k.id, t)}
+        <div class="fx">
+          <section class="fx-block fx-base">
+            <h4><span class="base-dot" aria-hidden="true"></span>${esc(t.base)}</h4>
+            <p>${k.base[meta.k]}</p>
+          </section>
+          ${crownBlock(k.crowns.B, "orange", t.orange, t, meta.k)}
+          ${crownBlock(k.crowns.A, "purple", t.purple, t, meta.k)}
+        </div>
+      </div>
+    </article>`).join("");
+
+  wirePlayers(t);
+  lazyVideos();
+  watchNav();
+  syncNavHeight();
+}
+
+// 탭이 두 줄이 되면 높이가 바뀌므로, 탭 클릭 시 카드 제목이 탭 아래에 오도록 높이를 반영
+function syncNavHeight() {
+  document.documentElement.style.setProperty("--nav-h", document.querySelector(".kitnav").offsetHeight + "px");
+}
+addEventListener("resize", syncNavHeight);
+
+function wirePlayers(t) {
+  document.querySelectorAll("button.play").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const media = btn.querySelector(".media");
+      const cv = btn.querySelector("canvas");
+      const label = btn.querySelector(".badge-t");
+      const paused = btn.classList.toggle("paused");
+      btn.setAttribute("aria-pressed", String(paused));
+      label.textContent = paused ? t.paused : t.play;
+      if (media.tagName === "VIDEO") { paused ? media.pause() : media.play().catch(() => {}); return; }
+      if (paused) {
+        // GIF는 일시정지 API가 없어서, 현재 프레임을 캔버스에 찍어 덮습니다.
+        cv.width = media.naturalWidth || 300; cv.height = media.naturalHeight || 490;
+        try { cv.getContext("2d").drawImage(media, 0, 0, cv.width, cv.height); } catch (e) {}
+        cv.hidden = false;
+      } else {
+        cv.hidden = true;
+      }
+    });
+  });
+}
+
+// <video> 는 loading="lazy" 가 없어서, 화면에 가까워질 때 소스를 넣고 재생합니다.
+let videoObserver;
+function lazyVideos() {
+  if (videoObserver) videoObserver.disconnect();
+  videoObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const v = e.target;
+      videoObserver.unobserve(v);
+      const src = v.dataset.src;
+      // 단일 HTML 버전의 data URI 는 Blob URL 로 바꿔 넣어야 모든 브라우저에서 안정적으로 재생됩니다.
+      const ready = src.startsWith("data:")
+        ? fetch(src).then(r => r.blob()).then(b => URL.createObjectURL(b))
+        : Promise.resolve(src);
+      ready.then(url => {
+        v.src = url;
+        if (!v.closest(".play").classList.contains("paused")) v.play().catch(() => {});
+      });
+    });
+  }, { rootMargin: "600px 0px" });
+  document.querySelectorAll("video.media[data-src]").forEach(v => videoObserver.observe(v));
+}
+
+let navObserver;
+function watchNav() {
+  if (navObserver) navObserver.disconnect();
+  const links = new Map([...document.querySelectorAll("#kitnav a")].map(a => [a.getAttribute("href").slice(1), a]));
+  navObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(a => a.removeAttribute("aria-current"));
+      const a = links.get(e.target.id);
+      if (a) { a.setAttribute("aria-current", "true"); a.scrollIntoView({ block: "nearest", inline: "nearest" }); }
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  document.querySelectorAll(".kit").forEach(el => navObserver.observe(el));
+}
+
+function initialLang() {
+  try { const s = localStorage.getItem("bf-lang"); if (s && I18N[s]) return s; } catch (e) {}
+  const nav = (navigator.language || "ko").toLowerCase();
+  if (nav.startsWith("ko")) return "kr";
+  if (nav.startsWith("ja")) return "jp";
+  if (nav.startsWith("zh")) return /hant|tw|hk|mo/.test(nav) ? "tc" : "sc";
+  if (nav.startsWith("es")) return "sp";
+  if (nav.startsWith("pt")) return "pt";
+  if (nav.startsWith("vi")) return "vi";
+  if (nav.startsWith("th")) return "th";
+  return "en";
+}
+
+const sel = $("#lang-select");
+sel.innerHTML = LANGS.map(l => `<option value="${l.k}">${l.name}</option>`).join("");
+const start = initialLang();
+sel.value = start;
+render(start);
+sel.addEventListener("change", () => {
+  try { localStorage.setItem("bf-lang", sel.value); } catch (e) {}
+  render(sel.value);
+});
+if (location.hash) {
+  const el = document.getElementById(location.hash.slice(1));
+  if (el) requestAnimationFrame(() => el.scrollIntoView());
+}
+</script>
