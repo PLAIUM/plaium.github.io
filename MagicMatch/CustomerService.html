@@ -28,15 +28,15 @@
     /* 언어 전환 링크: 본문 컬럼 최상단 오른쪽 */
     .lang-switch {
       text-align: right;
-      font-size: 12px;
-      color: #c5c5c5; /* 구분자(|) 색 */
+      font-size: 15px;
+      color: #bbb; /* 구분자(|) 색 */
       margin: 0 0 14px;
     }
 
     .lang-switch a {
-      color: #666;
+      color: #444;
       text-decoration: none;
-      margin: 0 2px;
+      margin: 0 4px;
       white-space: nowrap;
     }
 
@@ -74,6 +74,30 @@
 
     p a:hover {
       text-decoration: underline;
+    }
+
+    /* 안내 문구와 문의 유형 사이 연락처 묶음 */
+    .contact {
+      margin: 0 0 20px;
+    }
+
+    .contact p {
+      margin: 0 0 10px;
+    }
+
+    /* 공식 디스코드: 아이콘+문구 전체가 하나의 링크 (버튼 대신 은은한 링크) */
+    .community-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .community-link img {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
     }
 
     /* 레이블 기본 스타일 */
@@ -194,7 +218,7 @@
       }
 
       .lang-switch {
-        font-size: 11px;
+        font-size: 14px;
       }
 
       .policy-links .inner {
@@ -221,20 +245,31 @@
       .fallback-note {
         font-size: 11px;
       }
+
+      .community-link {
+        font-size: 13px;
+      }
     }
   </style>
 </head>
 <body>
   <main>
   <nav class="lang-switch" id="lang-switch">
+    <a href="#" data-lang="en">EN</a> |
+    <a href="#" data-lang="ja">JP</a> |
     <a href="#" data-lang="ko">KR</a> |
-    <a href="#" data-lang="en">EN</a>
+    <a href="#" data-lang="zh-Hant">繁體</a> |
+    <a href="#" data-lang="zh-Hans">简体</a>
   </nav>
 
   <h1 id="t-h1">티니핑 매직매치 고객센터</h1>
   <p id="t-intro">문의 유형을 선택하신 후 <strong>[문의 접수]</strong> 버튼을 누르시면 접수 방법을 안내해 드립니다.</p>
-  <p id="t-csmail">고객센터 메일 : <strong>magicmatch-cs@plaium.com</strong></p>
-  <p id="t-community">공식 커뮤니티 : <a href="https://discord.gg/RXyRbQyMgH" target="_blank" rel="noopener">Discord</a></p>
+
+  <!-- 안내 문구와 문의 유형 사이: 메일 주소·공식 커뮤니티 -->
+  <div class="contact">
+    <p id="t-csmail">고객센터 메일 : <strong>magicmatch-cs@plaium.com</strong></p>
+    <p><a id="t-community" class="community-link" href="https://discord.gg/RXyRbQyMgH" target="_blank" rel="noopener"><img src="data:image/webp;base64,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" alt=""><span id="t-community-label">티니핑 매직매치 공식 Discord</span></a></p>
+  </div>
 
   <label for="category" id="t-cat-label">문의 유형:</label>
   <select id="category">
@@ -280,7 +315,7 @@
      * 언어별 문자열 사전.
      * - 메일 제목(subject)의 게임 식별 태그는 유형 분류를 위해 유지:
      *   한국어는 [티니핑 매직매치], 비한국어는 영문 [Teenieping Magic Match]로 고정.
-     * - csMail의 {email}, community의 {link}, fallbackNote의 {copyLink}/{email}은 렌더 시 치환.
+     * - csMail의 {email}, fallbackNote의 {copyLink}/{email}은 렌더 시 치환.
      * - copyTo/copySubject는 구분자까지 포함.
      */
     const I18N = {
@@ -290,7 +325,7 @@
         h1: '티니핑 매직매치 고객센터',
         intro: '문의 유형을 선택하신 후 <strong>[문의 접수]</strong> 버튼을 누르시면 접수 방법을 안내해 드립니다.',
         csMail: '고객센터 메일 : <strong>{email}</strong>',
-        community: '공식 커뮤니티 : {link}',
+        community: '티니핑 매직매치 공식 Discord',
         categoryLabel: '문의 유형:',
         placeholder: '문의 유형을 선택하세요',
         options: {
@@ -395,7 +430,7 @@
         h1: 'Teenieping Magic Match Customer Support',
         intro: 'Select an inquiry type and press the <strong>[Submit Inquiry]</strong> button, and we will guide you through how to submit your inquiry.',
         csMail: 'Customer Support Email: <strong>{email}</strong>',
-        community: 'Official Community: {link}',
+        community: 'Teenieping Magic Match Official Discord',
         categoryLabel: 'Inquiry Type:',
         placeholder: 'Select an inquiry type',
         options: {
@@ -424,12 +459,12 @@
               You can <strong>link your game account with a Google or Apple account</strong>.<br><br>
 
               <strong>[Link Your Account]</strong><br>
-              Go to Lobby > [Settings] (top right) > [Manage My Info] > [Link Account]<br>
+              Go to Lobby > [Settings] (top right) > [Manage Account Information] > [Link Account]<br>
               to link your game account.<br><br>
 
-              <strong>[Sign In with a Linked Account]</strong><br>
-              Go to Lobby > [Settings] (top right) > [Manage My Info] > [Sign in with Another Account]<br>
-              to sign in with the account you previously linked.<br><br>
+              <strong>[Log In with a Linked Account]</strong><br>
+              Go to Lobby > [Settings] (top right) > [Manage Account Information] > [Log In with Another Account]<br>
+              to log in with the account you previously linked.<br><br>
 
               If you have any other account-related questions,<br>
               please submit an inquiry using the button below.
@@ -438,7 +473,7 @@
           refund: {
             label: 'Request a Refund',
             subject: '[Teenieping Magic Match][Refund] Inquiry',
-            body: '1. Purchased item name: \r\n2. Order number (Google transaction ID / Apple order ID): \r\n3. Store (Google Play / iOS App Store): \r\n4. Account identification number: \r\n5. Details: ',
+            body: '1. Purchased item name: \r\n2. Order number (Google transaction ID / Apple order ID): \r\n3. Store (Google Play / iOS App Store): \r\n4. Account ID: \r\n5. Details: ',
             message: `
               Hello, this is the Teenieping Magic Match CS Team.<br><br>
               <strong><u>Payment cancellation is only possible within 7 days of purchase, and only if the purchased items have not been used.</u></strong><br>
@@ -456,8 +491,8 @@
               → Check the receipt email sent by Apple, or go to [Settings] > [Your Name] > [Media & Purchases] > [Purchase History]<br>
               (2) Include the receipt information and click the button below to submit your inquiry<br><br>
 
-              <strong>3. Account Identification Number</strong><br>
-              You can find your account identification number in Lobby > [Settings] (top right) > [Manage My Info].<br>
+              <strong>3. Account ID</strong><br>
+              You can find your Account ID in Lobby > [Settings] (top right) > [Manage Account Information].<br>
               Please include it when submitting your inquiry.<br><br>
 
               * <strong>If you request a refund directly from the store without contacting Customer Support first, your access to the game may be permanently restricted due to payment abuse.</strong><br>
@@ -488,17 +523,326 @@
             `
           }
         }
+      },
+
+      ja: {
+        langAttr: 'ja',
+        title: 'マジックマッチ (Magic Match) カスタマーサポート',
+        h1: 'マジックマッチ (Magic Match) カスタマーサポート',
+        intro: 'お問い合わせの種類を選択し、<strong>[お問い合わせする]</strong>ボタンを押すと、受付方法をご案内いたします。',
+        csMail: 'カスタマーサポートメール：<strong>{email}</strong>',
+        community: 'マジックマッチ (Magic Match) 公式Discord',
+        categoryLabel: 'お問い合わせの種類：',
+        placeholder: 'お問い合わせの種類を選択してください',
+        options: {
+          account: 'アカウント',
+          refund: '決済キャンセル・返金',
+          bug: 'バグ・不具合の報告',
+          suggestion: 'ご意見・ご要望'
+        },
+        submit: 'お問い合わせする',
+        alertSelect: 'お問い合わせの種類を選択してください。',
+        fallbackNote: 'ボタンを押してもメール作成画面が開かない場合や、他のメールサービスをご利用の場合は、<br>{copyLink}のうえ、<strong>{email}</strong> 宛にお送りください。<br>返信は、お送りいただいたメールアドレス宛にお届けします。',
+        copyLinkLabel: 'お問い合わせテンプレートをコピー',
+        copyDone: 'コピーしました ✓',
+        copyFail: 'この環境では自動コピーがご利用いただけません。',
+        copyTo: '宛先：',
+        copySubject: '件名：',
+        footerH2: '利用規約・ポリシー',
+        footerLinks: FOOTER_LINKS_EN,
+        inquiries: {
+          account: {
+            label: 'アカウントについて問い合わせる',
+            subject: '[Teenieping Magic Match][Account] Inquiry',
+            body: '1. お問い合わせ内容：',
+            message: `
+              こんにちは。マジックマッチ (Magic Match) カスタマーサポートチームです。<br><br>
+              マジックマッチ (Magic Match) では、<strong>Google または Apple のアカウントとゲームアカウントを連携</strong>できます。<br><br>
+
+              <strong>[アカウント連携]</strong><br>
+              ロビー > 右上の [設定] > [アカウント情報] > [アカウント連携] から<br>
+              アカウントを連携できます。<br><br>
+
+              <strong>[連携したアカウントでログイン]</strong><br>
+              ロビー > 右上の [設定] > [アカウント情報] > [別のアカウントでログイン] から<br>
+              連携済みのアカウントでログインできます。<br><br>
+
+              その他アカウントに関するお問い合わせは、<br>
+              下のボタンからお問い合わせください。
+            `
+          },
+          refund: {
+            label: '返金を申請する',
+            subject: '[Teenieping Magic Match][Refund] Inquiry',
+            body: '1. 購入した商品名：\r\n2. 注文番号（Google取引ID／Apple注文ID）：\r\n3. ストア（Google Play／iOS App Store）：\r\n4. プレイヤーID：\r\n5. お問い合わせ内容：',
+            message: `
+              こんにちは。マジックマッチ (Magic Match) カスタマーサポートチームです。<br><br>
+              <strong><u>決済キャンセルは、アイテム未使用の状態で購入から7日以内</u></strong>にお問い合わせいただいた場合のみ可能です。<br>
+              購入と同時に即時適用される商品は返金できません。<br><br>
+
+              決済に関するお問い合わせの際は、以下の情報を添えてご連絡ください。<br><br>
+
+              <strong>1. Google Play ストア</strong><br>
+              (1) 決済キャンセルを希望する商品の「Google Play 取引ID」を確認<br>
+              → [Google お支払いセンターにログイン] > [取引履歴] > 商品を選択 > 取引IDを確認（GPA.0000-0000-0000-00000 形式）<br>
+              (2) 下のボタンからお問い合わせ<br><br>
+
+              <strong>2. Apple App Store</strong><br>
+              (1) 決済キャンセルを希望する商品の領収書（注文ID）を確認<br>
+              → Apple から届いた領収書メールを確認、または [設定] > [ユーザ名] > [メディアと購入] > [購入履歴] で確認<br>
+              (2) 領収書の情報を添えて、下のボタンからお問い合わせ<br><br>
+
+              <strong>3. プレイヤーID</strong><br>
+              ロビー > 右上の [設定] > [アカウント情報] でプレイヤーIDをご確認いただけます。<br>
+              お問い合わせの際は、プレイヤーIDも併せてご記入ください。<br><br>
+
+              ※ <strong>カスタマーサポートを通さずにストアで直接返金された場合、決済の不正利用と見なされ、ゲームの利用が永久に制限されることがあります。</strong><br>
+            `
+          },
+          bug: {
+            label: 'バグ・不具合を報告する',
+            subject: '[Teenieping Magic Match][Bug] Inquiry',
+            body: '1. 不具合の内容：\r\n2. 発生前後の状況：\r\n※ 発生した現象のスクリーンショットがあれば、併せて添付してください。',
+            message: `
+              こんにちは。マジックマッチ (Magic Match) カスタマーサポートチームです。<br><br>
+              お送りいただいた情報をもとに、不具合を確認いたします。<br>
+              <strong><u>発生した現象のスクリーンショットや、発生前後の状況</u></strong>をお送りいただくと、<br>
+              原因の特定と修正に大変役立ちます。<br><br>
+
+              貴重なご報告ありがとうございます。迅速に確認し、改善に努めてまいります。
+            `
+          },
+          suggestion: {
+            label: 'ご意見・ご要望を送る',
+            subject: '[Teenieping Magic Match][Suggestion] Inquiry',
+            body: '1. お問い合わせ内容：',
+            message: `
+              こんにちは。マジックマッチ (Magic Match) カスタマーサポートチームです。<br><br>
+
+              ご意見・ご要望は、下のお問い合わせからお送りください。<br>
+              <strong><u>丁寧に確認し、反映できるよう努力</u></strong>いたします。
+            `
+          }
+        }
+      },
+
+      'zh-Hant': {
+        langAttr: 'zh-Hant',
+        title: '奇妙萌可魔法消消樂客服中心',
+        h1: '奇妙萌可魔法消消樂客服中心',
+        intro: '請先選擇問題類型，再點選<strong>[提交諮詢]</strong>按鈕，我們將為您說明提交方式。',
+        csMail: '客服信箱：<strong>{email}</strong>',
+        community: '奇妙萌可魔法消消樂官方 Discord',
+        categoryLabel: '問題類型：',
+        placeholder: '請選擇問題類型',
+        options: {
+          account: '帳號問題',
+          refund: '取消付款與退款',
+          bug: '錯誤回報',
+          suggestion: '意見建議'
+        },
+        submit: '提交諮詢',
+        alertSelect: '請選擇問題類型。',
+        fallbackNote: '若點選按鈕後未開啟郵件撰寫畫面，或您使用其他郵件服務，<br>請{copyLink}後寄至 <strong>{email}</strong>。<br>我們將回覆至您寄件所用的電子郵件地址。',
+        copyLinkLabel: '複製諮詢範本',
+        copyDone: '已複製 ✓',
+        copyFail: '目前環境不支援自動複製。',
+        copyTo: '收件人：',
+        copySubject: '主旨：',
+        footerH2: '條款與政策',
+        footerLinks: FOOTER_LINKS_EN,
+        inquiries: {
+          account: {
+            label: '提交帳號諮詢',
+            subject: '[Teenieping Magic Match][Account] Inquiry',
+            body: '1. 諮詢內容：',
+            message: `
+              您好，這裡是奇妙萌可魔法消消樂客服團隊。<br><br>
+              奇妙萌可魔法消消樂可<strong>將遊戲帳號與 Google 或 Apple 帳號綁定</strong>。<br><br>
+
+              <strong>[帳號綁定]</strong><br>
+              請前往 大廳 > 右上角 [設定] > [管理我的資料] > [帳號綁定]<br>
+              即可綁定帳號。<br><br>
+
+              <strong>[以已綁定的帳號登入]</strong><br>
+              請前往 大廳 > 右上角 [設定] > [管理我的資料] > [用其他帳號登入]<br>
+              即可使用先前綁定的帳號登入。<br><br>
+
+              若有其他帳號相關問題，<br>
+              請點選下方按鈕提交諮詢。
+            `
+          },
+          refund: {
+            label: '申請退款',
+            subject: '[Teenieping Magic Match][Refund] Inquiry',
+            body: '1. 購買商品名稱：\r\n2. 訂單編號（Google 交易 ID／Apple 訂單 ID）：\r\n3. 商店（Google Play／iOS App Store）：\r\n4. 玩家編號：\r\n5. 諮詢內容：',
+            message: `
+              您好，這裡是奇妙萌可魔法消消樂客服團隊。<br><br>
+              <strong><u>取消付款須在未使用商品內容的狀態下，於購買後 7 天內</u></strong>提出申請；<br>
+              購買後立即生效的商品恕無法退款。<br><br>
+
+              提交付款相關諮詢時，請附上以下資訊。<br><br>
+
+              <strong>1. Google Play 商店</strong><br>
+              (1) 確認欲取消付款商品的「Google Play 交易 ID」<br>
+              → [登入 Google 付款中心] > [交易記錄] > 選擇商品 > 確認交易 ID（格式：GPA.0000-0000-0000-00000）<br>
+              (2) 點選下方按鈕提交諮詢<br><br>
+
+              <strong>2. Apple App Store</strong><br>
+              (1) 確認欲取消付款商品的收據（訂單 ID）<br>
+              → 查看 Apple 寄送的收據郵件，或前往 [設定] > [使用者名稱] > [媒體與購買項目] > [購買記錄] 查詢<br>
+              (2) 附上收據資訊後，點選下方按鈕提交諮詢<br><br>
+
+              <strong>3. 玩家編號</strong><br>
+              可於 大廳 > 右上角 [設定] > [管理我的資料] 確認玩家編號。<br>
+              提交諮詢時，請一併填寫玩家編號。<br><br>
+
+              ※ <strong>若未經客服而直接向商店申請退款，可能被視為付款濫用，導致遊戲帳號遭永久停權。</strong><br>
+            `
+          },
+          bug: {
+            label: '回報錯誤',
+            subject: '[Teenieping Magic Match][Bug] Inquiry',
+            body: '1. 錯誤內容：\r\n2. 發生前後的情況：\r\n※ 若有問題畫面的截圖，請一併附上。',
+            message: `
+              您好，這裡是奇妙萌可魔法消消樂客服團隊。<br><br>
+              我們將根據您提供的資訊確認該問題。<br>
+              若能一併提供<strong><u>問題畫面的截圖與發生前後的情況</u></strong>，<br>
+              將有助於我們更快找出原因並修正。<br><br>
+
+              感謝您的寶貴回報，我們會盡快確認並持續改善。
+            `
+          },
+          suggestion: {
+            label: '提交意見建議',
+            subject: '[Teenieping Magic Match][Suggestion] Inquiry',
+            body: '1. 諮詢內容：',
+            message: `
+              您好，這裡是奇妙萌可魔法消消樂客服團隊。<br><br>
+
+              歡迎透過下方的諮詢管道提出您的意見與建議，<br>
+              我們將<strong><u>仔細確認，並努力評估採納</u></strong>。
+            `
+          }
+        }
+      },
+
+      'zh-Hans': {
+        langAttr: 'zh-Hans',
+        title: '奇妙萌可魔法消消乐客服中心',
+        h1: '奇妙萌可魔法消消乐客服中心',
+        intro: '请先选择问题类型，再点击<strong>[提交咨询]</strong>按钮，我们将为您说明提交方式。',
+        csMail: '客服邮箱：<strong>{email}</strong>',
+        community: '奇妙萌可魔法消消乐官方 Discord',
+        categoryLabel: '问题类型：',
+        placeholder: '请选择问题类型',
+        options: {
+          account: '账号问题',
+          refund: '取消支付与退款',
+          bug: '错误反馈',
+          suggestion: '意见建议'
+        },
+        submit: '提交咨询',
+        alertSelect: '请选择问题类型。',
+        fallbackNote: '若点击按钮后未打开邮件撰写页面，或您使用其他邮件服务，<br>请{copyLink}后发送至 <strong>{email}</strong>。<br>我们将回复至您发件所用的电子邮箱。',
+        copyLinkLabel: '复制咨询模板',
+        copyDone: '已复制 ✓',
+        copyFail: '当前环境不支持自动复制。',
+        copyTo: '收件人：',
+        copySubject: '主题：',
+        footerH2: '条款与政策',
+        footerLinks: FOOTER_LINKS_EN,
+        inquiries: {
+          account: {
+            label: '提交账号咨询',
+            subject: '[Teenieping Magic Match][Account] Inquiry',
+            body: '1. 咨询内容：',
+            message: `
+              您好，这里是奇妙萌可魔法消消乐客服团队。<br><br>
+              奇妙萌可魔法消消乐可<strong>将游戏账号与 Google 或 Apple 账号绑定</strong>。<br><br>
+
+              <strong>[账号绑定]</strong><br>
+              请前往 大厅 > 右上角 [设置] > [管理我的信息] > [账号绑定]<br>
+              即可绑定账号。<br><br>
+
+              <strong>[使用已绑定的账号登录]</strong><br>
+              请前往 大厅 > 右上角 [设置] > [管理我的信息] > [登录其他账号]<br>
+              即可使用之前绑定的账号登录。<br><br>
+
+              如有其他账号相关问题，<br>
+              请点击下方按钮提交咨询。
+            `
+          },
+          refund: {
+            label: '申请退款',
+            subject: '[Teenieping Magic Match][Refund] Inquiry',
+            body: '1. 购买商品名称：\r\n2. 订单编号（Google 交易 ID／Apple 订单 ID）：\r\n3. 商店（Google Play／iOS App Store）：\r\n4. 玩家编号：\r\n5. 咨询内容：',
+            message: `
+              您好，这里是奇妙萌可魔法消消乐客服团队。<br><br>
+              <strong><u>取消支付需在未使用商品内容的状态下，于购买后 7 天内</u></strong>提出申请；<br>
+              购买后立即生效的商品无法退款。<br><br>
+
+              提交支付相关咨询时，请附上以下信息。<br><br>
+
+              <strong>1. Google Play 商店</strong><br>
+              (1) 确认想取消支付商品的“Google Play 交易 ID”<br>
+              → [登录 Google 支付中心] > [交易记录] > 选择商品 > 确认交易 ID（格式：GPA.0000-0000-0000-00000）<br>
+              (2) 点击下方按钮提交咨询<br><br>
+
+              <strong>2. Apple App Store</strong><br>
+              (1) 确认想取消支付商品的收据（订单 ID）<br>
+              → 查看 Apple 发送的收据邮件，或前往 [设置] > [用户名] > [媒体与购买项目] > [购买记录] 查询<br>
+              (2) 附上收据信息后，点击下方按钮提交咨询<br><br>
+
+              <strong>3. 玩家编号</strong><br>
+              可在 大厅 > 右上角 [设置] > [管理我的信息] 中查看玩家编号。<br>
+              提交咨询时，请一并填写玩家编号。<br><br>
+
+              ※ <strong>若未经客服直接向商店申请退款，可能被视为支付滥用，导致游戏账号被永久封禁。</strong><br>
+            `
+          },
+          bug: {
+            label: '反馈错误',
+            subject: '[Teenieping Magic Match][Bug] Inquiry',
+            body: '1. 错误内容：\r\n2. 发生前后的情况：\r\n※ 若有问题画面的截图，请一并附上。',
+            message: `
+              您好，这里是奇妙萌可魔法消消乐客服团队。<br><br>
+              我们将根据您提供的信息核实该问题。<br>
+              若能一并提供<strong><u>问题画面的截图及发生前后的情况</u></strong>，<br>
+              将有助于我们更快定位原因并修复。<br><br>
+
+              感谢您的宝贵反馈，我们会尽快确认并持续改进。
+            `
+          },
+          suggestion: {
+            label: '提交意见建议',
+            subject: '[Teenieping Magic Match][Suggestion] Inquiry',
+            body: '1. 咨询内容：',
+            message: `
+              您好，这里是奇妙萌可魔法消消乐客服团队。<br><br>
+
+              欢迎通过下方的咨询渠道提出您的意见和建议，<br>
+              我们将<strong><u>仔细确认，并努力评估采纳</u></strong>。
+            `
+          }
+        }
       }
     };
 
     let curLang = 'ko';
 
-    /* 브라우저/URL 언어 코드를 지원 언어 2종(ko/en) 중 하나로 정규화 (미지원이면 null) */
+    /* 브라우저/URL 언어 코드를 지원 언어 5종 중 하나로 정규화 (미지원이면 null) */
     function normalizeLang(code) {
       if (!code) return null;
       const c = String(code).toLowerCase().replace(/_/g, '-');
       if (c.startsWith('ko')) return 'ko';
+      if (c.startsWith('ja')) return 'ja';
       if (c.startsWith('en')) return 'en';
+      if (c.startsWith('zh')) {
+        /* 번체권: script 서브태그(Hant) 또는 대만/홍콩/마카오. 그 외 zh는 간체 */
+        if (c.includes('hant') || c.includes('-tw') || c.includes('-hk') || c.includes('-mo')) return 'zh-Hant';
+        return 'zh-Hans';
+      }
       return null;
     }
 
@@ -535,8 +879,7 @@
       document.getElementById('t-h1').textContent = t.h1;
       document.getElementById('t-intro').innerHTML = t.intro;
       document.getElementById('t-csmail').innerHTML = t.csMail.replace('{email}', CS_EMAIL);
-      document.getElementById('t-community').innerHTML = t.community.replace('{link}',
-        `<a href="${DISCORD_URL}" target="_blank" rel="noopener">Discord</a>`);
+      document.getElementById('t-community-label').textContent = t.community;
       document.getElementById('t-cat-label').textContent = t.categoryLabel;
       document.getElementById('t-submit').textContent = t.submit;
 
@@ -644,6 +987,8 @@
 
       renderInquiry(category);
     }
+
+    document.getElementById('t-community').href = DISCORD_URL;
 
     /* 수동 언어 전환: 클릭한 언어를 저장해 재방문 시 유지 */
     document.querySelectorAll('.lang-switch a').forEach(a => {
